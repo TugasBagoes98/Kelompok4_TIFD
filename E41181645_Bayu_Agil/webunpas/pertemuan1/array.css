@@ -1,0 +1,17 @@
+.kotak {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    text-align: center;
+    line-height: 100px;
+    margin: 5px;
+    float: left;
+}
+.kotak:hover{
+    transform: rotate(360deg);
+    transition:1s;
+    border-radius: 50%;
+}
+.clear{
+    clear: both;
+}
