@@ -2,7 +2,7 @@
     $Smartphone = 
         [
             [
-                "gambar" => "Koala.jpg",
+                "gambar" => "A10.jpg",
                 "merk" => "Samsung A10",
                 "ram/rom" => "2GB/32GB",
                 "android" => "Pie",
@@ -10,7 +10,7 @@
             ],
 
             [
-                "gambar" => "Koala.jpg",
+                "gambar" => "Note5.jpg",
                 "merk" => "Xiaomi redmi note 5",
                 "ram/rom" => "3GB/32GB",
                 "android" => "Pie",
