@@ -50,7 +50,7 @@ article h2{
 p{
     text-align: justify;
     text-indent: 0.5in;
-    margin: 10px;
+    margin: 20px;
 }
 div{
     background-color: #1768AC;
@@ -62,13 +62,13 @@ div{
 }
 #kiri{
     background-color: #1768AC;
-    text-indent: 10px;
+    text-indent: 20px;
     width: 70%;
     float: left;
 }
 #kanan{
     background-color: #1768AC;
-    text-indent: 10px;
+    text-indent: 20px;
     width: 30%;
     float: right;
 }
