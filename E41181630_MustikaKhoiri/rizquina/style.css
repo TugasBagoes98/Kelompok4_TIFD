@@ -62,15 +62,15 @@ div{
 }
 #kiri{
     background-color: #1768AC;
-    text-indent: 300px;
+    text-indent: 20px;
     width: 50%;
     float: left;
 }
 #kanan{
     background-color: #1768AC;
-    text-indent: 100px;
+    text-indent: 20px;
     width: 50%;
-    float: right;
+    float: left;
 }
 h4{
     text-align: center;
