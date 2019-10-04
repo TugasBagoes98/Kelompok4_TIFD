@@ -46,6 +46,9 @@ article{
 article h2{
     text-align: center;
 }
+article p{
+    overflow: auto;
+}
 p{
     text-align: justify;
     text-indent: 0.5in;
