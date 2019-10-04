@@ -41,13 +41,11 @@ nav ul li a:visited{
     color: white;
 }
 article{
-    height: 374px;
+    height: auto;
+    overflow: auto;
 }
 article h2{
     text-align: center;
-}
-article p{
-    overflow: auto;
 }
 p{
     text-align: justify;
