@@ -1,0 +1,40 @@
+
+h1 p
+{
+    color: white;
+}
+
+p span i
+{
+    color: red;
+}
+
+p h1
+{
+    color: red;
+}
+
+header
+{
+    background-color: #ebebeb;
+}
+
+nav
+{
+    background-color: #bfbfbf;
+}
+
+section
+{
+    background-color: #123bff;
+}
+
+article
+{
+    background-color: #456fff;
+}
+
+footer
+{
+    background-color: #bff777;
+}
