@@ -1,0 +1,181 @@
+*{
+    margin      : 0;
+    padding     : 0;
+    box-sizing  : border-box;
+}
+
+body{
+    background-color    : #f2f2f2;
+    color               : #030303;
+    font-family         : 'Raleway', Arial, Helvetica, sans-serif;
+    font-size           : 16px;
+}
+
+/* Style Header */
+header{
+    background  : linear-gradient(269.85deg, rgba(231, 12, 12, 0.5) 11.04%, rgba(30, 85, 175, 0.25) 50.05%, rgba(23, 104, 172, 0.15) 86.69%);
+    padding     : 0 0 5rem;
+}
+
+header nav{
+    background-color: #1768AC;
+    padding         : 2rem 1rem;
+}
+
+header nav ul{
+    list-style  : none;
+    color       : #f2f2f2;
+    display     : flex;
+
+}
+
+header nav ul li:first-child{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+header nav ul li{
+    font-size: 1.5rem;
+    margin: auto;
+}
+
+header  nav ul li img{
+    width   : 2rem;
+    height  : 2rem;
+}
+
+header .content{
+    display : flex;
+    padding : 1.5rem 0;
+    margin  : 5rem 0;
+} 
+
+header .content div{
+    flex        : 1 1 0;
+    text-align  : center;
+}
+
+header .content div article img{
+    width   : 5.15rem;
+    height  : 5.15rem;
+}
+
+header .content div>img{
+    width   : 364px;
+    height  : 296px;
+}
+
+header .content div:first-child article:first-child{
+    display : flex;
+    width   : 50%;
+    margin  : 0 auto;
+    padding: 0 0 1rem;
+    border-bottom: 3px solid black;
+}
+
+header .content div:first-child article:first-child h3{
+    align-self: center;
+    margin: auto;
+}
+
+header .content div:first-child article:nth-child(2){
+    padding: 1rem 0 0;
+    width  : 50%;
+    margin :auto;
+    text-align: justify;
+    font-weight: 500;
+}
+
+header .content div:first-child article:nth-child(2) p{
+    margin: .5rem 0
+}
+
+/* section logo */
+#sectionlogo{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minimax(50px,auto));
+    gap: 2rem;
+}
+
+#sectionlogo img{
+    width: auto;
+    height: 35px;
+}
+
+#sectionlogo #logo2{
+    width: 70px;
+    height: 70px;
+}
+
+#sectionlogo figure{
+    text-align: center;
+    margin: 2rem 0 0;
+}
+
+#sectionlogo figure img{
+    margin: 2rem 0 0;
+}
+
+/* our product */
+#product>h1{
+    font-size: 3rem;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 2px solid black;
+    width: 80%;
+    margin: 0 auto 3rem;
+}
+
+#product .ourproduct{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2, minmax(200px, auto));
+    gap: 1rem;
+}
+
+#product .ourproduct img{
+    width: 266px;
+    height: 216px;
+}
+
+#product .ourproduct article{
+    padding: 2rem 0;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#product .ourproduct article figure{
+    padding: 2rem 0;
+    text-align: center;
+}
+
+#product .ourproduct article figure figcaption{
+    padding: 2rem 0;
+}
+
+#product .ourproduct article>a{
+    width: 3px;
+    height: 4px; 
+    border: 2px solid black;
+}
+
+.information{
+    color: #f2f2f2;
+    background:#1768AC;
+    padding: 3rem 0 3rem 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, minimax(50px,auto));
+}
+
+.information #logo{
+    padding: 2rem 0 0 2rem;
+}
+
+footer{
+    text-align: center;
+    color: #f2f2f2;
+    background-color: darkblue;
+}
