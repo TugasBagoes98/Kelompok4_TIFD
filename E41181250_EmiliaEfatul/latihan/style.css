@@ -1,0 +1,66 @@
+@import url(htpp://fonts.googleapis.com/cssfamily=Open+Sans:400,800,700,600,300);
+
+body{
+    background-color: #eee;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif';
+}
+
+hr{
+    border: 0;
+    background-color: #dedede;
+    height: 1px;
+}
+
+.wrap{
+    width: 980px;
+    margin: 25px auto;
+
+}
+
+nav.menu ul{
+    overflow: hidden;
+    color: #fff;
+    list-style: none;
+    float: left;
+    padding: 0;
+    width: 680px;
+    margin: 0 0 0;
+    background: blue;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,0.55);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.55);
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204, 0.55);
+}
+
+nav.menu ul li{
+    margin: 0;
+    float: left;
+}
+
+nav.menu ul a{
+    padding: 25px;
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.55 ease;
+}
+
+.sidebar .widget h2 {
+    padding: 0;
+    margin: 0 0 15px;
+    color: #3498db;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.sidebar .widget p {
+    font-size: 14px;
+
+}
+
+.sidebar .widget p:last-child{
+    margin: 0;
+}

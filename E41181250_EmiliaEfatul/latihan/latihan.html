@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Latihan1</title>
+        <link rel="stylesheet" href="style.css">
+    <style>
+    *{
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h2{
+    margin: 30px;
+    text-decoration-line: underline;
+
+    }
+
+    body{
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: black;
+    }
+
+    nav ul
+    {
+        list-style: none;
+        display: flex;
+        background-color: rgb(20, 52, 192);
+    }
+
+    nav ul li{
+
+        padding: 25px 20px;
+    }
+
+    nav ul li:first-child
+    {
+        margin-right: auto;
+    }
+
+    nav ul li :nth-child(6)
+    {
+        margin-right: auto;
+    }
+
+    nav ul li .dropdown-product
+    {
+        display: none;
+        position: absolute;
+        margin: 22px 0;
+    }
+
+    nav ul li: :nth-child(3):hover .dropdown-product
+    {
+        display: block;
+    }
+
+    form{
+        padding: 20px;
+        margin: 0px;
+
+    }
+    </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li>Logo</li>
+                <li>Home</li>
+                <li>Product</li>
+                <ul class="dropdown-product">
+                    <li> Laptop</li>
+                    <li> HP</li>
+                    <li>Duit</li>
+                </ul>
+                <li> Panduan</li>
+                <li> About</li>
+                <li>Login</li>
+                <li>Sign Up</li>
+            </ul>
+        </nav>
+
+        <div>
+            <h2>Profil</h2>
+            <img src="c44948.png" alt="gambar" width="115";>
+        </div>
+        <section>
+            <form action="latihan.html" method="GET">
+
+                    Nama    : <input type="text" name="nama" value="Tulis Nama Anda" />
+                    <br />
+                    Alamat  : <input type="alamat" value="Masukkan Alamat Anda" />
+                    <br/>
+            </form>
+        </section>
+    </body>
+</html>
