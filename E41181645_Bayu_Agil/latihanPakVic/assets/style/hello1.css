@@ -46,7 +46,7 @@ header{
 header::after{
     content: "";
     clear: both;
-    /* display: block; */
+    display: block;
 }
 
 header a{

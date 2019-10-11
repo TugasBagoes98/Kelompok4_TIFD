@@ -104,8 +104,9 @@ nav li a{
 }
 
 #content section{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    padding: 1rem 0;
 }
 
 section ul{
