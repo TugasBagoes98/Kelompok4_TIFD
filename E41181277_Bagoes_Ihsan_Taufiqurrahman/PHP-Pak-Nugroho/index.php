@@ -62,6 +62,7 @@
         <input type="submit" name="tambah" value="Tambahkan">
     </form>
 
+    <h1> Dinamis Stok </h1>
     <h1> Data Penjualan Kecap ABC </h1>
     <table>
         <tr>
