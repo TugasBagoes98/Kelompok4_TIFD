@@ -38,9 +38,26 @@
     <!--    maka rumus Y = a + b(x) dapat disederhakan atau dimodel ulang menjadi y = y + b(x) --> 
 
     <form action="jumlah.php" method="post">
+        <label for=""> Pilih Bulan </label>
+        <br>
+        <select name="bulan" id="">
+            <option value="Januari"> Januari </option>
+            <option value="Februari"> Februari </option>
+            <option value="Maret"> Maret </option>
+            <option value="April"> April </option>
+            <option value="Mei"> Mei </option>
+            <option value="Juni"> Juni </option>
+            <option value="Juli"> Juli </option>
+            <option value="Agustus"> Agustus </option>
+            <option value="September"> September </option>
+            <option value="Oktober"> Oktober </option>
+            <option value="November"> November </option>
+            <option value="Desember"> Desember </option>
+        </select>
+        <br>
         <label for=""> Input Penambahan Stok untuk bulan berikutnya : </label>
         <br>
-        <input type="text" name="jmlh_stok" placeholder="Enter your number here">
+        <input type="number" name="jmlh_stok" placeholder="Enter your number here">
         <br>
         <input type="submit" name="tambah" value="Tambahkan">
     </form>
@@ -50,22 +67,6 @@
         <tr>
             <td> Bulan </td>
             <td> Stok </td>
-        </tr>
-        <tr>
-            <td> Juli </td>
-            <td> 100 </td>
-        </tr>
-        <tr>
-            <td> Agustus </td>
-            <td> 110 </td>
-        </tr>
-        <tr>
-            <td> September </td>
-            <td> 120 </td>
-        </tr>
-        <tr>
-            <td> Oktober </td>
-            <td> 130 </td>
         </tr>
     </table>
 
