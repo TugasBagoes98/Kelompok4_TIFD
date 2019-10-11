@@ -1,3 +1,6 @@
+<?php
+    include_once("connector.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,11 +67,56 @@
 
     <h1> Dinamis Stok </h1>
     <h1> Data Penjualan Kecap ABC </h1>
+
     <table>
         <tr>
             <td> Bulan </td>
             <td> Stok </td>
         </tr>
+        <?php
+        $sql = "select * from tbl_kecap_abc";
+        $stmt = mysqli_stmt_init($conn);
+
+        //Menjalankan statement
+        if(!mysqli_stmt_prepare($stmt, $sql))
+        {
+            //Apabila statement gagal dijalankan
+            echo "<p> Ada yang salah nih </p>";
+        }else
+        {
+            //Apabila statement berhasil dijalankan
+            //Mengeksekusi statement
+            if(!mysqli_stmt_execute($stmt))
+            {
+                //Apabila gagal mengeksekusi statement
+                echo "<p> Ada yang salah nih </p>";
+            }else
+            {
+                //Apabila berhasil mengeksekusi statement
+                //Mengambil hasil dari query
+                $result = mysqli_stmt_get_result($stmt);
+                //Mengecek hasil dari query
+                $check_result = mysqli_num_rows($result);
+                if($check_result < 1)
+                {
+                    //Apabila hasil dari query kosong
+                    echo "<p> Wuado, kosong gan </p>";
+                }else
+                {
+                    //Apabila hasil dari query tidak kosong
+                    //Mengambil seluruh data dari query
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "<tr>";
+                            echo "<td>".$row['bulan']."</td>";
+                            echo "<td>".$row['stok']."</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+        }
+
+    ?>
     </table>
 
 </body>
