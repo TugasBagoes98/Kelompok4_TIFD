@@ -12,6 +12,11 @@ body{
 }
 
 /* Style Header */
+header nav ul #l1:hover{
+    background-color: azure;
+    color: #1768AC;
+}
+
 header{
     background  : linear-gradient(269.85deg, rgba(231, 12, 12, 0.5) 11.04%, rgba(30, 85, 175, 0.25) 50.05%, rgba(23, 104, 172, 0.15) 86.69%);
     padding     : 0 0 5rem;
@@ -67,10 +72,10 @@ header .content div>img{
 
 header .content div:first-child article:first-child{
     display : flex;
-    width   : 50%;
+    width   : 30%;
     margin  : 0 auto;
     padding: 0 0 1rem;
-    border-bottom: 3px solid black;
+    /* border-bottom: 3px solid black; */
 }
 
 header .content div:first-child article:first-child h3{
@@ -134,6 +139,10 @@ header .content div:first-child article:nth-child(2) p{
     gap: 1rem;
 }
 
+#product .ourproduct article:hover{
+    box-shadow: 0px 1px 3px 0px rgb(36,34,34);
+}
+
 #product .ourproduct img{
     width: 266px;
     height: 216px;
@@ -167,7 +176,7 @@ header .content div:first-child article:nth-child(2) p{
     margin: 2rem 0 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, minimax(50px,auto));
+    grid-template-rows: repeat(1, minmax(150px,auto));
 }
 
 .information #logo{
@@ -178,4 +187,5 @@ footer{
     text-align: center;
     color: #f2f2f2;
     background-color: darkblue;
+    padding: 15px 0 15px 0;
 }

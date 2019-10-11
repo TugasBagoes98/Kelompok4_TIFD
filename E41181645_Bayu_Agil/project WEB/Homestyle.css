@@ -1,0 +1,81 @@
+*{
+    margin      : 0;
+    padding     : 0;
+    box-sizing  : border-box;
+}
+
+body{
+    background-color    : #f2f2f2;
+    color               : #030303;
+    font-family         : 'Raleway', Arial, Helvetica, sans-serif;
+    font-size           : 18px;
+}
+
+/* Style Header */
+header{
+    background  : linear-gradient(269.85deg, rgba(231, 12, 12, 0.5) 11.04%, rgba(30, 85, 175, 0.25) 50.05%, rgba(23, 104, 172, 0.15) 86.69%);
+    padding     : 0 0 5rem;
+}
+
+header nav{
+    background-color: #1768AC;
+    padding         : 2rem 1rem;
+}
+
+header nav ul{
+    list-style  : none;
+    color       : #f2f2f2;
+    display     : flex;
+}
+
+header  nav ul li img{
+    width   : 2rem;
+    height  : 2rem;
+}
+
+header .content{
+    display : flex;
+    padding : 1.5rem 0;
+    margin  : 5rem 0;
+} 
+
+header .content div{
+    flex        : 1 1 0;
+    text-align  : center;
+}
+
+header .content div article img{
+    width   : 5.15rem;
+    height  : 5.15rem;
+}
+
+header .content div>img{
+    width   : 364px;
+    height  : 296px;
+}
+
+header .content div:first-child article:first-child{
+    display : flex;
+    width   : 50%;
+    margin  : 0 auto;
+}
+
+header .content div:first-child article:nth-child(2){
+    padding: 1rem 0 0;
+    width  : 50%;
+    margin :auto;
+    text-align: justify;
+    font-weight: 500;
+}
+
+header .content div:first-child article:nth-child(2) p{
+    margin: .5rem 0
+}
+
+/* section logo */
+#sectionlogo{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minimax(50px,auto));
+    gap: 2rem;
+}
