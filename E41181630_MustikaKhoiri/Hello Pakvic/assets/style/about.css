@@ -84,6 +84,7 @@ nav li a{
 #content section{
     width: 80%;
     margin: 0 auto;
+    height: auto;
 }
 
 section ul{
@@ -100,16 +101,22 @@ section li h1, p{
 
 /* footer */
 footer{
-    background-color: #e3e3e3;
     text-align: center;
-    clear: both;
-    position:fixed;
-    bottom:0;
+    padding: 40px 0 25px 0;
     width: 100%;
-    padding: 20px;
+    position: fixed;
+    bottom: 0;
 }
 
-footer img{
-    max-width: 2rem;
+.social{
+    padding: 10px 0 0 0;
+}
+
+.social li{
+    display: inline-block;
+}
+
+.social img{
+    max-width: 2.5rem;
     padding: 0 5px 0 0;
 }

@@ -1,11 +1,3 @@
-/* google font
-1. buka google font
-2. pilih font
-3. salin url taruh di atas sendiri di file css
-4. salin sintaks untuk memanggil fontnya */
-
-/* Yang diatas cuman catatan */
-
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
 /* global selector */
 *{
@@ -21,12 +13,7 @@ body{
     background-color: #e3e3e3;
 }
 
-img{
-    max-width: 15rem;
-    height: auto;
-}
-
-/* Header */
+/* header */
 #logo{
     float: left; 
     margin-left: 3rem;
@@ -36,6 +23,10 @@ nav{
     float: right;
     margin-top: 1rem;
     margin-right: 3rem;
+}
+
+#content>section>ul>li{
+    padding: 20px 0 0 0;
 }
 
 header{
@@ -48,7 +39,7 @@ header{
 header:after{
     content: "";
     clear: both;
-    /* display: block; */
+    display: block;
 }
 
 header a{
@@ -81,45 +72,50 @@ nav li a{
 }
 
 /* content */
-#content section{
-    width: 80%;
-    margin: -10px auto;
-    padding: 2rem 0;
+.container{
     text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+.container h1{
+    margin: 20px;
 }
 
-section h1{
-    color: grey;
-    font-size: 2.25rem;
-    margin: 1.75rem 0;
-    word-spacing: 10px;
+.conatiner ul p{
+    margin: 20px;
+    padding: 10px 0px;
 }
 
-section ul{
-    list-style: none;
+.conatiner img{
+    position: relative;
 }
 
-section li{
+.container ul li{
+    padding: 20px;
+    margin: 20px;
     display: inline-block;
-    margin: 1rem 2.75rem;
-}
-
-section li p{
-    margin: 1rem 0 0;
+    overflow: hidden;
 }
 
 /* footer */
 footer{
-    background-color: #e3e3e3;
     text-align: center;
-    clear: both;
+    padding: 40px 0 25px 0;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    padding: 20px;   
 }
 
-footer img{
-    max-width: 2rem;
+.social{
+    padding: 10px 0 15px 0;
+}
+
+.social li{
+    display: inline-block;
+}
+
+.social img{
+    max-width: 2.5rem;
     padding: 0 5px 0 0;
 }
+

@@ -72,54 +72,103 @@ nav li a{
 }
 
 /* content */
+
+/* section{
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+}
+section .tulisan{
+    width: 50%;
+}
+section .gambar{
+    width: 30%;
+    margin-left: 30px;
+}
+
+section ul li{
+    list-style: none;
+}
+
+section ul .tulisan , .gambar {
+    display: inline-block;
+}
+
+section li h1, p{
+    margin: 30px 0 0;
+} */
+
+/* contentku */
+.content{
+    width: 80%;
+    margin: 30px auto;
+}
 .main{
-    width: 60%;
-    padding: 0 30px 0 130px;
+    width: 50%;
+    padding: 30px 0 0 150px;
+    box-sizing: border-box;
     float: left;
 }
 .main h1{
-    padding: 30px;
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: bold;
 }
 .main p{
-    padding: 0 30px;
-    font-size: 18px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 /* sidebar */
-.sidebar h1{
-    padding: 30px;
-    font-size: 28px;
-}
 .sidebar{
-    padding: 0 30px 0 30px;
-    width: 40%;
+    width: 30%;
     float: left;
+    padding: 30px 0 0 150px;
+}
+.sidebar h1{
+    font-size: 26px;
+    font-weight: bold;
 }
 .sidebar img{
-    width: 50px;
-    height: 50px;
     float: left;
-}
-.sidebar ul li{
-    display: inline-block;
-    margin-right: 20px;
-}
-.sidebar p{
-    font-size: 28px;
+    padding-right: 10px;
 }
 
 /* footer */
 footer{
-    background-color: #e3e3e3;
     text-align: center;
-    clear: both;
-    position:fixed;
-    bottom:0;
+    padding: 40px 0 25px 0;
     width: 100%;
-    padding: 20px;
+    position: fixed;
+    bottom: 0;
 }
 
-footer img{
-    max-width: 2rem;
+.social{
+    padding: 10px 0 0 0;
+}
+
+.social li{
+    display: inline-block;
+}
+
+.social img{
+    max-width: 2.5rem;
     padding: 0 5px 0 0;
+}
+
+/* celarfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
 }
