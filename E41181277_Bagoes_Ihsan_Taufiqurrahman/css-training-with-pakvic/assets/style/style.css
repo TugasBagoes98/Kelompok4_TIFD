@@ -41,6 +41,7 @@ header
     background-color: #d93337;
     padding: .75rem;
     overflow: hidden;
+    border-bottom: 5px solid #941214;
 }
 
 header::after
@@ -103,7 +104,7 @@ nav li a
 
 section h1
 {
-    color: #030303;
+    color: #a3a3a3;
     font-size: 2.25rem;
     margin: 1.75rem 0;
     word-spacing: 10px;
@@ -124,6 +125,7 @@ section li
 section li p
 {
     margin: 1rem 0 0;
+    color: #a3a3a3;
 }
 
 /* Bagian Footer */
@@ -136,7 +138,7 @@ footer
 
 footer img
 {
-    max-width: 3rem;
+    max-width: 2.5rem;
     height: auto;
     margin: 1rem .5rem;
 }
@@ -145,4 +147,5 @@ footer p
 {
     font-size: 1rem;
     padding: .5rem 0;
+    color: #a3a3a3;
 }
