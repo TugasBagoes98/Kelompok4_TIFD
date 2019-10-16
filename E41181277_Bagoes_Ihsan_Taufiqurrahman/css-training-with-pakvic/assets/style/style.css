@@ -141,6 +141,13 @@ section li p
     margin: 0 auto;
 }
 
+#wrapper-about section article img
+{
+    max-width: 12rem;
+    height: auto;
+    text-align: center;
+}
+
 #wrapper-about section.about-section
 {
     padding: 5rem 0;
@@ -155,6 +162,7 @@ section li p
     margin-right: 2rem;
     width: 30%;
     border-right: 3px solid #b3b3b3;
+    text-align: center;
 }
 
 #wrapper-about section.about-section article:nth-child(2)
