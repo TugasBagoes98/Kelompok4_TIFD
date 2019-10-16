@@ -79,7 +79,6 @@ nav li a{
 }
 
 /* content */
-
 #content{
     background-color: #e3e3e3;
 }
@@ -107,8 +106,14 @@ section li{
     margin: 1rem 2.75rem;
 }
 
-section li p{
+#content section ul li p{
     margin: 1rem 0 0;
+    font-size: 16px;
+}
+
+#content>section>ul>li>img:hover{
+    transition: 1s;
+    transform: rotate(360deg);
 }
 
 /* footer */

@@ -71,27 +71,43 @@ nav li a{
 }
 
 /* content */
-#content section{
+#content>section>ul>#contact>li>img{
+    margin: 1rem;
+    max-width: 2rem;
+    height: auto;
+}
+
+#contact{
+    float: right;
+    list-style: none;
+    text-align: right;
+    padding: 3rem 10rem 0 3rem;
+    /* border-left: 2px solid grey; */
+}
+
+#contact>li>h1{
+    font-size: 30px;
+}
+
+#hello>li>p{
+    font-size: 20px;
     text-align: justify;
 }
 
-#content>section>ul>#contact>li>h1, img{
-    float: right;
-    margin: 2rem;
-    max-width: 10rem;
-    height: auto;
-    padding: 0 0 0 30px;
+#hello>li>h1{
+    font-size: 30px;
 }
 
-#content>section>ul>li>#fb{
-    border-left: 2px solid grey;
+#hello{
+    list-style: none;
+    padding: 3rem 3rem 0 10rem;
 }
 
-#content>section>ul>li>#h1{
+/* #content>section>ul>#hello>li>h1{
     display: block;
-    float:clear;
+    float: right;
     padding: 0 40rem 0 0;
-}
+} */
 
 
 /* footer */
