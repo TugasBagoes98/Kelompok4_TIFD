@@ -38,7 +38,7 @@ a
 /* Bagian Header */
 header
 {
-    background-color: #050505;
+    background-color: rgba(0,0,0,0.90);
     padding: 1rem;
     overflow: hidden; 
     border-bottom: 5px solid #f2f2f2;
