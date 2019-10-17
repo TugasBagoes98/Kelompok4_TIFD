@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body
@@ -40,11 +41,11 @@ header
 {
     background-color: rgba(0,0,0,0.90);
     padding: 1rem;
-    overflow: hidden; 
-    border-bottom: 5px solid #f2f2f2;
+    overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 
 header #logo
@@ -228,6 +229,87 @@ header li a
     color: #030303;
     background-color: #f2f2f2;
     border: 1px solid #030303;
+}
+
+/* Bagian Contact Section */
+
+#contact-section
+{
+    background-color: #e3e3e3;
+    padding: 1rem 2rem;
+    overflow: hidden;
+}
+
+#contact-section article
+{
+    float: left;
+    height: 15rem;
+}
+
+#contact-section article:first-child
+{
+    width: 25%;
+}
+
+#contact-section article h1
+{
+    color: #aac148;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 4.5;
+}
+
+#contact-section article h1 span
+{
+    color: #73a1fb;
+}
+
+#contact-section article:nth-child(2)
+{
+    width: 40%;
+    padding: 0 2rem;
+    border-left: 3px solid rgba(0, 0, 0, .75);
+}
+
+#contact-section article h2
+{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+#contact-section article:nth-child(2) p
+{
+    margin: 1rem 0;
+}
+
+#contact-section article:nth-child(2) p i
+{
+    font-weight: 700;
+}
+
+#contact-section article:last-child
+{
+    width: 35%;
+    padding: 0 2rem;
+    border-left: 3px solid rgba(0, 0, 0, .75);
+}
+
+#contact-section article:last-child div
+{
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+#contact-section article:last-child div img
+{
+    max-width: 1rem;
+    float: left;
+}
+
+#contact-section article:last-child div p
+{
+    float: left;
+    margin: 0 1rem;
 }
 
 /* Bagian Footer */
