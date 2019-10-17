@@ -316,20 +316,15 @@ header li a
 
 footer
 {
-    background-color: #E7ECEF;
+    background-color: #030303;
     text-align: center;
-}
-
-footer img
-{
-    max-width: 2.25rem;
-    margin: 1rem 1rem .5rem;
+    padding: 1rem 0;
 }
 
 footer p
 {
     font-size: 1.25rem;
-    color: #274C77;
+    color: #f2f2f2;
     font-weight: 500;
 }
 
