@@ -1,0 +1,84 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #030303;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/* Color Palette */
+/*
+
+    Primary : #274C77
+    Secondary : #6096BA
+    Tertiary : #A3CEF1
+    Accent : #E7ECEF
+    Backup : #8B8C89
+
+*/
+
+/* Bagian Header */
+header
+{
+    background-color: #274C77;
+    padding: 1rem;
+    overflow: hidden; 
+    border-bottom: 7px solid #6096ba;
+}
+
+header #logo
+{
+    float: left;
+}
+
+header #logo h1
+{
+    color: #E7ECEF;
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+
+header #logo h2
+{
+    color: #E7ECEF;
+    font-size: 1.75rem;
+    padding: 0;
+    margin: 0;
+}
+
+header nav
+{
+    float: right;
+}
+
+header ul
+{
+    list-style: none;
+}
+
+header li
+{
+    display: inline-block;
+    padding: 1rem 1.5rem;
+}
+
+header li a
+{
+    color: #E7ECEF;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
