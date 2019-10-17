@@ -218,6 +218,16 @@ header li a
     border: 1px solid #ffffff;
     padding: .75rem 1rem;
     border-radius: 5px;
+    font-weight: 500;
+}
+
+/* Animation Button About-Section */
+
+#about-section .right-panel a:hover
+{
+    color: #030303;
+    background-color: #f2f2f2;
+    border: 1px solid #030303;
 }
 
 /* Bagian Footer */
