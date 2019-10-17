@@ -101,7 +101,7 @@ header li a
     text-align: center;
     font-size: 2.5rem;
     color: #030303;
-    margin: 2rem 0 0;
+    margin: 2rem 0 1rem;
 }
 
 #index-section ul
@@ -112,12 +112,12 @@ header li a
 #index-section li
 {
     display: inline-block;
-    margin:  3rem;
+    margin:  2.85rem;
 }
 
 #index-section ul.second-row li
 {
-    margin: 3.45rem;
+    margin: 3.20rem;
 }
 
 #index-section li figure
