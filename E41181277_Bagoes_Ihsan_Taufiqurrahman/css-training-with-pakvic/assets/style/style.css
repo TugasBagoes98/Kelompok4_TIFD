@@ -186,6 +186,52 @@ section li p
     font-size: 1.15rem;
 }
 
+/* Bagian Section Contact + Paragraph */
+
+#wrapper-contact
+{
+    background-color: #e3e3e3;
+    padding: 5rem;
+}
+
+#wrapper-contact .contact-section
+{
+    padding: 5rem;
+    display: flex;
+}
+
+#wrapper-contact .contact-section article h1
+{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#wrapper-contact .contact-section article p
+{
+    color: #b3b3b3;
+    
+}
+
+#wrapper-contact article:first-child
+{
+    flex: 10 1 0;
+}
+
+#wrapper-contact article:nth-child(2)
+{
+    flex: 6 1 0;
+}
+
+#wrapper-contact article ul li
+{
+    display: inline-block;
+}
+
+#wrapper-contact article ul li img
+{
+    max-width: 1.5rem;
+}
+
 /* Bagian Footer */
 
 footer

@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+/* .cf:before,
+.cf:after {
+    content: " "; 
+    display: table; 
+} */
+
+/* .cf:after {
+    clear: both;
+} */
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+/* .cf {
+    *zoom: 1;
+} */
+
+/* global selector */
 *{
     margin: 0;
     padding: 0;
@@ -38,16 +57,12 @@ nav{
 }
 
 header{
-    width: 100%;
     background-color: #d93337;
     padding: .75rem;  
-    position: fixed;
-    z-index: 9999;
     overflow: hidden;
-    border-bottom: 5px solid rgb(110, 5, 5);
 }
 
-header:after{
+header::after{
     content: "";
     clear: both;
     display: block;
@@ -83,12 +98,14 @@ nav li a{
 }
 
 /* content */
+#content{
+    
+    background-color: #e3e3e3;
+}
 
 #content section{
-    padding-top: 100px;
     width: 80%;
     margin: 0 auto;
-    height: auto;
 }
 
 section ul{
@@ -105,22 +122,16 @@ section li h1, p{
 
 /* footer */
 footer{
+    background-color: #e3e3e3;
     text-align: center;
-    padding: 40px 0 20px 0;
+    clear: both;
+    position:fixed;
+    bottom:0;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    padding: 40px;
 }
 
-.social{
-    padding: 10px 0 0 0;
-}
-
-.social li{
-    display: inline-block;
-}
-
-.social img{
-    max-width: 2.5rem;
+footer img{
+    max-width: 3rem;
     padding: 0 5px 0 0;
 }
