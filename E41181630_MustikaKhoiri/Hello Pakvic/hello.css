@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+/* global selector */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    color:grey;
+    background-color: #e3e3e3;
+}
+
+/* header */
+header{
+    width: 100%;
+    background-color: #d93337;
+    border-bottom: 5px solid rgb(110, 5, 5);
+    position: fixed;
+    z-index: 9;
+}
+header a{
+    color: white;
+    text-decoration: none;
+    float: left;
+}
+header #logo{
+    padding: 10px 70px;
+}
+.menu ul{
+    margin-right: 90px;
+    float: right;
+    list-style: none;
+}
+header ul li:hover{
+    transition-duration: 0.2s , 0.2s;
+    transform: scale(1.2);
+}
+.menu ul li{
+    padding: 30px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    transition-duration: 0.2s , 0.2s;
+}
+
+/* section home */
+.home{
+    padding-top: 120px;
+    text-align: center;
+}
+.home h1{
+    margin: 20px;
+}
+.home ul p{
+    margin: 20px;
+    padding: 10px 0px;
+}
+.home ul li{
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+}
+.home img{
+    transition-duration: 0.2s , 0.2s;
+}
+
+.home img:hover{
+    transition-duration: 0.2s , 0.2s;
+    transform: scale(1.2);
+}
+
+/* about */
+.about{
+    padding: 120px;
+    width: 90%;
+    margin: 0 auto;
+}
+.about .main{
+    margin: 30px 0 0 120px;
+    float: left;
+}
+.about .main img{
+    float: left;
+    transition-duration: 2s , 2s;
+}
+.about .main img:hover{
+    transition-duration: 2s , 2s;
+    transform: rotate(360deg)
+}
+.about .sidebar{
+    margin: 30px 30px;
+    width: 60%;
+    float: left;
+    padding: 0 0 0 20px;
+    border-left: 2px solid grey;
+}
+.about .sidebar h1{
+    font-size: 26px;
+    font-weight: bold;
+}
+.about .sidebar p{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* contact */
+.contact{
+    padding: 120px;
+    width: 90%;
+    margin: 0 auto;
+}
+.contact .main{
+    margin: 30px 0;
+    padding: 0 20px;
+    width:60%;
+    box-sizing: border-box;
+    float: left;
+    border-right: 2px solid grey;
+}
+.contact .main h1{
+    font-size: 26px;
+    font-weight: bold;
+}
+.contact .main p{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.contact .sidebar{
+    margin: 30px 0;
+    width: 30%;
+    float: left;
+    padding: 0 0 0 20px;
+}
+.contact .sidebar h1{
+    font-size: 26px;
+    font-weight: bold;
+}
+.contact .sidebar img{
+    float: left;
+    padding-right: 10px;
+}
+
+/* footer */
+footer{
+    text-align: center;
+    padding: 40px 0 20px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.social{
+    padding: 15px 0;
+}
+
+.social li{
+    display: inline-block;
+}
+
+.social img{
+    max-width: 2.5rem;
+    padding: 0 5px 0 0;
+    transition-duration: 0.2s , 0.2s;
+}
+.social img:hover{
+    transition-duration: 0.2s , 0.2s;
+    transform: scale(1.2);
+}
+
