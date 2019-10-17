@@ -153,6 +153,73 @@ header li a
     transition: .75s ease-in-out;
 }
 
+/* Bagian Section About  */
+#about-section
+{
+    background-color: #030303;
+    color: #f2f2f2;
+    overflow: hidden;
+    padding: 1.5rem 2rem;
+}
+
+#about-section .left-panel
+{
+    float: left;
+    text-align: center;
+    width: 35%;
+}
+
+#about-section .left-panel h1
+{
+    line-height: 3.2;
+    color: #aac148;
+    font-size: 2.5rem;
+}
+
+#about-section .left-panel h1 span
+{
+    color: #73a1fb;
+}
+
+#about-section .left-panel img
+{
+    max-width: 12rem;
+}
+
+#about-section .right-panel
+{
+    float: right;
+    width: 65%;
+    border-left: 3px solid rgba(255, 255, 255, 0.85);
+    padding: 1rem 2.5rem;
+}
+
+#about-section .right-panel h2
+{
+    margin: 1rem 0;
+    font-size: 2.25rem;
+}
+
+#about-section .right-panel p
+{
+    margin: .75rem 0;
+}
+
+#about-section .right-panel p i
+{
+    font-weight: 700;
+}
+
+#about-section .right-panel a
+{
+    color: #f2f2f2;
+    display: inline-block;
+    margin: 1rem 0;
+    border: 1px solid #ffffff;
+    padding: .75rem 1rem;
+    border-radius: 5px;
+}
+
 /* Bagian Footer */
 
 footer
