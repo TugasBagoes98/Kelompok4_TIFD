@@ -71,6 +71,11 @@ nav li a{
 }
 
 /* content */
+#content{
+    width: 100%;
+    margin: 70px 90px 0 70px;
+}
+
 #content>section>ul>#contact>li>img{
     margin: 1rem;
     max-width: 2rem;
@@ -80,9 +85,9 @@ nav li a{
 #contact{
     float: right;
     list-style: none;
-    text-align: right;
-    padding: 3rem 10rem 0 3rem;
-    /* border-left: 2px solid grey; */
+    text-align: justify;
+    padding: 0rem 0rem 0 1rem;
+    width: 28%;
 }
 
 #contact>li>h1{
@@ -91,7 +96,7 @@ nav li a{
 
 #hello>li>p{
     font-size: 20px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 #hello>li>h1{
@@ -99,16 +104,11 @@ nav li a{
 }
 
 #hello{
+    float: left;
     list-style: none;
-    padding: 3rem 3rem 0 10rem;
+    width: 72%;
+    border-right: 2px solid grey;
 }
-
-/* #content>section>ul>#hello>li>h1{
-    display: block;
-    float: right;
-    padding: 0 40rem 0 0;
-} */
-
 
 /* footer */
 footer{
