@@ -38,10 +38,10 @@ a
 /* Bagian Header */
 header
 {
-    background-color: #274C77;
+    background-color: #050505;
     padding: 1rem;
     overflow: hidden; 
-    border-bottom: 7px solid #6096ba;
+    border-bottom: 5px solid #f2f2f2;
     position: fixed;
     top: 0;
     width: 100%;
@@ -54,19 +54,14 @@ header #logo
 
 header #logo h1
 {
-    color: #E7ECEF;
+    color: #aac148;
     font-size: 2.25rem;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0;
+    margin: .85rem 0 0;
 }
 
-header #logo h2
+header #logo h1 span
 {
-    color: #E7ECEF;
-    font-size: 1.75rem;
-    padding: 0;
-    margin: 0;
+    color: #73a1fb;
 }
 
 header nav
@@ -97,15 +92,15 @@ header li a
 
 #index-section
 {
-    background-color: #a3cef1;
-    margin-top: 7rem;
+    background-color: #e3e3e3;
+    margin-top: 6.25rem;
 }
 
 #index-section h1
 {
     text-align: center;
     font-size: 2.5rem;
-    color: #6096ba;
+    color: #030303;
     margin: 2rem 0 0;
 }
 
@@ -120,6 +115,11 @@ header li a
     margin:  3rem;
 }
 
+#index-section ul.second-row li
+{
+    margin: 3.45rem;
+}
+
 #index-section li figure
 {
     text-align: center;
@@ -128,7 +128,6 @@ header li a
 /* Animation Hover Icon */
 #index-section li figure:hover figcaption
 {
-    color: black;
     margin-top: 1.5rem;
     transition: .75s ease-in-out;
 }
@@ -149,7 +148,7 @@ header li a
 #index-section li figure figcaption
 {
     margin: 1.15rem 0;
-    color: #E7ECEF;
+    color: #030303;
     font-weight: 700;
     transition: .75s ease-in-out;
 }
