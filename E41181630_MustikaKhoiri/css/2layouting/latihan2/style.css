@@ -1,0 +1,24 @@
+.satu{
+    width: 200px;
+    height: 200px;
+    overflow: visible;
+    background-color: pink;
+}
+.dua{
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    background-color: green;
+}
+.tiga{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background-color: blue;
+}
+.empat{
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+    background-color: red;
+}

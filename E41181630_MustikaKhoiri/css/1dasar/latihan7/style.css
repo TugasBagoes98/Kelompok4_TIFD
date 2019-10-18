@@ -1,0 +1,11 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkgrey;
+}
+
+a{
+    color: inherit;
+}
+
+/* a diberi inherit terhadap color karena a tidak mewarisi sifat color.
+sehingga inherit diperlukan agar a juga berwarna darkgrey */

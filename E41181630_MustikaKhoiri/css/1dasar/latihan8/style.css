@@ -1,0 +1,22 @@
+#p1{
+    color: red;
+}
+p{
+    color: green;
+}
+
+/* jika tidak ada id p1 kemudian dituliskan
+p{color: red;} dan p{color: green;}
+maka akan berwarna green karena definisi p pada red ditimpa dengan definisi p pada green.
+
+kemudian jika diberi id p1 kemudian ditulis seperti di atas,
+maka p akan berwarna red karena id p1 lebih spesifik dari p
+*/
+
+ul#sarapan li{
+    color: green;
+}
+
+ul#sarapan li.favorit{
+    color: red;
+}
