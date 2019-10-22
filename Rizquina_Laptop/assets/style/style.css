@@ -90,7 +90,7 @@ header nav ul li#logo h2 span
 header section.hero
 {
     display: inline-block;
-    margin: 8.5rem 2rem;
+    margin: 10rem 2rem;
     text-shadow: 1px 3px 1px rgba(0,0,0,.75);
 }
 
