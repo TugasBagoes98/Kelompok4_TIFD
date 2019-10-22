@@ -115,4 +115,12 @@ header section.hero a
     color: #FBFBFB;
     font-size: 1.5rem;
     border-radius: .5rem;
+    transition: .75s ease;
+}
+
+header section.hero a:hover
+{
+    background-color: #9A8C98;
+    text-shadow: -1px -3px -1px rgba(255,255,255,.75);
+    transition: .75s ease;
 }
