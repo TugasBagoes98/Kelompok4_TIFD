@@ -1,0 +1,66 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Raleway',Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #030303;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+header
+{
+    padding: 1rem 2rem;
+    background-color: #2D2E2E;
+}
+
+header nav ul
+{
+    list-style: none;
+    display: flex;
+}
+
+header nav ul #logo
+{
+    margin-right: auto;
+}
+
+header nav ul li
+{
+    padding: .5rem 2rem;
+}
+
+header nav ul li a
+{
+    font-size: 1.25rem;
+    color: #FBFBFB;
+    display: inline-block;
+    margin: .75rem 0;
+}
+
+header nav ul li#logo
+{
+    font-family: 'Lobster',cursive;
+}
+
+header nav ul li#logo h2
+{
+    font-size: 2.5rem;
+    color: #FBFBFB;
+}
+
+header nav ul li#logo h2 span
+{
+    color: #4A4E69;
+}
+
+
