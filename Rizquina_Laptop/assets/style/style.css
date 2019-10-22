@@ -36,6 +36,7 @@ header nav
 {
     position: fixed;
     z-index: 1;
+    padding: .75rem 0;
 }
 
 header nav ul
