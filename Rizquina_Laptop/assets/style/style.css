@@ -25,22 +25,22 @@ a
 
 header
 {
-    padding: 1rem 2rem;
+    padding: 0 2rem;
     background: url(../images/hero_bg.jpg) no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     height: 85vh;
 }
 
+header nav
+{
+    position: fixed;
+}
+
 header nav ul
 {
     list-style: none;
     display: flex;
-}
-
-header nav ul #logo
-{
-    margin-right: auto;
 }
 
 header nav ul li
@@ -53,7 +53,7 @@ header nav ul li a
     font-size: 1.25rem;
     color: #FBFBFB;
     display: inline-block;
-    margin: .75rem 0;
+    margin: 1.25rem 0;
     text-shadow: 1px 3px 1px rgba(0, 0, 0, .75);
     transition: .75s ease;
 }
@@ -68,19 +68,20 @@ header nav ul li:hover a
 header nav ul li#logo
 {
     font-family: 'Lobster',cursive;
+    margin: 0 6rem 0 0;
 }
 
 header nav ul li#logo h2
 {
-    font-size: 2.5rem;
     color: #FBFBFB;
-    text-shadow: 1px 3px 1px rgba(0,0,0,.75);
+    text-shadow: 1px 3px 1px rgba(0,0,0,.75); 
+    font-size: 3rem;
 }
 
 header nav ul li#logo h2 span
 {
-    color: #9A8C98;
-    font-size: 2.5rem;
+    color: #9A8C98; 
+    font-size: 3rem;
 }
 
 /* Bagian Section dalam Header */
@@ -88,7 +89,7 @@ header nav ul li#logo h2 span
 header section.hero
 {
     display: inline-block;
-    margin: 6rem 2rem;
+    margin: 8.5rem 2rem;
     text-shadow: 1px 3px 1px rgba(0,0,0,.75);
 }
 
@@ -124,4 +125,9 @@ header section.hero a:hover
     background-color: #9A8C98;
     text-shadow: -1px -3px -1px rgba(255,255,255,.75);
     transition: .75s ease;
+}
+
+section#product
+{
+    height: 1000px;
 }
