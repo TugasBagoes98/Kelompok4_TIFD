@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 /* Selector global, berfungsi untuk mengubah styling seluruh elemen dalam body */
@@ -11,8 +12,6 @@ body
 {
     /* Mengubah jenis font */
     font-family: 'Raleway',Arial, Helvetica, sans-serif;
-    /* Mengubah ukuran font */
-    font-size: 16px;
     /* Mengubah warna  */
     color: #030303;
 }
@@ -21,6 +20,8 @@ a
 {
     text-decoration: none;
 }
+
+/* Bagian Header */
 
 header
 {
@@ -76,6 +77,40 @@ header nav ul li#logo h2
 header nav ul li#logo h2 span
 {
     color: #9A8C98;
+    font-size: 2.5rem;
 }
 
+/* Bagian Section dalam Header */
 
+header section.hero
+{
+    display: inline-block;
+    margin: 6rem 2rem;
+    text-shadow: 1px 3px 1px rgba(0,0,0,.75);
+}
+
+header section.hero h2
+{
+    font-size: 2.5rem;
+    color: #FBFBFB;
+    margin: .75rem 0;
+}
+
+header section.hero p
+{
+    color: #FBFBFB;
+    font-size: 1.25rem;
+    margin: .75rem 0;
+}
+
+header section.hero a
+{
+    font-family: 'Lobster',cursive;
+    display: inline-block;
+    margin: 2rem 0;
+    padding: .5rem 1rem;
+    border: 3px solid #FBFBFB;
+    color: #FBFBFB;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+}
