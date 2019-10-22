@@ -47,6 +47,12 @@ header nav ul li a
     margin: .75rem 0;
 }
 
+header nav ul li:hover a
+{
+    color: #4A4E69;
+    border-bottom: 1.5px solid #FBFBFB;
+}
+
 header nav ul li#logo
 {
     font-family: 'Lobster',cursive;
