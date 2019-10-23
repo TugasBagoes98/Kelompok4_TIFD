@@ -21,6 +21,12 @@ a
     text-decoration: none;
 }
 
+img
+{
+    max-width: 15rem;
+    padding: .5rem;
+}
+
 /* Bagian Header */
 
 header
@@ -127,4 +133,35 @@ header section.hero a:hover
     background-color: #9A8C98;
     text-shadow: -1px -3px -1px rgba(255,255,255,.75);
     transition: .75s ease;
+}
+
+/* Bagian Product */
+
+section#product
+{
+    background-color: #9A8C98;
+    padding: 2rem;
+}
+
+section#product h1
+{
+    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 1px 3px 1px rgba(0,0,0,.75);
+    color: #FBFBFB;
+}
+
+section#product .wrapper
+{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2, minmax(200px,auto));
+    gap: 2rem;
+}
+
+section#product .wrapper article
+{
+    margin: 2rem 0;
 }
