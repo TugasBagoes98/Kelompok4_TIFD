@@ -1,0 +1,11 @@
+h1{
+    font-size: 100px;
+    letter-spacing: 5px;
+}
+body{
+    background-color: pink;
+    background-image: url(grd.jpg);
+    background-size: 150px;
+    background-repeat: repeat-x;
+    background-position: top center;
+}

@@ -1,0 +1,37 @@
+body{
+    height: 2000px;
+}
+/* navigasi bar atas */
+.kotak{
+    height: 70px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+/* kotak untuk iklan */
+.kotak2{
+    background-color: black;
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    opacity: 0.7;
+}
+/* tombol close untuk iklan */
+.close{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    text-align: center;
+}
+h1{
+    margin-top: 50px;
+}
