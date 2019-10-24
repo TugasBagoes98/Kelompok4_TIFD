@@ -140,7 +140,9 @@ header section.hero a:hover
 
 section#product
 {
-    background-color: #FBFBFB;
+    background: url(../images/product_bg.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
     padding: 2rem;
 }
 
@@ -167,7 +169,7 @@ section#product .wrapper article
     margin: 3rem 0;
     padding: 2rem;
     text-align: center;
-    background-color: #4a4e69;
+    background-color: #2d2e2e;
     box-shadow: 1px 5px 3px 1px rgba(0,0,0,0.75);
     border-radius: 2rem;
     max-height: 315px;
