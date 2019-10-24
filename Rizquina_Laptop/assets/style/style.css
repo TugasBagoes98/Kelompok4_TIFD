@@ -169,8 +169,8 @@ section#product .wrapper article
     margin: 3rem 0;
     padding: 2rem;
     text-align: center;
-    background-color: #2d2e2e;
-    box-shadow: 1px 5px 3px 1px rgba(0,0,0,0.75);
+    /* background-color: #2d2e2e; */
+    box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.5);
     border-radius: 2rem;
     max-height: 315px;
     overflow: hidden;
@@ -180,7 +180,7 @@ section#product .wrapper article
 
 section#product .wrapper article h2
 {
-    color: #FBFBFB;
+    color: #0F0F0F;
     margin: 0 0 .5rem;
 }
 
@@ -194,14 +194,14 @@ section#product .wrapper article figure figcaption
     font-size: 1.15rem;
     font-weight: 500;
     margin: .75rem 0 0;
-    color: #FBFBFB;
+    color: #0F0F0F;
 }
 
 section#product .wrapper article a
 {
     display: inline-block;
-    color: #FBFBFB;
-    border: 2px solid #FBFBFB;
+    color: #0F0F0F;
+    border: 2px solid #0F0F0F;
     padding: .5rem 1.25rem;
     border-radius: 50px;
     margin: .5rem 0;
@@ -211,7 +211,7 @@ section#product .wrapper article a
 section#product .wrapper article:hover
 {
     overflow: visible;
-    background-color: #9A8C98;
+    /* background-color: #9A8C98; */
     max-height: 450px;
     transform: scale(1.05);
     transition: .75s ease;
@@ -222,5 +222,6 @@ section#product .wrapper article a:hover
     background-color: #FBFBFB;
     color: #0F0F0F;
     border-radius: 25px;
+    border-color: #FBFBFB;
     transition: .5s ease;
 }
