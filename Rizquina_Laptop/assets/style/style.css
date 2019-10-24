@@ -169,6 +169,8 @@ section#product .wrapper article
     background-color: #4a4e69;
     box-shadow: 1px 5px 3px 1px rgba(0,0,0,0.75);
     border-radius: 2rem;
+    max-height: 315px;
+    overflow: hidden;
 }
 
 section#product .wrapper article h2
@@ -177,10 +179,25 @@ section#product .wrapper article h2
     margin: 0 0 .5rem;
 }
 
+section#product .wrapper article figure
+{
+    margin: 0 0 1rem;
+}
+
 section#product .wrapper article figure figcaption
 {
     font-size: 1.15rem;
     font-weight: 500;
     margin: .75rem 0 0;
     color: #FBFBFB;
+}
+
+section#product .wrapper article a
+{
+    display: inline-block;
+    color: #FBFBFB;
+    border: 2px solid #FBFBFB;
+    padding: .5rem 1.25rem;
+    border-radius: 50px;
+    margin: .5rem 0;
 }
