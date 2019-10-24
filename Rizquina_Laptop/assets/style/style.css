@@ -13,7 +13,7 @@ body
     /* Mengubah jenis font */
     font-family: 'Raleway',Arial, Helvetica, sans-serif;
     /* Mengubah warna  */
-    color: #030303;
+    color: #0F0F0F;
 }
 
 a
@@ -139,7 +139,7 @@ header section.hero a:hover
 
 section#product
 {
-    background-color: #9A8C98;
+    background-color: #FBFBFB;
     padding: 2rem;
 }
 
@@ -148,7 +148,7 @@ section#product h1
     text-align: center;
     font-size: 2.5rem;
     text-shadow: 1px 3px 1px rgba(0,0,0,.75);
-    color: #FBFBFB;
+    color: #9a8c98;
 }
 
 section#product .wrapper
@@ -164,4 +164,23 @@ section#product .wrapper
 section#product .wrapper article
 {
     margin: 2rem 0;
+    padding: 2rem;
+    text-align: center;
+    background-color: #4a4e69;
+    box-shadow: 1px 5px 3px 1px rgba(0,0,0,0.75);
+    border-radius: 2rem;
+}
+
+section#product .wrapper article h2
+{
+    color: #FBFBFB;
+    margin: 0 0 .5rem;
+}
+
+section#product .wrapper article figure figcaption
+{
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: .75rem 0 0;
+    color: #FBFBFB;
 }
