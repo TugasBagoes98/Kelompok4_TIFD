@@ -170,12 +170,12 @@ section#product .wrapper article
     padding: 2rem;
     text-align: center;
     /* background-color: #2d2e2e; */
-    box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.5);
-    border-radius: 2rem;
     max-height: 315px;
     overflow: hidden;
     cursor: pointer;
     transition: .5s ease;
+    border-left: .5px solid grey;
+    border-right: .5px solid grey;
 }
 
 section#product .wrapper article h2
@@ -215,6 +215,7 @@ section#product .wrapper article:hover
     max-height: 450px;
     transform: scale(1.05);
     transition: .75s ease;
+    box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.5);
 }
 
 section#product .wrapper article a:hover
