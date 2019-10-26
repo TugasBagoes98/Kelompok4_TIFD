@@ -136,6 +136,8 @@ header nav .menu-user li a i
     transform: translateY(-50%);
 }
 
+/* Slide Satu */
+
 .slider-container .mySlide .slide-satu
 {
     color: #f3f3f3;
@@ -156,7 +158,6 @@ header nav .menu-user li a i
 
 .slider-container .mySlide .slide-satu a
 {
-    text-decoration: none;
     display: inline-block;
     text-align: center;
     padding: .5rem .75rem;
@@ -165,4 +166,46 @@ header nav .menu-user li a i
     font-size: 1.25rem;
     color: #f3f3f3;
     box-shadow: 1px 3px 3px rgba(0,0,0,0.75);
+    margin: 1rem 0 0 0;
 }
+
+/* Slide Dua */
+.slider-container .mySlide .slide-dua
+{
+    color: #030303;
+}
+
+.slider-container .mySlide .slide-dua p
+{
+    font-size: 1.75rem;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.slider-container .mySlide .slide-dua span
+{
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: #e15c5c;
+}
+
+.slider-container .mySlide .slide-dua p,
+.slider-container .mySlide .slide-dua span
+{
+    text-shadow: 3px 1px 1px rgba(255,255,255,0.75);
+}
+
+.slider-container .mySlide .slide-dua a
+{
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: .5rem .75rem;
+    border: 3px solid #030303;
+    border-radius: 5px;
+    color: #030303;
+    display: inline-block;
+    margin: 1rem 0;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
