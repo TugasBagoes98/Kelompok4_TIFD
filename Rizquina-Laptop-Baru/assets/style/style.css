@@ -209,3 +209,24 @@ header nav .menu-user li a i
     box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.4);
 }
 
+/* Slide Tiga */
+
+.slider-container .mySlide .slide-tiga
+{
+    color: #030303;
+}
+
+.slider-container .mySlide .slide-tiga p
+{
+    font-size: 1.75rem;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.slider-container .mySlide .slide-tiga span
+{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #e15c5c;
+}
