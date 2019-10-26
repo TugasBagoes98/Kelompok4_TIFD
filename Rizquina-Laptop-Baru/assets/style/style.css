@@ -105,3 +105,64 @@ header nav .menu-user li a i
     border-radius: 50%;
     background-color: #ececec;
 }
+
+/* Slider */
+
+.slider-container
+{
+    max-width: 100%;
+    max-height: 30rem;
+    position: relative;
+}
+
+.slider-container .mySlide
+{
+    width: 100%;
+    position: relative;
+}
+
+.slider-container .mySlide img
+{
+    width: 100%;
+    max-height: 30rem;
+    object-fit: cover;
+}
+
+.slider-container .mySlide .slider-text
+{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.slider-container .mySlide .slide-satu
+{
+    color: #f3f3f3;
+}
+
+.slider-container .mySlide .slide-satu p
+{
+    font-size: 1.75rem;
+    margin: 1rem 0;
+}
+
+.slider-container .mySlide .slide-satu span
+{
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.slider-container .mySlide .slide-satu a
+{
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: .5rem .75rem;
+    border: 3px solid #f3f3f3;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    color: #f3f3f3;
+    box-shadow: 1px 3px 3px rgba(0,0,0,0.75);
+}
