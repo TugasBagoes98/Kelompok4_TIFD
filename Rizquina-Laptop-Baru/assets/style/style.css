@@ -295,8 +295,8 @@ header nav .menu-user li a i
 .marker
 {
     cursor: pointer;
-    padding: 1rem;
-    margin: 0 auto;
+    padding: .75rem;
+    margin: 0 auto 2rem;
     background-color: rgba(0,0,0,0.75);
     border-radius: 50%;
 }
