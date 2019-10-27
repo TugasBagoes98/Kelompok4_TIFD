@@ -278,3 +278,58 @@ header nav .menu-user li a i
 {
     background-color: rgba(0,0,0,0.75);
 }
+
+/* Slide Navigation */
+
+.slide-navigation
+{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.marker
+{
+    cursor: pointer;
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 50%;
+}
+
+.active, .marker:hover
+{
+    background-color: rgba(0,0,0,1);
+}
+
+/* Animation */
+
+.fade
+{
+    -webkit-animation: fade;
+    -moz-animation: fade;
+    animation: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade
+{
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@-moz-keyframes fade
+{
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade
+{
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
