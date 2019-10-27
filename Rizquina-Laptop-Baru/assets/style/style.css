@@ -230,3 +230,22 @@ header nav .menu-user li a i
     text-transform: capitalize;
     color: #e15c5c;
 }
+
+.slider-container .mySlide .slide-tiga p,
+.slider-container .mySlide .slide-tiga span
+{
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+
+.slider-container .mySlide .slide-tiga a
+{
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: .5rem .75rem;
+    border: 3px solid #030303;
+    border-radius: 5px;
+    color: #030303;
+    display: inline-block;
+    margin: 1rem 0;
+    box-shadow: 1px 3px 1px rgba(0,0,0,0.4);
+}
