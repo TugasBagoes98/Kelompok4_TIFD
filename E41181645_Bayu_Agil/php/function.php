@@ -281,4 +281,12 @@ function upload1() {
     move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
     return $namaFileBaru;
 }
+
+//FUNCTION HAPUS DATA PELANGGAN
+function hapus_plg($NIK){
+    global $conn;
+    mysqli_query($conn, "DELETE FROM pelanggan WHERE NIK = '$NIK'");
+    return mysqli_affected_rows($conn);
+}
+
 ?>
