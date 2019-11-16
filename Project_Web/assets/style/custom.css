@@ -4,3 +4,8 @@ body
 {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
+
+.text-custom-primary
+{
+    color: #58a4b0;
+}
