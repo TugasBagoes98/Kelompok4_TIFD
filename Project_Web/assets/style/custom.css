@@ -5,7 +5,46 @@ body
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
-.text-custom-primary
+/* Custom font color */
+
+.text-custom-strong-blue
 {
-    color: #58a4b0;
+    color: #009ddc !important;
+}
+
+.text-custom-orange
+{
+    color: #f26430 !important;
+}
+
+.text-custom-light-blue
+{
+    color: #58a4b0 !important;
+}
+
+.text-custom-black
+{
+    color: #2a2d34 !important;
+}
+
+/* Custom background color */
+
+.bg-custom-strong-blue
+{
+    background-color: #009ddc !important;
+}
+
+.bg-custom-orange
+{
+    color: #f26430 !important;
+}
+
+.bg-custom-light-blue
+{
+    color: #58a4b0 !important;
+}
+
+.bg-custom-black
+{
+    color: #2a2d34 !important;
 }
