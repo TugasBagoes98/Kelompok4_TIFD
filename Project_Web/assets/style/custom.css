@@ -48,3 +48,11 @@ body
 {
     color: #2a2d34 !important;
 }
+
+/* Hero Section */
+.hero
+{
+    background: url("../images/hero-bg.jpg") no-repeat center left;
+    background-size: cover;
+    min-height: 40vh;
+}
