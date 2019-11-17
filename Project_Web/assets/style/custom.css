@@ -49,6 +49,12 @@ body
     color: #2a2d34 !important;
 }
 
+/* Text Shadow */
+.text-shadow-custom
+{
+    text-shadow: 2px 2px 0px #2a2d34;
+}
+
 /* Hero Section */
 .hero
 {
