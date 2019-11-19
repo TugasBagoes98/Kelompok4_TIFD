@@ -1,4 +1,5 @@
 <?php
+
 require 'function.php';
 
 //konfigurasi pagination
@@ -24,6 +25,19 @@ if (isset($_POST["cari_laptop"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tambah Laptop</title>
+    <style>
+        .loader{
+            width: 100px;
+            position: absolute;
+            top: 93px;
+            left: 210px;
+            z-index: -1;
+            display: none;
+        }
+    </style>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <h1>Form Tambah Laptop</h1>
@@ -32,8 +46,10 @@ if (isset($_POST["cari_laptop"])) {
     <br> <br>
 
     <form action="" method="post">
-        <input type="text" name="keyword" size="30" autofocus placeholder="masukkan keyword pencarian" autocomplete="off">
-        <button type="submit" name="cari_laptop">Cari</button>
+        <input type="text" name="keyword" size="30" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off" id="keyword">
+        <button type="submit" name="cari_laptop" id="tombol-cari">Cari</button>
+
+        <img src="img/loadergif.gif" class="loader">
     </form>
     <br>
 
@@ -56,23 +72,31 @@ if (isset($_POST["cari_laptop"])) {
 
     <br>
 
+    <div id="container">
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
-            <th>ID Laptop</th>
-            <th>Gambar</th>
-            <th>Merk</th>
-            <th>Processor</th>
+            <th>NO.</th>
+            <th>AKSI</th>
+            <th>ID LAPTOP</th>
+            <th>GAMBAR</th>
+            <th>MERK</th>
+            <th>PROCESSOR</th>
             <th>RAM</th>
-            <th>Hard Disk</th>
+            <th>HARD DISK</th>
             <th>VGA</th>
-            <th>Ukuran Layar</th>
-            <th>Sound Card</th>
-            <th>Stok</th>
-            <th>Aksi</th>
+            <th>UKURAN LAYAR</th>
+            <th>SOUND CARD</th>
+            <th>STOK</th>
         </tr>
 
+        <?php $i = 1;?>
         <?php foreach ($laptop as $row): ?>
-        <tr>
+        <tr>    
+            <td><?= $i; ?></td>
+            <td>
+                <a href="ubah_laptop.php?ID_LAPTOP=<?= $row["ID_LAPTOP"]; ?>">Ubah</a>
+                <a href="hapus_laptop.php?ID_LAPTOP=<?= $row["ID_LAPTOP"]; ?>" onclick="return confirm('Yakin Ingin Menghapus Data?');">Hapus</a>
+            </td>
             <td><?= $row["ID_LAPTOP"];?></td>
             <td><img src="img/<?= $row["GAMBAR"];?>" alt="" width="50"></td>
             <td><?= $row["MERK"];?></td>
@@ -83,13 +107,11 @@ if (isset($_POST["cari_laptop"])) {
             <td><?= $row["UKURAN_LAYAR"];?></td>
             <td><?= $row["SOUND_CARD"];?></td>
             <td><?= $row["STOK"];?></td>
-            <td>
-                <a href="ubah_laptop.php?ID_LAPTOP=<?= $row["ID_LAPTOP"]; ?>">Ubah</a>
-                <a href="hapus_laptop.php?ID_LAPTOP=<?= $row["ID_LAPTOP"]; ?>" onclick="return confirm('Yakin Ingin Menghapus Data?');">Hapus</a>
-            </td>
         </tr>
+        <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
 
 </body>
 </html>
