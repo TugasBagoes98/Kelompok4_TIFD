@@ -5,6 +5,11 @@
     font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
 }
 
+body
+{
+    padding-top: 56px;
+}
+
 /* Carousel Part */
 
 .carousel-background-one
