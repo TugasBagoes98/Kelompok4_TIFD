@@ -1,4 +1,5 @@
 <?php
+
 require 'function.php';
 
 // mengambil data di URL
@@ -13,7 +14,7 @@ $laptop = query("SELECT * FROM laptop WHERE ID_LAPTOP = '$ID_LAPTOP'")[0];
 // cek saat tombol ubah ditekan
 if (isset($_POST["submit"])) {
     
-    if(ubah($_POST)>0){
+    if(ubah_laptop($_POST)>0){
         echo "
             <script>
                 alert('Data Berhasil Diubah!');
@@ -21,7 +22,7 @@ if (isset($_POST["submit"])) {
             </script>
         ";
     }else{
-        echo ubah($_POST);
+        echo ubah_laptop($_POST);
         echo "
             <script>
                 alert('Data Gagal Diubah!');

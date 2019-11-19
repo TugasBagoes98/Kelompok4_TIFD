@@ -1,4 +1,5 @@
 <?php
+
 require 'function.php';
 
 $ID_LAPTOP = $_GET["ID_LAPTOP"];
