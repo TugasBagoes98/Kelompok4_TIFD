@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a href="#" class="nav-link"> Home </a>
+                        <a href="index.php" class="nav-link"> Home </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> About </a>
+                        <a href="about.php" class="nav-link"> About </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link"> Blog </a>
