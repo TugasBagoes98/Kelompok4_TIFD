@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-block btn-outline-primary"> Register </button>
+                    <button type="submit" class="btn btn-block btn-outline-primary" name="registerUser"> Register </button>
                 </form>
                 <a href="" class="my-2 d-inline-block text-decoration-none"> Sudah memiliki akun ? Klik disini. </a>
             </div>
