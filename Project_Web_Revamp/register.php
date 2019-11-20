@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <h1 class="my-4"> Selamat datang di website kami </h1>
                 <h2 class="my-4"> Registrasi </h2>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="assets/includes/register_plg.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group my-4">
