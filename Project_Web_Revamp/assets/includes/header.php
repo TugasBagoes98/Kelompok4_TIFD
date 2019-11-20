@@ -29,14 +29,14 @@
                         <a href="about.php" class="nav-link"> About </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> Blog </a>
+                        <a href="blog.php" class="nav-link"> Blog </a>
                     </li>
                     <hr class="bg-light d-block d-md-none w-100">
                     <li class="nav-item">
                         <a href="#modalLogin" class="nav-link" role="button" data-toggle="modal"> Login </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> Register </a>
+                        <a href="register.php" class="nav-link"> Register </a>
                     </li>
                 </ul>
             </div>
