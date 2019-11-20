@@ -1,3 +1,4 @@
+<?php require_once "assets/includes/header.php";?>
 
     <!-- Header Start -->
     <header>
@@ -259,3 +260,5 @@
         <!-- CTA End -->
     </div>
     <!-- Container End -->
+
+<?php require_once "assets/includes/footer.php";?>
