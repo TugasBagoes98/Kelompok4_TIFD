@@ -12,20 +12,28 @@
                             <div class="form-group my-4">
                                 <label for="namaUser"> Nama : </label>
                                 <input type="text" name="namaUser" id="namaUser" class="form-control" placeholder="Enter your name ....">
+                                <div class="valid-feedback" id="validName"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidName"></div>
                             </div>
                             <div class="form-group my-4">
                                 <label for="alamatUser"> Alamat : </label>
                                 <textarea name="alamatUser" id="alamatUser" class="form-control w-100" placeholder="Enter your address ...."></textarea>
+                                <div class="valid-feedback" id="validAddress"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidAddress"></div>
                             </div>
                             <div class="form-group my-4">
                                 <label for="notelpUser"> No. Handphone : </label>
                                 <input type="text" name="notelpUser" id="notelpUser" class="form-control" placeholder="Enter your phone number ....">
+                                <div class="valid-feedback" id="validPhoneNum"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidPhoneNum"></div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group my-4">
                                 <label for="emailUser"> Email : </label>
                                 <input type="email" name="emailUser" id="emailUser" class="form-control" placeholder="Enter your email ...." >
+                                <div class="valid-feedback" id="validEmail"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidEmail"></div>
                             </div>
                             <div class="form-group my-4">
                                 <label for="passwordUser"> Password : </label>
@@ -33,6 +41,7 @@
                                 <small id="passwordHelper" class="form-text text-muted">
                                     Password harus lebih panjang dari 8 karakter dan tidak boleh melebihi 20 karakter.
                                 </small>
+                                <div class="valid-feedback" id="validPassword"> Bagus! </div>
                             </div>
                             <div class="from-group my-4">
                                 <label for="fotoProfilUser"> Foto Profil : </label>
