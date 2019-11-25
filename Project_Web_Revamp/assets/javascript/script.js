@@ -151,39 +151,55 @@ passwordUser.onblur = function()
 
 confPassword.onfocus = function()
 {
-    if(isEmpty(passwordUser.value))
+    if(passwordUser.classList.contains('is-invalid'))
     {
         confPassword.classList.remove('is-valid');
         confPassword.classList.add('is-invalid');
-        document.getElementById('invalidConfirmPassword').innerText = "Password kosong, harap isi terlebih dahulu.";
+        document.getElementById('invalidConfirmPassword').innerText = "Password salah, harap diperbaiki terlebih dahulu.";
     }else
     {
-        confPassword.classList.remove('is-invalid');
+        if(isEmpty(passwordUser.value))
+        {
+            confPassword.classList.remove('is-valid');
+            confPassword.classList.add('is-invalid');
+            document.getElementById('invalidConfirmPassword').innerText = "Password kosong, harap isi terlebih dahulu.";
+        }else
+        {
+            confPassword.classList.remove('is-invalid');
+        }
     }
 };
 
 confPassword.onblur = function()
 {
 
-    if(isEmpty(confPassword.value))
+    if(passwordUser.classList.contains('is-invalid'))
     {
         confPassword.classList.remove('is-valid');
         confPassword.classList.add('is-invalid');
-        document.getElementById('invalidConfirmPassword').innerText = "Confirm password tidak boleh kosong.";
-    }else if(!regexNumberAndLetter.test(confPassword.value))
-    {
-        confPassword.classList.remove('is-valid');
-        confPassword.classList.add('is-invalid');
-        document.getElementById('invalidConfirmPassword').innerText = "Confirm password hanya boleh berisi huruf dan angka.";
-    }else if(confPassword.value !== passwordUser.value)
-    {
-        confPassword.classList.remove('is-valid');
-        confPassword.classList.add('is-invalid');
-        document.getElementById('invalidConfirmPassword').innerText = "Password tidak sesuai.";
+        document.getElementById('invalidConfirmPassword').innerText = "Password salah, harap diperbaiki terlebih dahulu.";
     }else
     {
-        confPassword.classList.remove('is-invalid');
-        confPassword.classList.add('is-valid');
+        if(isEmpty(confPassword.value))
+        {
+            confPassword.classList.remove('is-valid');
+            confPassword.classList.add('is-invalid');
+            document.getElementById('invalidConfirmPassword').innerText = "Confirm password tidak boleh kosong.";
+        }else if(!regexNumberAndLetter.test(confPassword.value))
+        {
+            confPassword.classList.remove('is-valid');
+            confPassword.classList.add('is-invalid');
+            document.getElementById('invalidConfirmPassword').innerText = "Confirm password hanya boleh berisi huruf dan angka.";
+        }else if(confPassword.value !== passwordUser.value)
+        {
+            confPassword.classList.remove('is-valid');
+            confPassword.classList.add('is-invalid');
+            document.getElementById('invalidConfirmPassword').innerText = "Password tidak sesuai.";
+        }else
+        {
+            confPassword.classList.remove('is-invalid');
+            confPassword.classList.add('is-valid');
+        }
     }
 
 };
