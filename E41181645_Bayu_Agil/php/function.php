@@ -445,4 +445,12 @@ function upload1() {
     return $namaFileBaru;
 }
 // ===============================================function register pelanggan end=================================================
+
+//FUNCTION HAPUS DATA PELANGGAN
+function hapus_plg($NIK){
+    global $conn;
+    mysqli_query($conn, "DELETE FROM pelanggan WHERE NIK = '$NIK'");
+    return mysqli_affected_rows($conn);
+}
+
 ?>

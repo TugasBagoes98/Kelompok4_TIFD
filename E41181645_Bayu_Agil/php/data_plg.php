@@ -18,8 +18,8 @@ $awalData             = ($jumlahDataPerhalaman * $halamanAktif) - $jumlahDataPer
 $Pelanggan = Data_plg("SELECT * FROM pelanggan LIMIT $awalData, $jumlahDataPerhalaman");
 // $result = mysqli_query($conn, "SELECT * FROM pelanggan")
 // tombol cari diklik
-if(isset($_POST["bt_cari"])) {
-    $Pelanggan = cari($_POST["cari"]);
+if(isset($_POST["cari_pelanggan"])) {
+    $pelanggan = cari_pelanggan($_POST["keyword"]);
 }
 ?>
 
@@ -36,15 +36,29 @@ if(isset($_POST["bt_cari"])) {
     <h1>Data Pelanggan</h1>
 
     <form action="" method="post">
-        <input type="text" name="cari" id="cari" size="50" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
-        <button type="submit" name="bt_cari" id="bt_cari">Cari</button>
+        <input type="text" name="keyword" size="30" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
+        <button type="submit" name="cari_pelanggan">Cari</button>
     </form>
     <br>
     
     <!-- navigasi halaman -->
-    <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-        <a href=""><?= $i; ?></a>
+    <?php if ($halamanAktif > 1) : ?>
+        <a href="?halaman=<?= $halamanAktif - 1; ?>">&laquo;</a>
+    <?php endif; ?>
+
+    <?php for($i = 1; $i<= $jumlahHalaman; $i++) : ?>
+        <?php if($i == $halamanAktif) : ?>
+            <a href="?halaman=<?= $i; ?>" style="font-weight: bold;"><?= $i; ?></a>
+        <?php else : ?>
+            <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php endif; ?>
     <?php endfor; ?>
+
+    <?php if ($halamanAktif < $jumlahHalaman) : ?>
+        <a href="?halaman=<?= $halamanAktif + 1; ?>">&raquo;</a>
+    <?php endif; ?>
+
+    <br>
 
     <table border="1" cellpading="10" cellspacing="0">
         <tr>
@@ -63,8 +77,7 @@ if(isset($_POST["bt_cari"])) {
         <tr>    
             <td><?= $i; ?></td>
             <td>
-                <a href="">ubah</a> |
-                <a href="">hapus</a>
+               <a href="hapus_plg.php?NIK=<?= $row["NIK"]; ?>" onclick="return confirm('Yakin Ingin Menghapus Data?');">Hapus</a>
             </td>
             <td><?= $row["NIK"]; ?></td>
             <td><?= $row["NAMA_PELANGGAN"]; ?></td>
@@ -74,7 +87,7 @@ if(isset($_POST["bt_cari"])) {
             <td><img src="img/<?= $row["FOTO_KTP"]; ?>" alt="foto ktp" width="100"></td>
             <td><img src="img/<?= $row["FOTO_PROFIL"]; ?>" alt="foto profil" width="100"></td>
         </tr>
-    <?php $i++; ?>
+        <?php $i++; ?>
     <?php endforeach; ?>
     </table>
     

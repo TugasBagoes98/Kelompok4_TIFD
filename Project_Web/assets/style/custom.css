@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap');
+
+body
+{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+/* Custom font color */
+
+.text-custom-strong-blue
+{
+    color: #009ddc !important;
+}
+
+.text-custom-orange
+{
+    color: #f26430 !important;
+}
+
+.text-custom-light-blue
+{
+    color: #58a4b0 !important;
+}
+
+.text-custom-black
+{
+    color: #2a2d34 !important;
+}
+
+/* Custom background color */
+
+.bg-custom-strong-blue
+{
+    background-color: #009ddc !important;
+}
+
+.bg-custom-orange
+{
+    color: #f26430 !important;
+}
+
+.bg-custom-light-blue
+{
+    color: #58a4b0 !important;
+}
+
+.bg-custom-black
+{
+    color: #2a2d34 !important;
+}
+
+/* Text Shadow */
+.text-shadow-custom
+{
+    text-shadow: 2px 2px 0px #2a2d34;
+}
+
+/* Hero Section */
+.hero
+{
+    background: url("../images/hero-bg.jpg") no-repeat center left;
+    background-size: cover;
+    min-height: 40vh;
+}
