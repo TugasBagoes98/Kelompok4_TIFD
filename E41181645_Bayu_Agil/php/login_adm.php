@@ -3,59 +3,15 @@
 
 <?php
 session_start();
-require 'connection.php';
-    // cek cookie
-    if(isset($_COOKIE['op0']) && isset($_COOKIE['op1'])) {
-        $op0 = $_COOKIE['op0'];
-        $op1 = $_COOKIE['op1'];
+require 'function.php';
 
-        // ambil username berdasarkan id
-        $result = mysqli_query($conn, "SELECT USERNAME_ADMIN FROM admin WHERE ID_ADMIN = $op0");
-        $row    = mysqli_fetch_assoc($result);
-    
-        // cek cookie dan username
-        if( $op1 === hash('sha256', $row['USERNAME_ADMIN'])) {
-            $_SESSION['login'] = true;
+    if(!isset($_SESSION["login"])) {
+        if(login_adm($_POST)) {
+            header("Location: data_plg.php");
+            exit;
         }
     }
 
-    if(isset($_SESSION["login"])) {
-        header("Location: data_plg.php");
-        exit;
-    }
-    
-    // cek login
-    if(isset($_POST["login"])){
-        global $conn;
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        $result = mysqli_query($conn, "SELECT * FROM admin WHERE USERNAME_ADMIN = '$username'");
-
-        if(mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if(password_verify($password, $row["PASSWORD_ADMIN"])) {
-                
-                // set session
-                $_SESSION["login"] = true;
-                // set ingat saya
-                if(isset($_POST['remember'])) {
-                    // buat cookie
-                    setcookie('op0', $row['ID_ADMIN'], time() + 60);
-                    setcookie('op1', hash('sha256', $row["USERNAME_ADMIN"]), time() + 60);
-                }
-
-                header("Location: data_plg.php");
-                exit;
-
-            } else {
-                echo "<script>
-                        alert('Username atau Password salah/belum terdaftar')    
-                    </script>";
-            }
-        }       
-    }
 ?>
 
 <!DOCTYPE html>

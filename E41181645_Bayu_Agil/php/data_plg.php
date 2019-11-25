@@ -32,7 +32,7 @@ if(isset($_POST["cari_pelanggan"])) {
     <title>Data Pelanggan</title>
 </head>
 <body>
-    <a href="logout.php">Logout</a>
+    <a href="logout_adm.php">Logout</a>
     <h1>Data Pelanggan</h1>
 
     <form action="" method="post">
@@ -73,7 +73,7 @@ if(isset($_POST["cari_pelanggan"])) {
             <th>FOTO PROFIL</th>
         </tr>
     <?php $i = 1;?>
-    <?php foreach($Pelanggan as $row) : ?>
+    <?php foreach($Data_plg as $row) : ?>
         <tr>    
             <td><?= $i; ?></td>
             <td>

@@ -3,7 +3,6 @@
 
 <?php
     require 'function.php';
-
     if( isset($_POST["register1"])) {
         if(registrasiplg($_POST) > 0) {
             echo "<script>
@@ -30,12 +29,13 @@
 </head>
 <body>
     <h1>Buat Akun Baru</h1>
-    <form action="" method="post" enctype="multipart/form-data">
+    <a href="login_plg.php">Sudah punya Akun?</a>
+    <form action="register_plg.php" method="post" enctype="multipart/form-data">
         <ul>
-            <li>
+            <!-- <li>
                 <label for="nik">NIK :</label>
                 <input type="text" name="nik" id="nik" require>
-            </li>
+            </li> -->
             <li>
                 <label for="nama_plg">Nama :</label>
                 <input type="text" name="nama_plg" id="nama_plg"  require>
@@ -52,10 +52,10 @@
                 <label for="email_plg">Email :</label>
                 <input type="text" name="email_plg" id="email_plg"  require>
             </li>
-            <li>
+            <!-- <li>
                 <label for="ktp_plg">Foto KTP :</label>
                 <input type="file" name="ktp_plg" id="ktp_plg"  require> <p>ukuran gambar max 1 Mb, format harus jpg, jpeg, atau png.</p>
-            </li>
+            </li> -->
             <li>
                 <label for="foto_plg">Foto Profil :</label>
                 <input type="file" name="foto_plg" id="foto_plg"  require> <p>ukuran gambar max 1 Mb, format harus jpg, jpeg, atau png.</p>
