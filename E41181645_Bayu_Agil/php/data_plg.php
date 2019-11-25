@@ -32,7 +32,7 @@ if(isset($_POST["bt_cari"])) {
     <title>Data Pelanggan</title>
 </head>
 <body>
-    <a href="logout.php">Logout</a>
+    <a href="logout_adm.php">Logout</a>
     <h1>Data Pelanggan</h1>
 
     <form action="" method="post">
@@ -59,7 +59,7 @@ if(isset($_POST["bt_cari"])) {
             <th>FOTO PROFIL</th>
         </tr>
     <?php $i = 1;?>
-    <?php foreach($Pelanggan as $row) : ?>
+    <?php foreach($Data_plg as $row) : ?>
         <tr>    
             <td><?= $i; ?></td>
             <td>
@@ -72,7 +72,7 @@ if(isset($_POST["bt_cari"])) {
             <td><?= $row["NOHP_PELANGGAN"]; ?></td>
             <td><?= $row["EMAIL_PELANGGAN"]; ?></td>
             <td><img src="img/<?= $row["FOTO_KTP"]; ?>" alt="foto ktp" width="100"></td>
-            <td><img src="img/<?= $row["FOTO_KTP"]; ?>" alt="foto ktp" width="100"></td>
+            <td><img src="img/<?= $row["FOTO_PROFIL"]; ?>" alt="foto profil" width="100"></td>
         </tr>
     <?php $i++; ?>
     <?php endforeach; ?>

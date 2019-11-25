@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-    if(!isset($_SESSION["login"])) {
-        header("Location: login_plg.php");
-        exit;
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
