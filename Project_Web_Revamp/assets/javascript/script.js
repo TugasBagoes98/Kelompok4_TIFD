@@ -8,6 +8,7 @@ var emailUser = formRegister.emailUser;
 var passwordUser = formRegister.passwordUser;
 var confPassword = formRegister.confPasswordUser;
 var fotoProfilUser = formRegister.fotoProfilUser;
+var termsAgreement = formRegister.agreeTermsRegister;
 
 /* Parameter Validator */
 
@@ -203,3 +204,61 @@ confPassword.onblur = function()
     }
 
 };
+
+fotoProfilUser.onchange = function()
+{
+    var fileName = fotoProfilUser.value;
+    var allowedExt = new Array("jpg","png","jpeg");
+    var fileExt = fileName.split('.').pop();
+
+    if(allowedExt.includes(fileExt))
+    {
+        fotoProfilUser.classList.remove('is-invalid');
+        fotoProfilUser.classList.add('is-valid');
+    }else
+    {
+        fotoProfilUser.classList.remove('is-valid');
+        fotoProfilUser.classList.add('is-invalid');
+        document.getElementById('invalidFotoProfile').innerText = "Maaf format file tidak cocok, harap mengganti.";
+    }
+};
+
+formRegister.onchange = function()
+{
+
+}
+
+formRegister.addEventListener('submit', function(event){
+
+    if(termsAgreement.checked == false)
+    {
+        termsAgreement.classList.remove('is-valid');
+        termsAgreement.classList.add('is-invalid');
+        document.getElementById('invalidAgreement').innerText = "Mohon setujui syarat dan ketentuan kami.";
+        event.preventDefault();
+        event.stopPropagation();
+    }else
+    {
+        termsAgreement.classList.remove('is-invalid')
+        termsAgreement.classList.add('is-valid');
+
+
+        if(namaUser.classList.contains('is-invalid') || alamatUser.classList.contains('is-invalid') ||
+           notelpUser.classList.contains('is-invalid') || emailUser.classList.contains('is-invalid') ||
+           passwordUser.classList.contains('is-invalid') || confPassword.classList.contains('is-invalid')
+           || fotoProfilUser.classList.contains('is-invalid'))
+        {
+            $('#modalWarning').modal('show');
+            document.getElementById('modalWarningMessage').innerText = "Harap mengisi form dengan baik dan benar. Isilah form sesuai dengan petunjuk yang diberikan.";
+            event.preventDefault();
+            event.stopPropagation();
+        }else
+        {
+            return true;
+        }
+
+
+    }
+
+});
+

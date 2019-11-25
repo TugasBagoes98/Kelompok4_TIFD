@@ -57,6 +57,8 @@
                             <div class="from-group my-4">
                                 <label for="fotoProfilUser"> Foto Profil : </label>
                                 <input type="file" name="fotoProfilUser" id="fotoProfilUser" class="form-control-file">
+                                <div class="valid-feedback" id="validFotoProfile"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidFotoProfile"></div>
                                 <small id="fileHelper" class="form-text text-muted">
                                     Ukuran file tidak boleh melebihi 500kb dan harus bertipe .jpg .jpeg .png
                                 </small>
@@ -66,8 +68,10 @@
                     <div class="row mb-4">
                         <div class="col-12">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="agree-terms" id="agree-terms" class="custom-control-input">
-                                <label for="agree-terms" class="custom-control-label"> You agree with our <a href=""> Terms & Agreement </a> </label>
+                                <input type="checkbox" name="agreeTermsRegister" id="agreeTermsRegister" class="custom-control-input">
+                                <label for="agreeTermsRegister" class="custom-control-label"> You agree with our <a href=""> Terms & Agreement </a> </label>
+                                <div class="valid-feedback" id="validAgreement"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidAgreement"></div>
                             </div>
                         </div>
                     </div>
