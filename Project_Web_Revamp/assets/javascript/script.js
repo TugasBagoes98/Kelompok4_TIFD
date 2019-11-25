@@ -6,6 +6,7 @@ var alamatUser = formRegister.alamatUser;
 var notelpUser = formRegister.notelpUser;
 var emailUser = formRegister.emailUser;
 var passwordUser = formRegister.passwordUser;
+var confPassword = formRegister.confPasswordUser;
 var fotoProfilUser = formRegister.fotoProfilUser;
 
 /* Parameter Validator */
@@ -127,13 +128,62 @@ passwordUser.onblur = function()
     {
         passwordUser.classList.remove('is-valid');
         passwordUser.classList.add('is-invalid');
-
-    }else if(regexNumberAndLetter.test(passwordUser.value))
+        document.getElementById('invalidPassword').innerText = "Password User tidak boleh kosong.";
+    }else if(!regexNumberAndLetter.test(passwordUser.value))
     {
-        
+        passwordUser.classList.remove('is-valid');
+        passwordUser.classList.add('is-invalid');
+        document.getElementById('invalidPassword').innerText = "Password User hanya boleh berisi huruf dan angka.";
+    }else if(passwordUser.value.toLowerCase().match("kosong"))
+    {
+        passwordUser.classList.remove('is-valid');
+        passwordUser.classList.add('is-invalid');
+        document.getElementById('invalidPassword').innerText = "Password User tidak boleh kosong.";
     }else
     {
+        passwordUser.classList.remove('is-invalid');
+        passwordUser.classList.add('is-valid');
+    }
 
+};
+
+/* Confirm Password */
+
+confPassword.onfocus = function()
+{
+    if(isEmpty(passwordUser.value))
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Password kosong, harap isi terlebih dahulu.";
+    }else
+    {
+        confPassword.classList.remove('is-invalid');
+    }
+};
+
+confPassword.onblur = function()
+{
+
+    if(isEmpty(confPassword.value))
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Confirm password tidak boleh kosong.";
+    }else if(!regexNumberAndLetter.test(confPassword.value))
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Confirm password hanya boleh berisi huruf dan angka.";
+    }else if(confPassword.value !== passwordUser.value)
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Password tidak sesuai.";
+    }else
+    {
+        confPassword.classList.remove('is-invalid');
+        confPassword.classList.add('is-valid');
     }
 
 };

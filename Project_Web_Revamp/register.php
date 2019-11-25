@@ -36,12 +36,23 @@
                                 <div class="invalid-feedback" id="invalidEmail"></div>
                             </div>
                             <div class="form-group my-4">
-                                <label for="passwordUser"> Password : </label>
-                                <input type="password" name="passwordUser" id="passwordUser" class="form-control" placeholder="Enter your password ....">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="passwordUser"> Password : </label>
+                                        <input type="password" name="passwordUser" id="passwordUser" class="form-control" placeholder="Enter your password ....">
+                                        <div class="valid-feedback" id="validPassword"> Bagus! </div>
+                                        <div class="invalid-feedback" id="invalidPassword"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="confPasswordUser"> Confirm Password : </label>
+                                        <input type="password" name="confPasswordUser" id="confPasswordUser" class="form-control" placeholder="Enter your password ....">
+                                        <div class="valid-feedback" id="validConfirmPassword"> Bagus! </div>
+                                        <div class="invalid-feedback" id="invalidConfirmPassword"></div>
+                                    </div>
+                                </div>
                                 <small id="passwordHelper" class="form-text text-muted">
                                     Password harus lebih panjang dari 8 karakter dan tidak boleh melebihi 20 karakter.
                                 </small>
-                                <div class="valid-feedback" id="validPassword"> Bagus! </div>
                             </div>
                             <div class="from-group my-4">
                                 <label for="fotoProfilUser"> Foto Profil : </label>
@@ -49,6 +60,14 @@
                                 <small id="fileHelper" class="form-text text-muted">
                                     Ukuran file tidak boleh melebihi 500kb dan harus bertipe .jpg .jpeg .png
                                 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="agree-terms" id="agree-terms" class="custom-control-input">
+                                <label for="agree-terms" class="custom-control-label"> You agree with our <a href=""> Terms & Agreement </a> </label>
                             </div>
                         </div>
                     </div>
