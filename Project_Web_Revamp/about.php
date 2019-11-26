@@ -113,3 +113,7 @@
     <!-- Page Content End -->
 
 <?php require_once "assets/includes/footer.php";?>
+<?php require_once "assets/includes/footer_modal.php";?>
+<?php require_once "assets/includes/footer_javascript.php";?>
+<script src="assets/javascript/script_login_plg.js"></script>
+<?php require_once "assets/includes/footer_close.php"?>
