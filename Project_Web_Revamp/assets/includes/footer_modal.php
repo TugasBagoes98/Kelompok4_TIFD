@@ -54,7 +54,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="" id="formLupaPassword">
                         <div class="form-group">
                             <label for=""> Email : </label>
                             <div class="input-group">
