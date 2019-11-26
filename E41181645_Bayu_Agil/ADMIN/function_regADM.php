@@ -32,13 +32,12 @@
         {
             // insert data ke database
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',0,'".$tanggal."')";
-        
+            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',1,'".$tanggal."')";
+            
             $var = mysqli_query($conn, $insert_sql);
-
             if($var == true)
             {
-                header("Location: register.php?message=success");
+                header("Location: data_admin.php?message=success");
             }else
             {
                 header("Location: register.php?message=failed");

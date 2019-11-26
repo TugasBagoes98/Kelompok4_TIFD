@@ -22,8 +22,7 @@
 
 <body class="bg-gradient-primary">
 
-  <?php
-    // 
+  <?php 
     if(isset($_GET['upload']))
     {
       $upload = $_GET['upload'];
@@ -61,19 +60,18 @@
     {
       $message = $_GET['message'];
 
-      if($message === 'success')
+      if($message === 'failed')
       {
-        echo "<script>alert('User baru berhasil ditambahkan');</script>";
+        echo "<script>alert('Ada masalah saat melakukan register');</script>";;
       }else
       {
-        echo "<script>alert('Ada masalah saat melakukan register');</script>";
+        
       }
 
     }else
     {
       $message = '';
     }
-  
   ?>
 
   <div class="container">
@@ -118,7 +116,7 @@
                       <label for="fotoProfil" class="custom-file-label"> Pilih foto profil anda .... </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-user btn-block" name="register"> Register </button>
+                <button type="submit" class="btn btn-primary btn-user btn-block" name="register"> Daftar </button>
                 <!-- <hr> -->
                 <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -129,10 +127,7 @@
               </form>
               <!-- <hr> -->
               <div class="text-center">
-                <a class="small" href="forgot-password.php">Lupa Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.php">Sudah punya akun? Login!</a>
+                <a class="small" href="data_admin.php">Kembali ke Data Admin</a>
               </div>
             </div>
           </div>

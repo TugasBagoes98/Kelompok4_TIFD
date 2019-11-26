@@ -28,6 +28,25 @@
 </head>
 
 <body id="page-top">
+<?php
+      if(isset($_GET['message']))
+      {
+        $message = $_GET['message'];
+  
+        if($message === 'success')
+        {
+          echo "<script>alert('User baru berhasil ditambahkan');</script>";
+        }else
+        {
+          
+        }
+  
+      }else
+      {
+        $message = '';
+      }
+    
+?>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -353,8 +372,17 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
-            </div>
+          </div>
             <div class="card-body">
+              <span>
+                <div class="my-2"></div>
+                    <a href="register.php" class="btn btn-info btn-icon-split">
+                      <button class="btn btn-info btn-icon-split">
+                        <i class="text">+ Data Admin</i>
+                      </button>
+                    </a>
+                <div class="my-2"></div>
+              </span>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -367,6 +395,7 @@
                         <th>Foto Profil</th>
                         <th>Status</th>
                         <th>Tanggal Daftar</th>
+                        <th>Action</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -379,6 +408,7 @@
                         <th>Foto Profil</th>
                         <th>Status</th>
                         <th>Tanggal Daftar</th>
+                        <th>Action</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -393,6 +423,23 @@
                         <td><img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100"></td>
                         <td><?= $row["HAK_ASES_USER"]; ?></td>
                         <td><?= $row["TANGGAL_DAFTAR"]; ?></td>
+                        <td>
+                        <span>
+                            <div class="btn-group mt-4 mb-2">
+                            <a href="#" class="btn btn-info btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle">                                  
+                                <i class="fas fa-info-circle" style="color: white"></i>
+                              </button>  
+                            </a>
+                            &nbsp;
+                            <a href="hapus_ADM.php?id=<?=  $row['ID_USER']; ?>" onclick="return confirm('Anda yakin mau menghapus data ini ?')" class="btn btn-danger btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle" style="color: white">
+                                <i class="fas fa-trash"></i>
+                              </button>  
+                            </a>
+                            </div>
+                        </span>
+                        </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; ?>

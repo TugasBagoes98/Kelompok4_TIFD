@@ -37,21 +37,17 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-2">Lupa Password Anda?</h1>
-                    <p class="mb-4">Silahkan masukkan Alamat Email Anda, kami akan mengirimkan link untuk reset password ke email anda.</p>
+                    <h1 class="h4 text-gray-900 mb-2">Masukkan Password baru Anda!</h1>
                   </div>
-                  <form action="function_forgotpsw.php" class="user" method="post">
+                  <form action="function_resetpsw.php" class="user" method="POST">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan Alamat Email Anda..." name="email">
+                      <input type="password" class="form-control form-control-user" id="password" aria-describedby="emailHelp" placeholder="Masukkan Password Baru Anda..." name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block" name="reset">Reset Password</button>
+                    <div class="form-group">
+                      <input type=password class="form-control form-control-user" id="password" aria-describedby="emailHelp" placeholder="Masukkan Konfirmasi Password..." name="password2">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-user btn-block" name="update">Reset Password</button>
                   </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="register.php">Buat Akun Baru!</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="login.php">Sudah Punya Akun? Login!</a>
                   </div>
                 </div>
               </div>
