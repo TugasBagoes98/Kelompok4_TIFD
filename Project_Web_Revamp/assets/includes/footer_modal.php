@@ -54,13 +54,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="" id="formLupaPassword">
+                    <form method="post" action="assets/includes/forgot_pass.php" id="formLupaPassword">
                         <div class="form-group">
                             <label for=""> Email : </label>
                             <div class="input-group">
                                 <input type="email" name="lupaPasswordUser" id="lupaPasswordUser" class="form-control" placeholder="Enter your email ....">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-block btn-outline-primary"> Kirim </button>
+                                    <button type="submit" class="btn btn-block btn-outline-primary" name="lupaPassword"> Kirim </button>
                                 </div>
                             </div>
                         </div>
