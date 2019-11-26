@@ -26,7 +26,7 @@
                             <input type="checkbox" name="checkRememberMe" id="checkRememberMe" class="form-check-input">
                             <label for="checkRememberMe" class="form-check-label"> Remember Me </label>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                        <button type="submit" class="btn btn-primary btn-block" name="loginPelanggan"> Login </button>
                     </form>
                     <div class="row my-2">
                         <div class="col-lg-12">
