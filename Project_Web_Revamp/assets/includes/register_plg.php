@@ -61,6 +61,7 @@
             {
                 //Mengupload Gambar
                 move_uploaded_file($tmpName, '../images/user_images/'.$fileNameNew);
+                header("Location: ../../register.php?success");
             }else
             {
                 header("Location: ../../register.php?error=systemerro");
