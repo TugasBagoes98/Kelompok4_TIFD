@@ -89,4 +89,4 @@
 <?php require_once "assets/includes/footer_javascript.php"?>
 <script src="assets/javascript/script_register.js"></script>
 <script src="assets/javascript/script_login_plg.js"></script>
-<?php require_once "assets/invludes/footer_close.php"?>
+<?php require_once "assets/includes/footer_close.php"?>
