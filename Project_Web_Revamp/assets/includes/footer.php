@@ -15,7 +15,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="login_plg.php">
                         <div class="form-group">
                             <label for="usernameLogin" class="col-form-label"> Username : </label>
                             <input type="text" name="usernameLogin" id="usernameLogin" class="form-control" placeholder="Enter your username ...">
