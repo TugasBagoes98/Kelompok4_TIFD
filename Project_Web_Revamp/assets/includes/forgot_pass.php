@@ -2,8 +2,9 @@
 
     require_once "connection.php";
 
-    use PHPMAILER\PHPMAILER\PHPMAILER;
-    use PHPMAILER\PHPMAILER\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 
     require_once "../PHPMailer/src/Exception.php";
     require_once "../PHPMailer/src/PHPMailer.php";
@@ -34,9 +35,10 @@
                 {
 
                     //Setting Server
-                    $mailer->isSMTP();
-                    $mailer->Host         = gethostbyname('smtp.gmail.com');
-                    $mailer->SMTPAuth     = true;
+                    $mailer->isSMTP();  
+                    $mailer->Host         = 'smtp.gmail.com';
+                    $mailer->SMTPDebug    =  2;
+                    $mailer->SMTPAuth     =  true;
                     $mailer->Username     = 'tugasbagoes98@gmail.com';
                     $mailer->Password     = 'ihsan9877';
                     $mailer->SMTPSecure   = 'tls';
@@ -44,7 +46,7 @@
 
 
                     //Recipients atau Penerima
-                    $mailer->setFrom('rizquinalaptop@store.com','Mailer');
+                    $mailer->setFrom('rizquinalaptop@store.com','Rizquina Laptop');
                     $mailer->addAddress($emailUser);
                     $mailer->addReplyTo('no-reply@rizquinastore.com','No Reply');
 
