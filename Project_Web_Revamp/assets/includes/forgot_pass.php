@@ -22,7 +22,7 @@
         $result = mysqli_query($conn,$query_search);
 
         //Url
-        $url_reset_password = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/reset_password.php?token=".$tokenUser;
+        $url_reset_password = "http://".$_SERVER['HTTP_HOST']."/main/Git/Kelompok4_TIFD/Project_Web_Revamp/reset_pass.php?token=".$tokenUser;
 
         if(mysqli_num_rows($result) > 0)
         {
@@ -63,7 +63,8 @@
                     //Mengirim Email
                     $mail->send();
 
-                    echo "Anjir Mabar";
+                    //Redirect home
+                    header("Location: ../../index.php?resetpass=true");
 
                 }catch(Exception $e)
                 {
