@@ -1,7 +1,4 @@
 <?php
-
-    require_once "connection.php";
-
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -9,6 +6,8 @@
     require_once "../PHPMailer/src/Exception.php";
     require_once "../PHPMailer/src/PHPMailer.php";
     require_once "../PHPMailer/src/SMTP.php";
+
+    require_once "connection.php";
 
 
     if(isset($_POST['lupaPassword']))
@@ -22,51 +21,53 @@
         $query_search = "select * from user where email_user = '".$emailUser."'";
         $result = mysqli_query($conn,$query_search);
 
+        //Url
+        $url_reset_password = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/reset_password.php?token=".$tokenUser;
 
         if(mysqli_num_rows($result) > 0)
         {
 
             if(mysqli_query($conn, $query_update))
             {
-                //Membuat object mailer baru
-                $mailer = new PHPMailer(true);
+
+                //Inisiasi Mailer
+                $mail = new PHPMailer(true);
 
                 try
                 {
 
-                    //Setting Server
-                    $mailer->isSMTP();  
-                    $mailer->Host         = 'smtp.gmail.com';
-                    $mailer->SMTPDebug    =  2;
-                    $mailer->SMTPAuth     =  true;
-                    $mailer->Username     = 'tugasbagoes98@gmail.com';
-                    $mailer->Password     = 'ihsan9877';
-                    $mailer->SMTPSecure   = 'tls';
-                    $mailer->Port         =  587;
+                    //Konfigurasi Server
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = "tugasbagoes98@gmail.com";
+                    $mail->Password = "ihsan9877";
+                    $mail->SMTPSecure = "tls";
+                    $mail->Port = 587;
 
+                    //Penerima
+                    $mail->setFrom('tugasbagoes98@gmail.com','Admin');
+                    $mail->addAddress($emailUser, 'Pengguna');
+                    $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
 
-                    //Recipients atau Penerima
-                    $mailer->setFrom('rizquinalaptop@store.com','Rizquina Laptop');
-                    $mailer->addAddress($emailUser);
-                    $mailer->addReplyTo('no-reply@rizquinastore.com','No Reply');
-
-                    //Membuat Isi dari Email
-                    $url_reset_password = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/reset_pass.php?code=".$tokenUser;
-                    $mailer->isHTML(true);
-                    $mailer->Subject      = 'Link reset password anda!';
-                    $mailer->Body         = "<h1> Silahkan klik link dibawah ini untuk mereset password anda </h1>
-                                           <br>
-                                           <a href='".$url_reset_password."'> Klik Disini </a>";
-                    $mailer->AltBody      = "Non-HTML Mail Client";
+                    //Content
+                    $mail->isHTML(true);
+                    $mail->Subject = "Reset Password";
+                    $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
+                                   <p> Anda meminta sebuah link untuk reset password anda di website kami. </p>
+                                   <p> Apabila anda merasa tidak memintanya, harap abaikan email ini. </p>
+                                   <p> <a href='".$url_reset_password."'> Reset Password </a> </p>                    
+                                   ";
+                    $mail->AltBody = "Alternativ Load";
 
                     //Mengirim Email
-                    $mailer->send();
+                    $mail->send();
 
-                    //Redirect after reset password
-                    header("Location: ../../after_reset.php?success=true");
+                    echo "Anjir Mabar";
+
                 }catch(Exception $e)
                 {
-                    echo $mailer->ErrorInfo;
+                    echo $mail->ErrorInfo;
                 }
 
             }else
