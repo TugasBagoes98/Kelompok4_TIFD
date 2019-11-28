@@ -40,7 +40,7 @@
                     <h1 class="h4 text-gray-900 mb-2">Lupa Password Anda?</h1>
                     <p class="mb-4">Silahkan masukkan Alamat Email Anda, kami akan mengirimkan link untuk reset password ke email anda.</p>
                   </div>
-                  <form action="function_forgotpsw.php" class="user" method="post">
+                  <form action="function_forgotpswADM.php" class="user" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan Alamat Email Anda..." name="email">
                     </div>

@@ -1,3 +1,10 @@
+<?php
+  require_once 'connection.php';
+
+  $id  = $_GET['id']; 
+  $sql = mysqli_query($conn, "SELECT * FROM user WHERE ID_USER = '".$id."'"); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,58 +29,6 @@
 
 <body class="bg-gradient-primary">
 
-  <?php 
-    if(isset($_GET['upload']))
-    {
-      $upload = $_GET['upload'];
-
-      if($upload === 'nothing')
-      {
-        echo "<script>alert('Masukkan gambar terlebih dahulu');</script>";
-      } else 
-      {
-
-      }
-    } else
-    {
-      $upload = '';
-    }
-
-    if(isset($_GET['confirm']))
-    {
-      $confirm = $_GET['confirm'];
-
-      if($confirm === 'false')
-      {
-        echo "<script>alert('konfirmasi password tidak cocok');</script>";
-      } else
-      {
-
-      }
-    } else 
-    {
-      $confirm = '';
-    }
-
-
-    if(isset($_GET['message']))
-    {
-      $message = $_GET['message'];
-
-      if($message === 'failed')
-      {
-        echo "<script>alert('Ada masalah saat melakukan register');</script>";;
-      }else
-      {
-        
-      }
-
-    }else
-    {
-      $message = '';
-    }
-  ?>
-
   <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -84,46 +39,46 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Ubah Data!</h1>
               </div>
-              <form action="function_regADM.php" class="user" method="post" enctype="multipart/form-data">
+              <form action="" class="user" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Lengkap" name="nama">
+                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Lengkap" name="nama" value="<?= $sql["NAMA_USER"]; ?>">
                 </div>
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="inputGroupSelect01" name="jk">
+                  <select class="custom-select" id="inputGroupSelect01" name="jk" value="<?= $sql["JENIS_KELAMIN"]; ?>">
                     <option selected>Pilih jenis kelamin...</option>
                     <option value="1">Laki-laki</option>
                     <option value="2">Perempuan</option>
                   </select>
                 </div>
                 <div class="input-group mb-3">
-                  <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat"></textarea>
+                  <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat" value="<?= $sql["ALAMAT_USER"]; ?>"></textarea>
                 </div>
                 <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="NoHp" placeholder="No Handphone" name="nohp">
+                  <input type="text" class="form-control form-control-user" id="NoHp" placeholder="No Handphone" name="nohp" value="<?= $sql["NO_HP_USER"]; ?>">
                 </div>
                     <!-- <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
                   </div> -->
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Email" name="email">
+                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Email" name="email" value="<?= $sql["EMAIL_USER"]; ?>">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password" value="<?= $sql["PASSWORD_USER"]; ?>">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Konfirmasi Password" name="password2">
+                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Konfirmasi Password" name="password2" value="<?= $sql["PASSWORD_USER"]; ?>">
                   </div>
                 </div>
                 <div class=form-group>
                     <div class="custom-file">
-                      <input type="file" name="fotoProfil" id="fotoProfil" class="custom-file-input">
+                      <input type="file" name="fotoProfil" id="fotoProfil" class="custom-file-input" value=<img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100">>
                       <label for="fotoProfil" class="custom-file-label"> Pilih foto profil anda .... </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-user btn-block" name="register"> Daftar </button>
+                <button type="submit" class="btn btn-primary btn-user btn-block" name="ubah"> Ubah </button>
                 <!-- <hr> -->
                 <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -133,9 +88,6 @@
                 </a> -->
               </form>
               <!-- <hr> -->
-              <div class="text-center">
-                <a class="small" href="data_admin.php">Kembali ke Data Admin</a>
-              </div>
             </div>
           </div>
         </div>

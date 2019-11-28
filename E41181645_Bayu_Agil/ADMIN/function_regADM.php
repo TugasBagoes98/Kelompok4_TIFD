@@ -4,6 +4,7 @@
     if(isset($_POST['register']))
     {
         $nama       = htmlspecialchars($_POST["nama"]);
+        $jk         = htmlspecialchars($_POST["jk"]);
         $alamat     = htmlspecialchars($_POST["alamat"]);
         $nohp       = htmlspecialchars($_POST["nohp"]);
         $email      = htmlspecialchars(strtolower(stripslashes($_POST["email"])));
@@ -32,7 +33,7 @@
         {
             // insert data ke database
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',1,'".$tanggal."')";
+            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$jk."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',1,'".$tanggal."')";
             
             $var = mysqli_query($conn, $insert_sql);
             if($var == true)

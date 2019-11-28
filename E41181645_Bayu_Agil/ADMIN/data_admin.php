@@ -155,9 +155,9 @@
         </a>
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Master:</h6>
-            <a class="collapse-item" href="tables.php">Table 1</a>            
-            <a class="collapse-item" href="data_admin.php">Data Admin</a>
+            <h6 class="collapse-header">Data Master:</h6>           
+            <a class="collapse-item" href="data_admin.php">Data Admin</a>            
+            <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
         </div>
       </li>
 
@@ -387,46 +387,54 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Nama Admin</th>
-                        <th>Alamat</th>
-                        <th>No. HP</th>
-                        <th>Email</th>
-                        <th>Foto Profil</th>
-                        <th>Status</th>
-                        <th>Tanggal Daftar</th>
-                        <th>Action</th>
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Nama Admin</th>
+                        <th class="text-center">Jenis Kelamin</th>
+                        <th class="text-center">Alamat</th>
+                        <th class="text-center">No. HP</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Foto Profil</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Tanggal Daftar</th>
+                        <th class="text-center">Action</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                        <th>No.</th>
-                        <th>Nama Admin</th>
-                        <th>Alamat</th>
-                        <th>No. HP</th>
-                        <th>Email</th>
-                        <th>Foto Profil</th>
-                        <th>Status</th>
-                        <th>Tanggal Daftar</th>
-                        <th>Action</th>
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Nama Admin</th>
+                        <th class="text-center">Jenis Kelamin</th>
+                        <th class="text-center">Alamat</th>
+                        <th class="text-center">No. HP</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Foto Profil</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Tanggal Daftar</th>
+                        <th class="text-center">Action</th>
                     </tr>
                   </tfoot>
                   <tbody>
                     <?php $i = 1;?>
                     <?php foreach($Data_plg as $row) : ?>
-                    <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $row["NAMA_USER"]; ?></td>
-                        <td><?= $row["ALAMAT_USER"]; ?></td>
-                        <td><?= $row["NO_HP_USER"]; ?></td>
-                        <td><?= $row["EMAIL_USER"]; ?></td>
-                        <td><img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100"></td>
-                        <td><?= $row["HAK_ASES_USER"]; ?></td>
-                        <td><?= $row["TANGGAL_DAFTAR"]; ?></td>
-                        <td>
+                    <?php $hak_akses = $row["HAK_AKSES_USER"]; ?>
+                      <tr>
+                        <td class="text-center"><?= $i; ?></td>
+                        <td class="text-center"><?= $row["NAMA_USER"]; ?></td>
+                        <td class="text-center"><?= $row["JENIS_KELAMIN"]; ?></td>
+                        <td class="text-center"><?= $row["ALAMAT_USER"]; ?></td>
+                        <td class="text-center"><?= $row["NO_HP_USER"]; ?></td>
+                        <td class="text-center"><?= $row["EMAIL_USER"]; ?></td>
+                        <td class="text-center"><img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100"></td>
+                        <td class="text-center"><?php if($hak_akses == 0) {
+                          echo '<span class="badge badge-pill badge-danger px-2">Super Admin</span>';
+                        } else if($hak_akses == 1) {
+                          echo '<span class="badge badge-pill badge-success px-2">Admin</span>';
+                        }?></td>
+                        <td class="text-center"><?= $row["TANGGAL_DAFTAR"]; ?></td>
+                        <td class="text-center">
                         <span>
                             <div class="btn-group mt-4 mb-2">
-                            <a href="#" class="btn btn-info btn-circle btn-sm">
+                            <a href="ubah_dtaADM.php?id=<?= $row['ID_USER']; ?>" class="btn btn-info btn-circle btn-sm">
                               <button type="button" class="btn btn-circle">                                  
                                 <i class="fas fa-info-circle" style="color: white"></i>
                               </button>  

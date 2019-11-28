@@ -39,7 +39,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-2">Masukkan Password baru Anda!</h1>
                   </div>
-                  <form action="function_resetpsw.php" class="user" method="POST">
+                  <form action="function_resetpswADM.php" class="user" method="post">
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="password" aria-describedby="emailHelp" placeholder="Masukkan Password Baru Anda..." name="password">
                     </div>

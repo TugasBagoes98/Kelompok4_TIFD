@@ -1,12 +1,12 @@
 <?php
-require 'function_forgotpsw.php';
+require 'function_forgotpswADM.php';
 
     if(!isset($_GET["token"])) {
     exit("Gagal");
     }
     $token = $_GET["token"];
 
-    $getEmailQuery = mysqli_query($conn, "SELECT EMAIL_USER FROM user WHERE TOKEN_USER='$token'");
+    $getEmailQuery = mysqli_query($conn, "SELECT EMAIL_USER FROM reset WHERE token='$token'");
     if(mysqli_num_rows($getEmailQuery) == 0) {
     echo "<script>
             alert('email tidak cocok');
@@ -33,7 +33,7 @@ require 'function_forgotpsw.php';
         $query = mysqli_query($conn, "UPDATE user SET PASSWORD_USER = '$pswd' WHERE EMAIL_USER = '$email'");
 
         if($query) {
-            $query = mysqli_query($conn, "DELETE FROM user WHERE token = '$token'");
+            $query = mysqli_query($conn, "DELETE FROM reset WHERE token = '$token'");
             echo "<script>
                     alert('password berhasil diubah');
                 </script>";

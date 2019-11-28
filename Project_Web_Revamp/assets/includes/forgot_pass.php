@@ -29,44 +29,42 @@
             if(mysqli_query($conn, $query_update))
             {
                 //Membuat object mailer baru
-                $mailer = new PHPMailer(true);
+                $mail = new PHPMailer(true);
 
                 try
                 {
 
                     //Setting Server
-                    $mailer->isSMTP();  
-                    $mailer->Host         = 'smtp.gmail.com';
-                    $mailer->SMTPDebug    =  2;
-                    $mailer->SMTPAuth     =  true;
-                    $mailer->Username     = 'tugasbagoes98@gmail.com';
-                    $mailer->Password     = 'ihsan9877';
-                    $mailer->SMTPSecure   = 'tls';
-                    $mailer->Port         =  587;
-
-
-                    //Recipients atau Penerima
-                    $mailer->setFrom('rizquinalaptop@store.com','Rizquina Laptop');
-                    $mailer->addAddress($emailUser);
-                    $mailer->addReplyTo('no-reply@rizquinastore.com','No Reply');
-
+                    $mail->isSMTP();                                            // Send using SMTP 
+                    $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
+                    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                    $mail->Username   = 'bayuagil04@gmail.com';                 // SMTP username
+                    $mail->Password   = '@12Gantengg';                          // SMTP password
+                    $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+                    $mail->Port       = 465;                                    // TCP port to connect to
+            
+                    //Recipients
+                    $mail->setFrom('bayuagil04@gmail.com', 'Mailer');
+                    $mail->addAddress($emailUser);                                // Add a recipient
+                    $mail->addReplyTo('no-reply@gmail.com', 'No reply');
+                    
                     //Membuat Isi dari Email
                     $url_reset_password = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/reset_pass.php?code=".$tokenUser;
-                    $mailer->isHTML(true);
-                    $mailer->Subject      = 'Link reset password anda!';
-                    $mailer->Body         = "<h1> Silahkan klik link dibawah ini untuk mereset password anda </h1>
+                    $mail->isHTML(true);
+                    $mail->Subject      = 'Link reset password anda!';
+                    $mail->Body         = "<h1> Silahkan klik link dibawah ini untuk mereset password anda </h1>
                                            <br>
                                            <a href='".$url_reset_password."'> Klik Disini </a>";
-                    $mailer->AltBody      = "Non-HTML Mail Client";
+                    $mail->AltBody      = "Non-HTML Mail Client";
 
                     //Mengirim Email
-                    $mailer->send();
+                    $mail->send();
 
                     //Redirect after reset password
                     header("Location: ../../after_reset.php?success=true");
                 }catch(Exception $e)
                 {
-                    echo $mailer->ErrorInfo;
+                    echo $mail->ErrorInfo;
                 }
 
             }else

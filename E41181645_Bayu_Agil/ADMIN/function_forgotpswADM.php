@@ -13,7 +13,7 @@
         $emailTo = $_POST['email'];
     
         $token   = uniqid(true);
-        $query   = mysqli_query($conn, "INSERT INTO user (TOKEN_USER, EMAIL_USER) VALUES ('$token', '$emailTo')");
+        $query   = mysqli_query($conn, "INSERT INTO reset (TOKEN_USER, EMAIL_USER) VALUES ('$token', '$emailTo')");
         
         if(!$query) {
             exit("Error"); 
@@ -27,9 +27,9 @@
             $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'bayuagil04@gmail.com';                 // SMTP username
-            $mail->Password   = '@12Gantengg';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $mail->Port       = 587;                                    // TCP port to connect to
+            $mail->Password   = '@12Gantengg';                          // SMTP password
+            $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $mail->Port       = 465;                                    // TCP port to connect to
     
             //Recipients
             $mail->setFrom('bayuagil04@gmail.com', 'Mailer');
@@ -37,7 +37,7 @@
             $mail->addReplyTo('no-reply@gmail.com', 'No reply');
     
             // Content
-            $url                = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/reset_psw.php?token=$token";
+            $url                = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/reset_pswADM.php?token=$token";
             $mail->isHTML(true);                                        // Set email format to HTML
             $mail->Subject      = 'Link reset password anda!';
             $mail->Body         = "<h1>Silahkan klik link dibawah ini untuk mereset password anda</h1>
