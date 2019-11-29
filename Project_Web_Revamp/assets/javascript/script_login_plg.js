@@ -89,7 +89,3 @@ formLoginPelanggan.addEventListener('submit', function(event){
     }
 
 });
-
-//Reset password
-// var url_link_token = window.location.href.split('?').pop().split("=");
-// console.log(url_link_token);

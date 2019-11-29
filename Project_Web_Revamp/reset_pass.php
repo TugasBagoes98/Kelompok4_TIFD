@@ -9,13 +9,15 @@
                 <input type="hidden" name="tokenUser" value="<?php echo $_GET['token'];?>">
                 <div class="form-group">
                     <label for="resetPassword"> Masukkan Password Baru : </label>
-                    <input type="password" name="resetPassword" id="resetPassword" class="form-control">
+                    <input type="password" name="resetPassword" id="resetPassword" class="form-control" placeholder="Masukkan Password Baru ...">
                     <div class="valid-feedback" id="validResetPassword"> Bagus! </div>
                     <div class="invalid-feedback" id="invalidResetPassword"></div>
                 </div>
                 <div class="form-group">
                     <label for="confirmResetPassword"> Konfirmasi Password Baru : </label>
-                    <input type="password" name="confirmResetPassword" id="confirmResetPassword" class="form-control">
+                    <input type="password" name="confirmResetPassword" id="confirmResetPassword" class="form-control" placeholder="Konfirmasi Password Baru ...">
+                    <div class="valid-feedback" id="validConfResetPassword"> Bagus! </div>
+                    <div class="invalid-feedback" id="invalidConfResetPassword"></div>
                 </div>
                 <button type="submit" class="btn btn-block btn-outline-primary" name="resetPass"> Reset Password </button>
             </form>
@@ -28,4 +30,5 @@
 <?php require_once "assets/includes/footer_modal.php";?>
 <?php require_once "assets/includes/footer_javascript.php";?>
 <script src="assets/javascript/script_login_plg.js"></script>
+<script src="assets/javascript/script_reset_pass.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>
