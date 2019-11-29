@@ -157,6 +157,11 @@ confPassword.onfocus = function()
         confPassword.classList.remove('is-valid');
         confPassword.classList.add('is-invalid');
         document.getElementById('invalidConfirmPassword').innerText = "Password salah, harap diperbaiki terlebih dahulu.";
+    }else if(isEmpty(passwordUser.value))
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Password kosong, harap diisi terlebih dahulu.";
     }else
     {
         if(isEmpty(passwordUser.value))
@@ -179,6 +184,11 @@ confPassword.onblur = function()
         confPassword.classList.remove('is-valid');
         confPassword.classList.add('is-invalid');
         document.getElementById('invalidConfirmPassword').innerText = "Password salah, harap diperbaiki terlebih dahulu.";
+    }else if(isEmpty(passwordUser.value))
+    {
+        confPassword.classList.remove('is-valid');
+        confPassword.classList.add('is-invalid');
+        document.getElementById('invalidConfirmPassword').innerText = "Password kosong, harap diisi terlebih dahulu.";
     }else
     {
         if(isEmpty(confPassword.value))
@@ -247,6 +257,14 @@ formRegister.addEventListener('submit', function(event){
            notelpUser.classList.contains('is-invalid') || emailUser.classList.contains('is-invalid') ||
            passwordUser.classList.contains('is-invalid') || confPassword.classList.contains('is-invalid')
            || fotoProfilUser.classList.contains('is-invalid'))
+        {
+            $('#modalWarning').modal('show');
+            document.getElementById('modalWarningMessage').innerText = "Harap mengisi form dengan baik dan benar. Isilah form sesuai dengan petunjuk yang diberikan.";
+            event.preventDefault();
+            event.stopPropagation();
+        }else if(isEmpty(namaUser.value) || isEmpty(alamatUser.value) || isEmpty(notelpUser.value)
+                || isEmpty(emailUser.value) || isEmpty(passwordUser.value) || isEmpty(confPassword.value)
+                || isEmpty(fotoProfilUser.value))
         {
             $('#modalWarning').modal('show');
             document.getElementById('modalWarningMessage').innerText = "Harap mengisi form dengan baik dan benar. Isilah form sesuai dengan petunjuk yang diberikan.";

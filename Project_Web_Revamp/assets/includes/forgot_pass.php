@@ -1,7 +1,4 @@
 <?php
-
-    require_once "connection.php";
-
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -9,6 +6,8 @@
     require_once "../PHPMailer/src/Exception.php";
     require_once "../PHPMailer/src/PHPMailer.php";
     require_once "../PHPMailer/src/SMTP.php";
+
+    require_once "connection.php";
 
 
     if(isset($_POST['lupaPassword']))
@@ -22,46 +21,51 @@
         $query_search = "select * from user where email_user = '".$emailUser."'";
         $result = mysqli_query($conn,$query_search);
 
+        //Url
+        $url_reset_password = "http://".$_SERVER['HTTP_HOST']."/main/Git/Kelompok4_TIFD/Project_Web_Revamp/reset_pass.php?token=".$tokenUser;
 
         if(mysqli_num_rows($result) > 0)
         {
 
             if(mysqli_query($conn, $query_update))
             {
-                //Membuat object mailer baru
+
+                //Inisiasi Mailer
                 $mail = new PHPMailer(true);
 
                 try
                 {
 
-                    //Setting Server
-                    $mail->isSMTP();                                            // Send using SMTP 
-                    $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
-                    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                    $mail->Username   = 'bayuagil04@gmail.com';                 // SMTP username
-                    $mail->Password   = '@12Gantengg';                          // SMTP password
-                    $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-                    $mail->Port       = 465;                                    // TCP port to connect to
-            
-                    //Recipients
-                    $mail->setFrom('bayuagil04@gmail.com', 'Mailer');
-                    $mail->addAddress($emailUser);                                // Add a recipient
-                    $mail->addReplyTo('no-reply@gmail.com', 'No reply');
-                    
-                    //Membuat Isi dari Email
-                    $url_reset_password = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/reset_pass.php?code=".$tokenUser;
+                    //Konfigurasi Server
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = "tugasbagoes98@gmail.com";
+                    $mail->Password = "ihsan9877";
+                    $mail->SMTPSecure = "tls";
+                    $mail->Port = 587;
+
+                    //Penerima
+                    $mail->setFrom('tugasbagoes98@gmail.com','Admin');
+                    $mail->addAddress($emailUser, 'Pengguna');
+                    $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
+
+                    //Content
                     $mail->isHTML(true);
-                    $mail->Subject      = 'Link reset password anda!';
-                    $mail->Body         = "<h1> Silahkan klik link dibawah ini untuk mereset password anda </h1>
-                                           <br>
-                                           <a href='".$url_reset_password."'> Klik Disini </a>";
-                    $mail->AltBody      = "Non-HTML Mail Client";
+                    $mail->Subject = "Reset Password";
+                    $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
+                                   <p> Anda meminta sebuah link untuk reset password anda di website kami. </p>
+                                   <p> Apabila anda merasa tidak memintanya, harap abaikan email ini. </p>
+                                   <p> <a href='".$url_reset_password."'> Reset Password </a> </p>                    
+                                   ";
+                    $mail->AltBody = "Alternativ Load";
 
                     //Mengirim Email
                     $mail->send();
 
-                    //Redirect after reset password
-                    header("Location: ../../after_reset.php?success=true");
+                    //Redirect home
+                    header("Location: ../../index.php?resetpass=true");
+
                 }catch(Exception $e)
                 {
                     echo $mail->ErrorInfo;
