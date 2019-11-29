@@ -89,6 +89,11 @@ confPasswordReset.onblur = function()
             confPasswordReset.classList.remove('is-valid');
             confPasswordReset.classList.add('is-invalid');
             document.getElementById('invalidConfResetPassword').innerText = "Confirm password hanya boleh berisi huruf dan angka.";
+        }else if(confPasswordReset.value !== passwordReset.value)
+        {
+            confPasswordReset.classList.remove('is-valid');
+            confPasswordReset.classList.add('is-invalid');
+            document.getElementById('invalidConfResetPassword').innerText = "Password tidak sama.";
         }else
         {
             confPasswordReset.classList.remove('is-invalid');
