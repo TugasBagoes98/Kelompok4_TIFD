@@ -21,7 +21,7 @@
         $passwordUser = htmlspecialchars(strtolower(stripcslashes($_POST['passwordUser'])));
         $fileUser = $_FILES['fotoProfilUser'];
         $tokenUser = uniqid();
-        $url_aktivasi_akun = "http://".$_SERVER['HTTP_HOST']."/main/Git/Kelompok4_TIFD/Project_Web_Revamp/aktivasi_acc.php?token=".$tokenUser;
+        $url_aktivasi_akun = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/aktivasi_acc.php?token=".$tokenUser;
 
         //Query
         $sql_select = "select * from user where email_user = '".$emailUser."'";
