@@ -18,7 +18,7 @@
             //Menghapus token aktivasi
             if(mysqli_query($conn, $query_hapus_token))
             {
-                header("Location: ../../success_activate.php?success=true");
+                header("Location: ../../success_activate_acc.php?success=true");
             }else
             {
                 header("Location: ../../index.php?error=failedtoreset");
