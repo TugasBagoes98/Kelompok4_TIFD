@@ -1,5 +1,13 @@
 <?php
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require_once "../PHPMailer/src/Exception.php";
+    require_once "../PHPMailer/src/PHPMailer.php";
+    require_once "../PHPMailer/src/SMTP.php";
+
     require_once "connection.php";
 
     if(isset($_POST['registerUser']))
@@ -12,6 +20,8 @@
         $emailUser = htmlspecialchars(strtolower(stripcslashes($_POST['emailUser'])));
         $passwordUser = htmlspecialchars(strtolower(stripcslashes($_POST['passwordUser'])));
         $fileUser = $_FILES['fotoProfilUser'];
+        $tokenUser = uniqid();
+        $url_aktivasi_akun = "http://".$_SERVER['HTTP_HOST']."/main/Git/Kelompok4_TIFD/Project_Web_Revamp/aktivasi_acc.php?token=".$tokenUser;
 
         //Query
         $sql_select = "select * from user where email_user = '".$emailUser."'";
@@ -55,16 +65,59 @@
         {
             //Menginsert kedalam database
             $sql_insert = "insert into user values('','".$namaUser."','".$alamatUser."','".$notelpUser."',
-            '".$emailUser."','".$passwordEncrypt."','".$fileNameNew."','',0,'".date("Y-m-d")."')";
+            '".$emailUser."','".$passwordEncrypt."','".$fileNameNew."','".$tokenUser."',0,'".date("Y-m-d")."',0)";
             
             if(mysqli_query($conn, $sql_insert))
             {
-                //Mengupload Gambar
-                move_uploaded_file($tmpName, '../images/user_images/'.$fileNameNew);
-                header("Location: ../../register.php?success");
+
+                $mail = new PHPMailer(true);
+
+                try
+                {
+
+                    //Konfigurasi Server
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = "tugasbagoes98@gmail.com";
+                    $mail->Password = "ihsan9877";
+                    $mail->SMTPSecure = "tls";
+                    $mail->Port = 587;
+
+                    //Penerima
+                    $mail->setFrom('tugasbagoes98@gmail.com','Admin');
+                    $mail->addAddress($emailUser, 'Pengguna');
+                    $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
+
+                    //Content
+                    $mail->isHTML(true);
+                    $mail->Subject = "Aktivasi Akun";
+                    $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
+                                   <p> Anda telah mendaftar kedalam website kami. </p>
+                                   <p> Apabila anda merasa tidak melakukannya, harap abaikan email ini. </p>
+                                   <p> <a href='".$url_aktivasi_akun."'> Aktivasi Akun </a> </p>                    
+                                   ";
+                    $mail->AltBody = "Alternative";
+
+                    //Mengirim Email
+                    if($mail->send())
+                    {
+                        //Mengupload Gambar
+                        move_uploaded_file($tmpName, '../images/user_images/'.$fileNameNew);
+                        header("Location: ../../register.php?success=true");
+                    }else
+                    {
+                        header("Location: ../../register.php?error=failedtoregister");
+                    }
+
+                }catch(Exception $e)
+                {
+                    echo $mail->ErrorInfo;
+                }
+                
             }else
             {
-                header("Location: ../../register.php?error=systemerro");
+                header("Location: ../../register.php?error=systemerror");
             }
 
         }
