@@ -1,4 +1,5 @@
 <?php require_once "assets/includes/header.php";?>
+<?php $_SESSION['current_page'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."";?>
 
     <!-- Header Start -->
     <header class="py-5 px-5 header-about mb-4">
@@ -116,4 +117,5 @@
 <?php require_once "assets/includes/footer_modal.php";?>
 <?php require_once "assets/includes/footer_javascript.php";?>
 <script src="assets/javascript/script_login_plg.js"></script>
+<script src="assets/javascript/script_error_catch.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>

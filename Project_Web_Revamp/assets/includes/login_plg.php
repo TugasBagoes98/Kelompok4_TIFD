@@ -6,6 +6,8 @@
 
     if(isset($_POST['loginPelanggan']))
     {
+        //Mengetahui halaman saat ini
+        $curPage = $_SESSION['current_page'];
 
         //Menyimpan data dalam variabel
         $emailPelanggan = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['emailLogin']));
@@ -27,7 +29,7 @@
                 {
                     if($row['STATUS_AKTIVASI'] == 0)
                     {
-                        header("Location: ../../index.php?activestatus=false");
+                        header("Location: ".$curPage."?activestatus=false");
                     }else
                     {
                         //Memberikan status login berhasil
@@ -45,28 +47,28 @@
                             setcookie('logEmailPelanggan', $row['EMAIL_USER'], time() + 60);
                         }
 
-                        header("Location: ../../index.php?login=success");
+                        header("Location: ".$curPage."?login=success");
                     }
 
                 }else
                 {
-                    header("Location: ../../index.php?wrongpassword=true");
+                    header("Location: ".$curPage."?wrongpassword=true");
                 }
 
             }else
             {
-                header("Location: ../../index.php?usernotfound=true");
+                header("Location: ".$curPage."?usernotfound=true");
             }   
 
         }else
         {
-            header("Location: ../../index.php?error=system");
+            header("Location: ".$curPage."?errorlogin=system");
         }
 
 
     }else
     {
-        header("Location: ../../index.php?error=access");
+        header("Location: ".$curPage."?error=access");
     }
 
 ?>

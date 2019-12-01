@@ -56,7 +56,24 @@ function checkError(value)
     }
 
 
-
+    //Login
+    if(value.includes("wrongpassword","true"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Password yang anda masukkan salah, silahkan coba lagi.";
+    }else if(value.includes("usernotfound","true"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "User tidak ditemukan, harap periksa kembali email dan password anda.";
+    }else if(value.includes("errorlogin","system"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Terjadi sebuah kesalahan, harap coba beberapa saat lagi.";
+    }else if(value.includes("activestatus","false"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Akun anda belum teraktivasi, harap periksa email anda untuk aktivasi akun.";
+    }
 
 
 }

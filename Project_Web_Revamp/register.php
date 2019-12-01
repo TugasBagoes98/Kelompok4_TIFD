@@ -1,4 +1,5 @@
 <?php require_once "assets/includes/header.php";?>
+<?php $_SESSION['current_page'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."";?>
 
     <!-- Container Start -->
     <div class="container">
