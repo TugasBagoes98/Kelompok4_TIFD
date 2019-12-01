@@ -10,6 +10,8 @@
 
     require_once "connection.php";
 
+    session_start();
+
     if(isset($_POST['registerUser']))
     {
 
@@ -22,6 +24,13 @@
         $fileUser = $_FILES['fotoProfilUser'];
         $tokenUser = uniqid();
         $url_aktivasi_akun = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/aktivasi_acc.php?token=".$tokenUser;
+
+        //Simpan Session untuk mengisi ulang form jika user gagal mendaftar
+        $_SESSION['namaUserRegister'] = $namaUser;
+        $_SESSION['alamatUserRegister'] = $alamatUser;
+        $_SESSION['notelpUserRegister'] = $notelpUser;
+        $_SESSION['emailUserRegister'] = $emailUser;
+        $_SESSION['passwordUserRegister'] = $passwordUser;
 
         //Query
         $sql_select = "select * from user where email_user = '".$emailUser."'";
@@ -42,30 +51,35 @@
         {
             case 1 :
                 header("Location: ../../register.php?error=fileexceed");
+                exit();
             break;
 
             case 2 :
                 header("Location: ../../register.php?error=filemaxexceed");
+                exit();
             break;
 
             case 3 :
                 header("Location: ../../register.php?error=partialupload");
+                exit();
             break;
 
             case 4 :
                 header("Location: ../../register.php?error=nofile");
+                exit();
             break;
 
             case 6 :
                 header("Location: ../../register.php?error=notempdir");
+                exit();
             break;
 
             case 7 :
                 header("Location: ../../register.php?error=failedtowrite");
+                exit();
             break;
 
             default:
-                header("Location: ../../register.php?unknown=true");
             break;
         };
 
@@ -89,62 +103,70 @@
             header("Location: ../../register.php?error=usernameexist");
         }else
         {
-            // //Menginsert kedalam database
-            // $sql_insert = "insert into user values('','".$namaUser."','".$alamatUser."','".$notelpUser."',
-            // '".$emailUser."','".$passwordEncrypt."','".$fileNameNew."','".$tokenUser."',0,'".date("Y-m-d")."',0)";
+            //Menginsert kedalam database
+            $sql_insert = "insert into user values('','".$namaUser."','".$alamatUser."','".$notelpUser."',
+            '".$emailUser."','".$passwordEncrypt."','".$fileNameNew."','".$tokenUser."',0,'".date("Y-m-d")."',0)";
             
-            // if(mysqli_query($conn, $sql_insert))
-            // {
+            //Mengosongkan session jika user berhasil mendaftar
+            $_SESSION['namaUserRegister'] = "";
+            $_SESSION['alamatUserRegister'] = "";
+            $_SESSION['notelpUserRegister'] = "";
+            $_SESSION['emailUserRegister'] = "";
+            $_SESSION['passwordUserRegister'] = "";
 
-            //     $mail = new PHPMailer(true);
 
-            //     try
-            //     {
+            if(mysqli_query($conn, $sql_insert))
+            {
 
-            //         //Konfigurasi Server
-            //         $mail->isSMTP();
-            //         $mail->Host = "smtp.gmail.com";
-            //         $mail->SMTPAuth = true;
-            //         $mail->Username = "tugasbagoes98@gmail.com";
-            //         $mail->Password = "ihsan9877";
-            //         $mail->SMTPSecure = "tls";
-            //         $mail->Port = 587;
+                $mail = new PHPMailer(true);
 
-            //         //Penerima
-            //         $mail->setFrom('tugasbagoes98@gmail.com','Admin');
-            //         $mail->addAddress($emailUser, 'Pengguna');
-            //         $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
+                try
+                {
 
-            //         //Content
-            //         $mail->isHTML(true);
-            //         $mail->Subject = "Aktivasi Akun";
-            //         $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
-            //                        <p> Anda telah mendaftar kedalam website kami. </p>
-            //                        <p> Apabila anda merasa tidak melakukannya, harap abaikan email ini. </p>
-            //                        <p> <a href='".$url_aktivasi_akun."'> Aktivasi Akun </a> </p>                    
-            //                        ";
-            //         $mail->AltBody = "Alternative";
+                    //Konfigurasi Server
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = "tugasbagoes98@gmail.com";
+                    $mail->Password = "ihsan9877";
+                    $mail->SMTPSecure = "tls";
+                    $mail->Port = 587;
 
-            //         //Mengirim Email
-            //         if($mail->send())
-            //         {
-            //             //Mengupload Gambar
-            //             move_uploaded_file($tmpName, '../images/user_images/'.$fileNameNew);
-            //             header("Location: ../../register.php?success=true");
-            //         }else
-            //         {
-            //             header("Location: ../../register.php?error=failedtoregister");
-            //         }
+                    //Penerima
+                    $mail->setFrom('tugasbagoes98@gmail.com','Admin');
+                    $mail->addAddress($emailUser, 'Pengguna');
+                    $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
 
-            //     }catch(Exception $e)
-            //     {
-            //         echo $mail->ErrorInfo;
-            //     }
+                    //Content
+                    $mail->isHTML(true);
+                    $mail->Subject = "Aktivasi Akun";
+                    $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
+                                   <p> Anda telah mendaftar kedalam website kami. </p>
+                                   <p> Apabila anda merasa tidak melakukannya, harap abaikan email ini. </p>
+                                   <p> <a href='".$url_aktivasi_akun."'> Aktivasi Akun </a> </p>                    
+                                   ";
+                    $mail->AltBody = "Alternative";
+
+                    //Mengirim Email
+                    if($mail->send())
+                    {
+                        //Mengupload Gambar
+                        move_uploaded_file($tmpName, '../images/user_images/'.$fileNameNew);
+                        header("Location: ../../register.php?successregister=true");
+                    }else
+                    {
+                        header("Location: ../../register.php?error=failedtoregister");
+                    }
+
+                }catch(Exception $e)
+                {
+                    echo $mail->ErrorInfo;
+                }
                 
-            // }else
-            // {
-            //     header("Location: ../../register.php?error=systemerror");
-            // }
+            }else
+            {
+                header("Location: ../../register.php?error=systemerror");
+            }
 
         }
 

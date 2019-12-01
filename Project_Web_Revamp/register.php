@@ -11,19 +11,19 @@
                         <div class="col-lg-6">
                             <div class="form-group my-4">
                                 <label for="namaUser"> Nama : </label>
-                                <input type="text" name="namaUser" id="namaUser" class="form-control" placeholder="Enter your name ....">
+                                <input type="text" name="namaUser" id="namaUser" class="form-control" placeholder="Enter your name ...." value="<?php if(isset($_SESSION['namaUserRegister'])){echo $_SESSION['namaUserRegister'];}?>">
                                 <div class="valid-feedback" id="validName"> Bagus! </div>
                                 <div class="invalid-feedback" id="invalidName"></div>
                             </div>
                             <div class="form-group my-4">
                                 <label for="alamatUser"> Alamat : </label>
-                                <textarea name="alamatUser" id="alamatUser" class="form-control w-100" placeholder="Enter your address ...."></textarea>
+                                <textarea name="alamatUser" id="alamatUser" class="form-control w-100" placeholder="Enter your address ...."><?php if(isset($_SESSION['alamatUserRegister'])){echo $_SESSION['alamatUserRegister'];}?></textarea>
                                 <div class="valid-feedback" id="validAddress"> Bagus! </div>
                                 <div class="invalid-feedback" id="invalidAddress"></div>
                             </div>
                             <div class="form-group my-4">
                                 <label for="notelpUser"> No. Handphone : </label>
-                                <input type="text" name="notelpUser" id="notelpUser" class="form-control" placeholder="Enter your phone number ....">
+                                <input type="text" name="notelpUser" id="notelpUser" class="form-control" placeholder="Enter your phone number ...." value="<?php if(isset($_SESSION['notelpUserRegister'])) echo $_SESSION['notelpUserRegister'];?>">
                                 <div class="valid-feedback" id="validPhoneNum"> Bagus! </div>
                                 <div class="invalid-feedback" id="invalidPhoneNum"></div>
                             </div>
@@ -31,7 +31,7 @@
                         <div class="col-lg-6">
                             <div class="form-group my-4">
                                 <label for="emailUser"> Email : </label>
-                                <input type="email" name="emailUser" id="emailUser" class="form-control" placeholder="Enter your email ...." >
+                                <input type="email" name="emailUser" id="emailUser" class="form-control" placeholder="Enter your email ...." value="<?php if(isset($_SESSION['emailUserRegister'])) echo $_SESSION['emailUserRegister'];?>">
                                 <div class="valid-feedback" id="validEmail"> Bagus! </div>
                                 <div class="invalid-feedback" id="invalidEmail"></div>
                             </div>
@@ -83,10 +83,10 @@
     </div>
     <!-- Container End -->
 
-
 <?php require_once "assets/includes/footer.php";?>
 <?php require_once "assets/includes/footer_modal.php"?>
 <?php require_once "assets/includes/footer_javascript.php"?>
 <script src="assets/javascript/script_register.js"></script>
 <script src="assets/javascript/script_login_plg.js"></script>
+<script src="assets/javascript/script_error_catch.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>

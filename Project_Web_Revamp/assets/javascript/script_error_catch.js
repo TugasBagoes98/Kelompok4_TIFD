@@ -1,5 +1,7 @@
 var link = window.location.href.split("?").pop().split("=");
 
+checkError(link);
+
 function checkError(value)
 {
 
