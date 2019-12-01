@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <a href="blog.php" id="linkHeaderBlog" class="nav-link"> Blog </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="" id="linkHeaderCatalog" class="nav-link"> Catalog </a>
+                    </li>
                     <hr class="bg-light d-block d-md-none w-100">
                     <?php
                     
