@@ -34,9 +34,28 @@ function checkError(value)
     {
         $('#modalWarning').modal('show');
         document.getElementById('modalWarningMessage').innerText = "Terjadi sebuah kesalahan, harap coba beberapa saat lagi.";
+    }else if(value.includes("error","fileoverload"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Ukuran file melebihi kapasitas maksimum, harap periksa file anda.";
     }
 
-    
+    //Register Error
+    if(value.includes("error","usernameexist"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Email tersebut sudah terdaftar, mohon gunakan email lainnya.";
+    }else if(value.includes("error","failedtoregister"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Terjadi sebuah kesalahan dalam mendaftarkan akun, silahkan coba beberapa saat lagi.";
+    }else if(value.includes("error","systemerror"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Terjadi sebuah kesalahan di server, silahkan coba beberapa saat lagi.";
+    }
+
+
 
 
 
