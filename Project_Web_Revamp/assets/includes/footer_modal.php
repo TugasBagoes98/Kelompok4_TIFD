@@ -91,7 +91,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="lead" id="modalWarningMessage"></p>
+                    <p class="lead text-justify" id="modalWarningMessage"></p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-info" type="button"data-dismiss="modal"> Ya, Saya mengerti </button>
