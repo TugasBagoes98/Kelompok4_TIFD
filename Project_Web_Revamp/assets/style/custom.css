@@ -20,6 +20,14 @@ body
     background-size: cover;
 }
 
+.carousel-background-medium-one
+{
+    height: 60vh;
+    min-height: 300px;
+    background: url(../images/slider_medium_001.jpg) no-repeat center center scroll;
+    background-size: cover;
+}
+
 .carousel-background-two
 {
     height: 75vh;
@@ -28,11 +36,27 @@ body
     background-size: cover;
 }
 
+.carousel-background-medium-two
+{
+    height: 60vh;
+    min-height: 300px;
+    background: url(../images/slider_medium_002.jpg) no-repeat center center scroll;
+    background-size: cover;
+}
+
 .carousel-background-three
 {
     height: 75vh;
     min-height: 300px;
     background: url(../images/slider-003.jpg) no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-background-medium-three
+{
+    height: 60vh;
+    min-height: 300px;
+    background: url(../images/slider_medium_003.jpg) no-repeat center center scroll;
     background-size: cover;
 }
 
