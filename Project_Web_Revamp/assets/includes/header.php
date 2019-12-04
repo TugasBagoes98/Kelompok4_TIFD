@@ -53,7 +53,7 @@
                             echo "<li class='nav-item active dropdown'>";
                                 echo "<a href='#' class='nav-link text-decoration-none dropdown-toggle' id='dropdownMenuPelanggan' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Selamat Datang, ".$_SESSION['NAMA_USER']." </a>";
                                 echo "<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuPelanggan'>";
-                                    echo "<a class='dropdown-item' href='#'> Dashboard </a>";
+                                    echo "<a class='dropdown-item' href='dashboard_plg.php'> Dashboard </a>";
                                     echo "<a class='dropdown-item' href='#'> Keranjang </a>";
                                     echo "<hr>";
                                     echo "<a class='dropdown-item' href='assets/includes/logout_plg.php'> Logout </a>";

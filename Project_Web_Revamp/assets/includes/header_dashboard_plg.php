@@ -1,10 +1,17 @@
 <?php
 
+    require_once "assets/includes/connection.php";
+
     session_start();
 
-    if(isset($_SESSION['']))
+    if(isset($_SESSION['ID_USER']))
     {
+        $id = $_SESSION['ID_USER'];
+        $get_user = "select * from user where id_user = ".$id."";
 
+    }else
+    {
+        header("Location: index.php?accessdenied=true");
     }
 
 ?>
@@ -29,13 +36,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapsePlg">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" id="linkHeaderProfileUser">
                         <a href="" class="nav-link"> Profile </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="linkHeaderProfileKeranjang">
                         <a href="" class="nav-link"> Keranjang </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="linkHeaderProfileHistori">
                         <a href="" class="nav-link"> Histori </a>
                     </li>
                     <li class="nav-item">
