@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/style/bootstrap.css">
     <link rel="stylesheet" href="assets/style/custom.css">
 </head>
-<body>
+<body class="bg-light">
     
     <!-- Bismillah -->
     <!-- Sinau Elene Dungane -->

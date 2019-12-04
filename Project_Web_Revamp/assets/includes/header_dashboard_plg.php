@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+    if(isset($_SESSION['']))
+    {
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +19,7 @@
     <link rel="stylesheet" href="assets/style/bootstrap.css">
     <link rel="stylesheet" href="assets/style/custom.css"></title>
 </head>
-<body>
+<body class="bg-light">
     
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">

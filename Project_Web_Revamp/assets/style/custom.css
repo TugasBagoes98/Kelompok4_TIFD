@@ -74,3 +74,9 @@ body
     background: url(../images/header_image.jpg) no-repeat center center scroll;
     background-size: cover;
 }
+
+/* Image */
+.image-object-fit
+{
+    object-fit: cover;
+}
