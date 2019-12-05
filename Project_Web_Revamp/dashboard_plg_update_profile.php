@@ -32,33 +32,33 @@
                 <form method="post" id="formProfileUserDashboard">
                     <div class="form-group">
                         <label for="namaUserProfile" class="font-weight-bold"> Nama User  </label>
-                        <input type="text" name="namaUserProfile" id="namaUserProfile" class="form-control" value="<?php echo $fetch['NAMA_USER'];?>" placeholder="Enter your name ...." disabled>
+                        <input type="text" name="namaUserProfile" id="namaUserProfile" class="form-control" value="<?php echo $fetch['NAMA_USER'];?>" placeholder="Enter your name ...." >
                     </div>
                     <div class="form-group">
                         <label for="alamatUserProfile" class="font-weight-bold"> Alamat User </label>
-                        <textarea name="alamatUserProfile" id="alamatUserProfile" class="form-control" disabled><?php echo $fetch['ALAMAT_USER'];?></textarea>
+                        <textarea name="alamatUserProfile" id="alamatUserProfile" class="form-control" ><?php echo $fetch['ALAMAT_USER'];?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="notelpUserProfile" class="font-weight-bold"> No. Handphone </label>
-                        <input type="text" name="notelpUserProfile" id="notelpUserProfile" class="form-control" value="<?php echo $fetch['NO_HP_USER'];?>" placeholder="Enter your phone number...." disabled>
+                        <input type="text" name="notelpUserProfile" id="notelpUserProfile" class="form-control" value="<?php echo $fetch['NO_HP_USER'];?>" placeholder="Enter your phone number...." >
                     </div>
                     <div class="form-group">
                         <label for="emailUserProfile" class="font-weight-bold"> Email User </label>
-                        <input type="text" name="emailUserProfile" id="emailUserProfile" class="form-control" value="<?php echo $fetch['EMAIL_USER'];?>" placeholder="Enter your email...." disabled>
+                        <input type="text" name="emailUserProfile" id="emailUserProfile" class="form-control" value="<?php echo $fetch['EMAIL_USER'];?>" placeholder="Enter your email...." >
                     </div>
                     <div class="form-group">
                         <label for="tanggalDaftarUser" class="font-weight-bold"> Tanggal Terdaftar </label>
-                        <input type="text" name="tanggalDaftarUser" id="tanggalDaftarUser" class="form-control" value="<?php echo $fetch['TANGGAL_DAFTAR'];?>" placeholder="Enter your date here..." disabled>
+                        <input type="text" name="tanggalDaftarUser" id="tanggalDaftarUser" class="form-control" value="<?php echo $fetch['TANGGAL_DAFTAR'];?>" placeholder="Enter your date here..." >
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-auto col-sm-6">
+                            <button class="btn btn-block mb-4 btn-primary" name="saveUpdateProfile"> Simpan Perubahan </button>
+                        </div>
+                        <div class="col-lg-auto col-sm-6">
+                            <button class="btn btn-block mb-4 btn-outline-secondary" name="cancelUpdateProfile"> Batal Merubah </button>
+                        </div>
                     </div>
                 </form>
-                <div class="row">
-                    <div class="col-lg-auto col-sm-6">
-                        <a href="dashboard_plg_update_profile.php" class="btn btn-block mb-4 btn-primary"> Ubah Profil </a>
-                    </div>
-                    <div class="col-lg-auto col-sm-6">
-                        <a href="dashboard_plg_update_password.php" class="btn btn-block mb-4 btn-outline-secondary"> Ubah Password </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
