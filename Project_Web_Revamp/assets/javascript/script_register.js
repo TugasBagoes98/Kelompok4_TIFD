@@ -9,7 +9,13 @@ registerActive();
 
 function registerActive()
 {
-    link_register.classList.add('active');
+    if(link_register == null)
+    {
+        link_register = null;
+    }else
+    {
+        link_register.classList.add('active');
+    }
     link_home.classList.remove('active');
     link_about.classList.remove('active');
     link_blog.classList.remove('active');
@@ -48,6 +54,17 @@ function isEmpty(value)
     }
 }
 
+function isOnlySpace(value)
+{
+    if(value === ' ')
+    {
+        return true;
+    }else
+    {
+        return false;
+    }
+}
+
 /* Validasi Register */
 
 /* Nama User */
@@ -63,6 +80,11 @@ namaUser.onblur = function()
         namaUser.classList.remove('is-valid')
         namaUser.classList.add('is-invalid');
         document.getElementById('invalidName').innerText = "Nama User hanya boleh berisi huruf saja.";
+    }else if(isOnlySpace(namaUser.value))
+    {
+        namaUser.classList.remove('is-valid');
+        namaUser.classList.add('is-invalid');
+        document.getElementById('invalidName').innerText = "Nama user tidak boleh hanya berisi spasi.";
     }else
     {
         namaUser.classList.remove('is-invalid');
@@ -84,6 +106,11 @@ alamatUser.onblur = function()
         alamatUser.classList.remove('is-valid');
         alamatUser.classList.add('is-invalid');
         document.getElementById('invalidAddress').innerText = "Alamat User hanya boleh berisi huruf dan angka.";
+    }else if(isOnlySpace(alamatUser.value))
+    {
+        alamatUser.classList.remove('is-valid');
+        alamatUser.classList.add('is-invalid');
+        document.getElementById('invalidAddress').innerText = "Alamat User tidak boleh hanya berisi spasi.";
     }else
     {
         alamatUser.classList.remove('is-invalid');
@@ -107,6 +134,11 @@ notelpUser.onblur = function()
         notelpUser.classList.remove('is-valid');
         notelpUser.classList.add('is-invalid');
         document.getElementById('invalidPhoneNum').innerText = "No. Telp hanya boleh berisi angka.";
+    }else if(isOnlySpace(notelpUser.value))
+    {
+        notelpUser.classList.remove('is-valid');
+        notelpUser.classList.add('is-invalid');
+        document.getElementById('invalidPhoneNum').innerText = "No. Telp tidak boleh hanya berisi spasi.";
     }else
     {
         notelpUser.classList.remove('is-invalid');
@@ -130,6 +162,11 @@ emailUser.onblur = function()
         emailUser.classList.remove('is-valid');
         emailUser.classList.add('is-invalid');
         document.getElementById('invalidEmail').innerText = "Email User tidak valid.";
+    }else if(isOnlySpace(emailUser.value))
+    {
+        emailUser.classList.remove('is-valid');
+        emailUser.classList.add('is-invalid');
+        document.getElementById('invalidEmail').innerText = "Email User tidak boleh hanya berisi spasi.";
     }else
     {
         emailUser.classList.remove('is-invalid');
@@ -158,6 +195,11 @@ passwordUser.onblur = function()
         passwordUser.classList.remove('is-valid');
         passwordUser.classList.add('is-invalid');
         document.getElementById('invalidPassword').innerText = "Password User tidak boleh kosong.";
+    }else if(isOnlySpace(passwordUser.value))
+    {
+        passwordUser.classList.remove('is-valid');
+        passwordUser.classList.add('is-invalid');
+        document.getElementById('invalidPassword').innerText = "Password User tidak boleh hanya berisi spasi.";
     }else
     {
         passwordUser.classList.remove('is-invalid');
@@ -224,6 +266,11 @@ confPassword.onblur = function()
             confPassword.classList.remove('is-valid');
             confPassword.classList.add('is-invalid');
             document.getElementById('invalidConfirmPassword').innerText = "Password tidak sesuai.";
+        }else if(isOnlySpace(confPassword.value))
+        {
+            confPassword.classList.remove('is-valid');
+            confPassword.classList.add('is-invalid');
+            document.getElementById('invalidConfirmPassword').innerText = "Confirm password tidak boleh hanya berisi spasi.";
         }else
         {
             confPassword.classList.remove('is-invalid');
@@ -250,11 +297,6 @@ fotoProfilUser.onchange = function()
         document.getElementById('invalidFotoProfile').innerText = "Maaf format file tidak cocok, harap mengganti.";
     }
 };
-
-formRegister.onchange = function()
-{
-
-}
 
 formRegister.addEventListener('submit', function(event){
 
@@ -292,8 +334,6 @@ formRegister.addEventListener('submit', function(event){
         {
             return true;
         }
-
-
     }
 
 });

@@ -50,9 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label for="emailUserProfile" class="font-weight-bold"> Email User </label>
-                        <input type="text" name="emailUserProfile" id="emailUserProfile" class="form-control" value="<?php echo $fetch['EMAIL_USER'];?>" placeholder="Enter your email...." >
-                        <div class="valid-feedback" id="validUpdateEmail">Bagus!</div>
-                        <div class="invalid-feedback" id="invalidUpdateEmail"></div>
+                        <input type="text" name="emailUserProfile" id="emailUserProfile" class="form-control" value="<?php echo $fetch['EMAIL_USER'];?>" placeholder="Enter your email...." disabled>
                     </div>
                     <div class="form-group">
                         <label for="tanggalDaftarUser" class="font-weight-bold"> Tanggal Terdaftar </label>
