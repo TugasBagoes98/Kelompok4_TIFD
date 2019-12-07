@@ -2,7 +2,8 @@
   require_once 'connection.php';
 
   $id  = $_GET['id']; 
-  $sql = mysqli_query($conn, "SELECT * FROM user WHERE ID_USER = '".$id."'"); 
+  $sql = mysqli_query($conn, "SELECT * FROM user WHERE ID_USER = '".$id."'");
+  while($row = mysqli_fetch_assoc($sql)) {
 ?>
 
 <!DOCTYPE html>
@@ -41,44 +42,63 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Ubah Data!</h1>
               </div>
-              <form action="" class="user" method="post" enctype="multipart/form-data">
+              <form action="edit_admin.php" class="user" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Lengkap" name="nama" value="<?= $sql["NAMA_USER"]; ?>">
+                  <input type="text" class="form-control form-control-user" id="ID" name="id" value="<?= $row['ID_USER'];?>" hidden>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Lengkap" name="nama" value="<?= $row["NAMA_USER"]; ?>">
                 </div>
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="inputGroupSelect01" name="jk" value="<?= $sql["JENIS_KELAMIN"]; ?>">
-                    <option selected>Pilih jenis kelamin...</option>
+                  <select class="custom-select" id="inputGroupSelect01" name="jk">
+                    <option selected value="<?= $row['JENIS_KELAMIN']; ?>"><?= $row["JENIS_KELAMIN"]; ?></option>
                     <option value="1">Laki-laki</option>
                     <option value="2">Perempuan</option>
                   </select>
                 </div>
                 <div class="input-group mb-3">
-                  <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat" value="<?= $sql["ALAMAT_USER"]; ?>"></textarea>
+                  <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat"><?= $row["ALAMAT_USER"]; ?></textarea>
                 </div>
                 <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="NoHp" placeholder="No Handphone" name="nohp" value="<?= $sql["NO_HP_USER"]; ?>">
+                  <input type="text" class="form-control form-control-user" id="NoHp" placeholder="No Handphone" name="nohp" value="<?= $row["NO_HP_USER"]; ?>">
                 </div>
                     <!-- <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
                   </div> -->
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Email" name="email" value="<?= $sql["EMAIL_USER"]; ?>">
+                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Email" name="email" value="<?= $row["EMAIL_USER"]; ?>">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password" value="<?= $sql["PASSWORD_USER"]; ?>">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Konfirmasi Password" name="password2" value="<?= $sql["PASSWORD_USER"]; ?>">
-                  </div>
-                </div>
+                <?php $foto = $row["FOTO_PROFIL_USER"]; ?>
                 <div class=form-group>
                     <div class="custom-file">
-                      <input type="file" name="fotoProfil" id="fotoProfil" class="custom-file-input" value=<img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100">>
-                      <label for="fotoProfil" class="custom-file-label"> Pilih foto profil anda .... </label>
+                      <input type="file" name="foto" id="foto" value="<?= $foto; ?>" class="custom-file-input">
+                      <label for="fotoProfil" class="custom-file-label"></label>
+                      <input type="checkbox" aria-label="Checkbox for following text input" name="ubah"> Silahkan Ceklist jika ingin mengubah foto
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-user btn-block" name="ubah"> Ubah </button>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="token" readonly hidden value="<?= $row['TOKEN_USER']; ?>">
+                </div>
+                <?php if($row["HAK_AKSES_USER"] == 0){
+                  $hakakses = "Super Admin";
+                } elseif($row["HAK_AKSES_USER"] == 1){
+                  $hakakses = "Admin";
+                }?>
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="inputGroupSelect01" name="hak">
+                    <option selected value="<?= $row["HAK_AKSES_USER"]; ?>"><?= $hakakses; ?></option>
+                    <option value="0">Super Admin</option>
+                    <option value="1">Admin</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="tanggal" readonly hidden value="<?= $row['TANGGAL_DAFTAR']; ?>">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="aktivasi" readonly hidden value="<?= $row['STATUS_AKTIVASI']; ?>">
+                </div>
+                <button type="submit" class="btn btn-primary btn-user btn-block" name="edit"> Ubah </button>
+                <a href="data_admin.php" class="btn btn-primary btn-user btn-block" name="batal">Batal</a>
                 <!-- <hr> -->
                 <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -87,6 +107,7 @@
                   <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                 </a> -->
               </form>
+  <?php } ?>
               <!-- <hr> -->
             </div>
           </div>

@@ -1,6 +1,10 @@
 <?php
   session_start();
   require 'connection.php';
+
+  if(!isset($_SESSION["login"])){
+    header("Location: index.php?status=notlogin");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -14,41 +18,39 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin RIZQUINA - Dashboard</title>
+  <title>Admin RIZQUINA - Table Master</title>
 
-  <!-- Custom fonts for this template-->
+  <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
 <?php
-  if(isset($_GET['status'])){
-    $status = $_GET['status'];
-
-      if($status === 'true')
+      if(isset($_GET['message']))
       {
-        echo "<script>alert('Selamat Datang!');</script>";
-      }elseif($status === 'notlogin')
+        $message = $_GET['message'];
+  
+        if($message === 'success')
+        {
+          echo "<script>alert('Postingan baru berhasil ditambahkan');</script>";
+        }else
+        {
+          
+        }
+  
+      }else
       {
-        echo "<script>alert('Silahkan Login Terlebih Dahulu!');</script>";
+        $message = '';
       }
-      elseif($status === 'login')
-      {
-        echo "<script>alert('Silahkan Logout Terlebih Dahulu!')</script>";
-      }
-      else 
-      {
-        echo "";
-      }
-  } else {
-    echo "";
-  }
+    
 ?>
 
   <!-- Page Wrapper -->
@@ -69,7 +71,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -122,7 +124,7 @@
       <div class="sidebar-heading">
         Addons
       </div>
-
+      
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
@@ -131,8 +133,8 @@
         </a>
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Master:</h6>           
-            <a class="collapse-item" href="data_admin.php">Data Admin</a>            
+            <h6 class="collapse-header">Data Master:</h6>          
+            <a class="collapse-item" href="data_admin.php">Data Admin</a>
             <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
@@ -305,9 +307,9 @@
             </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-            
-            <!-- Nav Item - User Information -->
-            <?php if(!isset($_SESSION["login"])) { ?>
+
+          <!-- Nav Item - User Information -->
+          <?php if(!isset($_SESSION["login"])) { ?>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
@@ -346,8 +348,6 @@
             </li>
             <?php } ?>
 
-
-
           </ul>
 
         </nav>
@@ -355,25 +355,96 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <?php if(!isset($_SESSION["login"])) { ?>
-          <!-- Page Heading -->
-          <div>
-            <h1 class="text-gray-800 text-center">Anda Belum Login!</h1>
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Data Postingan  </h6>
           </div>
-          <?php } else { ?>
-          <!-- Page Heading -->
-          <div>
-            <h1 class="text-gray-800 text-center">Selamat Datang <?= $_SESSION["NAMA_USER"]; ?></h1>
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+            <div class="card-body">
+            <span>
+                <div class="my-2"></div>
+                    <a href="tambah_posting.php" class="btn btn-success btn-icon-split">
+                      <button class="btn btn-success btn-icon-split">
+                        <i class="text"><b>+ Data Posting</b></i>
+                      </button>
+                    </a>
+                <div class="my-2"></div>
+              </span>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Admin Pemosting</th>
+                        <th class="text-center">Judul Posting</th>
+                        <th class="text-center">Gambar Posting</th>
+                        <th class="text-center">Isi Posting</th>
+                        <th class="text-center">Tanggal Posting</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Admin Pemosting</th>
+                        <th class="text-center">Judul Posting</th>
+                        <th class="text-center">Gambar Posting</th>
+                        <th class="text-center">Isi Posting</th>
+                        <th class="text-center">Tanggal Posting</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <?php $i = 1;?>
+                    <?php 
+                      $sql = mysqli_query($conn, "SELECT * FROM user INNER JOIN posting ON user.ID_USER=posting.ID_USER");
+                      while($row = mysqli_fetch_assoc($sql)) {                      
+                    ?>
+                    <tr>
+                        <td class="text-center"><?= $i; ?></td>
+                        <td class="text-center"><?= $row["NAMA_USER"]; ?></td>
+                        <td class="text-center"><?= $row["JUDUL_POSTING"]; ?></td>
+                        <td class="text-center"><img src="img/<?= $row["FOTO_POSTING"]; ?>" alt="foto posting" width="100"></td>
+                        <td class="text-center"><?= $row["ISI_POSTING"]; ?></td>
+                        <td class="text-center"><?= $row["TANGGAL_POSTING"]; ?></td>
+                        <td class="text-center">
+                        <span>
+                          <div class="btn-group mt-4 mb-2">
+                            <a href="ubah_dtaPOS.php?id=<?= $row['ID_POSTING']; ?>" class="btn btn-info btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle">                                  
+                                <i class="fas fa-info-circle" style="color: white"></i>
+                              </button>  
+                            </a>
+                            &nbsp;
+                            <a href="hapus_POS.php?id=<?=  $row['ID_POSTING']; ?>" onclick="return confirm('Anda yakin mau menghapus data ini ?')" class="btn btn-danger btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle" style="color: white">
+                                <i class="fas fa-trash"></i>
+                              </button>  
+                            </a>
+                          </div>
+                        </span>
+                        </td>
+                    </tr>
+                    <?php $i++; ?>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <?php } ?>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; RIZQUINA Laptop 2019</span>
           </div>
         </div>
       </footer>
@@ -395,12 +466,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Apakah anda ingin logout?</div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="logout.php">Logout</a>
@@ -420,11 +491,11 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

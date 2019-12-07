@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Register</title>
+  <title>RIZQUINA Admin - Tambah Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,46 +84,50 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Tambah Produk!</h1>
               </div>
-              <form action="function_regADM.php" class="user" method="post" enctype="multipart/form-data">
+              <form action="function_tbhADM.php" class="user" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Lengkap" name="nama">
+                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Laptop" name="nama">
                 </div>
-                <div class="input-group mb-3">
+                <div class=form-group>
+                    <div class="custom-file">
+                      <input type="file" name="fotoProfil" id="fotoProfil" class="custom-file-input">
+                      <label for="fotoProfil" class="custom-file-label"> Pilih Gambar Laptop .... </label>
+                    </div>
+                </div>
+                <div class="form-group">    
+                  <input type="text" class="form-control form-control-user" id="processor" placeholder="Processor" name="processor">
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="ram" placeholder="RAM" name="ram">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" id="harddisk" placeholder="Harddisk" name="harddisk">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="vga" placeholder="VGA" name="vga">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="layar" placeholder="Ukuran Layar" name="layar">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="sound" placeholder="Sound Card" name="sound">
+                </div>
+                <!-- <div class="input-group mb-3">
                   <select class="custom-select" id="inputGroupSelect01" name="jk">
                     <option selected>Pilih jenis kelamin...</option>
                     <option value="1">Laki-laki</option>
                     <option value="2">Perempuan</option>
                   </select>
-                </div>
-                <div class="input-group mb-3">
+                </div> -->
+                <!-- <div class="input-group mb-3">
                   <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat"></textarea>
-                </div>
-                <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="NoHp" placeholder="No Handphone" name="nohp">
-                </div>
-                    <!-- <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
-                  </div> -->
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Alamat Email" name="email">
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Konfirmasi Password" name="password2">
-                  </div>
-                </div>
-                <div class=form-group>
-                    <div class="custom-file">
-                      <input type="file" name="fotoProfil" id="fotoProfil" class="custom-file-input">
-                      <label for="fotoProfil" class="custom-file-label"> Pilih foto profil anda .... </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-user btn-block" name="register"> Daftar </button>
+                </div> -->
+                <button type="submit" class="btn btn-primary btn-user btn-block" name="simpan"> Simpan </button>
+                <a href="data_produk.php" class="btn btn-primary btn-user btn-block" name="batal"> Batal </a>
                 <!-- <hr> -->
                 <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -133,9 +137,6 @@
                 </a> -->
               </form>
               <!-- <hr> -->
-              <div class="text-center">
-                <a class="small" href="data_admin.php">Kembali ke Data Admin</a>
-              </div>
             </div>
           </div>
         </div>

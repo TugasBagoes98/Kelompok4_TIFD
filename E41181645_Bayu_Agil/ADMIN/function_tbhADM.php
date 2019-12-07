@@ -28,12 +28,12 @@
             
         // Cek konfirmasi password
         if($password !== $password2) {
-            header("Location: register.php?confirm=false");   
+            header("Location: tambah_admin.php?confirm=false");   
         } else 
         {
             // insert data ke database
             $password = password_hash($password, PASSWORD_BCRYPT);
-            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$jk."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',1,'".$tanggal."')";
+            $insert_sql = "INSERT INTO user VALUES('','".$nama."','".$jk."','".$alamat."','".$nohp."','".$email."', '".$password."','".$fotoProfil."','',1,'".$tanggal."','')";
             
             $var = mysqli_query($conn, $insert_sql);
             if($var == true)
@@ -41,12 +41,12 @@
                 header("Location: data_admin.php?message=success");
             }else
             {
-                header("Location: register.php?message=failed");
+                header("Location: tambah_admin.php?message=failed");
             }
         }        
     } else 
     {
-        header("Location: register.php");
+        header("Location: tambah_admin.php");
     }
     
     // function upload foto profil admin
@@ -58,10 +58,10 @@
     
         // cek apakah tidak ada gambar yang di upload
         if($error === 4){
-            header("Location: register.php?upload=nothing");
+            header("Location: tambah_admin.php?upload=nothing");
         } else
         {
-            header("Location: register.php?upload=right");
+            header("Location: tambah_admin.php?upload=right");
         }
     
         // cek apakah itu upload gambar atau bukan

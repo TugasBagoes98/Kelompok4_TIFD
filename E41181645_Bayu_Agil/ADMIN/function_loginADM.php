@@ -11,7 +11,7 @@ if(isset($_POST['login'])) {
     if($cek == 1) {
         $row = mysqli_fetch_assoc($result);
         if(password_verify($password, $row['PASSWORD_USER'])){
-            header("Location: index.php?status=true");
+            header("Location: index.php?status=true&&name=<?= $row['NAMA_USER']; ?>");
         } else
         {
             header("Location: login.php?status=false");

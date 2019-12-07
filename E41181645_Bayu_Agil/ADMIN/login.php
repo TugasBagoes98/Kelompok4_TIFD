@@ -1,3 +1,11 @@
+<?php 
+  session_start();
+  require 'connection.php';
+
+  if(isset($_SESSION["login"])){
+    header("Location: index.php?status=login");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,12 +32,12 @@
   {
     $status = $_GET['status'];
 
-    if($status === 'true')
-    {
-      echo "<script>alert('Selamat Datang!')</script>";
-    } else 
+    if($status === 'false')
     {
       echo "<script>alert('Username/Password Salah!')</script>";
+    } else 
+    {
+      echo "";
     }
   } else
   {
@@ -56,7 +64,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                   </div>
-                  <form class="user" action="function_loginADM.php" method="post">
+                  <form class="user" action="sessionLogin.php" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan Alamat Email..." name="email">
                     </div>
