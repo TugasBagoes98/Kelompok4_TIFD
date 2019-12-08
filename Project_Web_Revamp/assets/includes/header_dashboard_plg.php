@@ -46,7 +46,7 @@
                         <a href="" class="nav-link"> Histori </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link"> Sign Out </a>
+                        <a href="assets/includes/logout_plg.php" class="nav-link"> Sign Out </a>
                     </li>
                 </ul>
             </div>
