@@ -37,7 +37,11 @@
                         print_r($row);
                         $_SESSION['ID_USER'] = $row['ID_USER'];
                         $_SESSION['NAMA_USER'] = $row['NAMA_USER'];
+                        $_SESSION['ALAMAT_USER'] = $row['ALAMAT_USER'];
+                        $_SESSION['NO_HP_USER'] = $row['NO_HP_USER'];
+                        $_SESSION['TANGGAL_DAFTAR'] = $row['TANGGAL_DAFTAR'];
                         $_SESSION['EMAIL_USER'] = $row['EMAIL_USER'];
+                        $_SESSION['FOTO_PROFIL_USER']= $row['FOTO_PROFIL_USER'];
                         $_SESSION['HAK_AKSES_USER'] = $row['HAK_AKSES_USER'];
 
                         //Apabila ingat saya atau remember me dicentang

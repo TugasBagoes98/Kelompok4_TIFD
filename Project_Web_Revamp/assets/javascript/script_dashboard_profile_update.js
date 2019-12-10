@@ -48,9 +48,6 @@ var formUpdate = document.forms.formProfileUpdateUser;
 var namaUser = formUpdate.namaUserProfile;
 var alamatUser = formUpdate.alamatUserProfile;
 var notelpUser = formUpdate.notelpUserProfile;
-var emailUser = formUpdate.emailUserProfile;
-
-var oldEmail = emailUser.value;
 
 namaUser.onblur = function()
 {
@@ -107,7 +104,7 @@ notelpUser.onblur = function()
         notelpUser.classList.remove('is-valid');
         notelpUser.classList.add('is-invalid');
         document.getElementById('invalidUpdateNotelp').innerText = "Nomor Telepon pengguna tidak boleh kosong.";
-    }else if(regexOnlyNumber.test(notelpUser.value))
+    }else if(!regexOnlyNumber.test(notelpUser.value))
     {
         notelpUser.classList.remove('is-valid');
         notelpUser.classList.add('is-invalid');
@@ -124,27 +121,24 @@ notelpUser.onblur = function()
     }
 }
 
-emailUser.onblur = function()
-{
-    if(isEmpty(emailUser.value))
+formUpdate.addEventListener('submit', function(event){
+
+    if(isEmpty(namaUser.value) || isEmpty(alamatUser.value) || isEmpty(notelpUser.value))
     {
-        emailUser.classList.remove('is-valid');
-        emailUser.classList.add('is-invalid');
-        document.getElementById('invalidUpdateEmail').innerText = "Email pengguna tidak boleh kosong.";
-    }else if(regexEmail.test(emailUser.value))
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Mohon mengisi semua form yang disediakan terlebih dahulu.";
+        event.preventDefault();
+        event.stopPropagation();
+    }else if(namaUser.classList.contains('is-invalid') || alamatUser.classList.contains('is-invalid')
+            || notelpUser.classList.contains('is-invalid'))
     {
-        emailUser.classList.remove('is-valid');
-        emailUser.classList.add('is-invalid');
-        document.getElementById('invalidUpdateEmail').innerText = "Email pengguna invalid atau tidak sesuai, harap periksa kembali.";
-    }else if(isOnlySpace(emailUser.value))
-    {
-        emailUser.classList.remove('is-valid');
-        emailUser.classList.add('is-invalid');
-        document.getElementById('invalidUpdateEmail').innerText = "Email pengguna tidak boleh hanya berisi spasi.";
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Mohon mengisi semua form yang disediakan dengan benar.";
+        event.preventDefault();
+        event.stopPropagation();
     }else
     {
-        emailUser.classList.remove('is-invalid');
-        emailUser.classList.add('is-valid');
+        return true;
     }
-}
 
+});
