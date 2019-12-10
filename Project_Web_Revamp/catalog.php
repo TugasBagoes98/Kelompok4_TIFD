@@ -1,5 +1,57 @@
-<?php require_once "assets/includes/header.php"?>
+<?php 
+    require_once "assets/includes/header.php";
+    
 
+    //Pagination
+    //Mengetahui apakah terdapat halaman atau tidak
+    if(isset($_GET['halaman']))
+    {
+        $halaman = $_GET['halaman'];
+    }else
+    {
+        $halaman = 1;
+    }
+
+    //Menentukan batas data yang tampil dalam 1 halaman
+    $batas = 6;
+
+    //Menentukan dari data ke berapa mulai ditampilkan
+    $batas_mulai = ($halaman - 1) * $batas;
+
+    //Mengambil data laptop dari database
+    //Mengambil data laptop dari database dan dibatas
+    $query_select_limit = "select laptop.ID_LAPTOP, laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR,
+    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
+    det_laptop.LAMA_GARANSI from laptop inner join det_laptop on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP LIMIT ".$batas_mulai.",".$batas;
+
+    //Mengambil semua data laptop dari database
+    $query_select_total = "select laptop.ID_LAPTOP, laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR,
+    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
+    det_laptop.LAMA_GARANSI from laptop inner join det_laptop on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP";
+
+    //Menjalankan query total
+    $do_total_query = mysqli_query($conn,$query_select_total);
+
+    //Menentukan jumlah halaman
+    $total_halaman = ceil(mysqli_num_rows($do_total_query) / $batas);
+
+    //Menjalankan query
+    if($do_query = mysqli_query($conn,$query_select_limit))
+    {
+        
+    }else
+    {
+        // header("Location: index.php?systemerror=true");
+    }
+
+    //Format Rupiah
+    function rupiah($value)
+    {
+        $hasil = "Rp. ".number_format($value,2,',','.');
+        return $hasil;
+    }
+
+?>
 
 
     <div class="container">
@@ -43,180 +95,49 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
+                    <?php
+                    
+                        while($row = mysqli_fetch_assoc($do_query))
+                        {
+                            ?>
+                            <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
+                                <div class="card h-100">
+                                    <a href="">
+                                        <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
+                                    </a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href=""><?php echo $row['NAMA_LAPTOP'];?></a>
+                                        </h4>
+                                        <h5> <?php echo rupiah($row['HARGA_JUAL']);?> </h5>
                                     </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"> Processor : <?php echo $row['PROCESSOR'];?> </li>
+                                        <li class="list-group-item"> RAM : <?php echo $row['RAM'];?> </li>
+                                        <li class="list-group-item"> VGA Card : <?php echo $row['VGA'];?> </li>
+                                    </ul>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-sm-12 my-2">
+                                                <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6 col-sm-12">
+                                                <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-16 mb-4">
-                        <div class="card h-100">
-                            <a href="">
-                                <img src="assets/images/laptop_img.jpg" alt="card-img" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href=""> ASUS X455L </a>
-                                </h4>
-                                <h5> Rp. 5.999.999,00 </h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Processor : Core i3 </li>
-                                <li class="list-group-item"> RAM : 4GB DDR3 </li>
-                                <li class="list-group-item"> VGA Card : NVidia GTX 1080 ti </li>
-                            </ul>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                        <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12">
-                                        <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                    
+                    ?>
                 </div>
             </div>
         </div>
         <div class="row my-2">
             <ul class="pagination my-2 col-lg-12 justify-content-center">
-                <li class="page-item">
+                <!-- <li class="page-item">
                     <a href="#" class="page-link" aria-label="previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -230,7 +151,70 @@
                     <a href="#" class="page-link" aria-label="next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
-                </li>
+                </li> -->
+                <?php
+                
+                        if($halaman >= 1)
+                        {
+                            ?>
+                                <li class="page-item disabled">
+                                    <a href="#" class="page-link" aria-label="previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            <?php
+                            if($halaman >= 1 && $halaman <= $total_halaman)
+                            {
+                                for($i = 1; $i <= $total_halaman; $i++)
+                                {
+                                    if($i == $_GET['halaman'])
+                                    {
+                                        ?><li class="page-item active"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
+                                    }else
+                                    {
+                                        ?><li class="page-item"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
+                                    }
+                                }
+                            }
+                            ?>
+                                <li class="page-item">
+                                    <a href="?halaman=<?php echo $halaman+1;?>" class="page-link" aria-label="next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            <?php
+                        }else if($halaman >=1 && $halaman < $total_halaman)
+                        {
+                            ?>
+                                <li class="page-item">
+                                    <a href="?halaman=<?php echo $halaman - 1;?>" class="page-link" aria-label="previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            <?php
+                            if($halaman >= 1 && $halaman <= $total_halaman)
+                            {
+                                for($i = 1; $i <= $total_halaman; $i++)
+                                {
+                                    if($i == $_GET['halaman'])
+                                    {
+                                        ?><li class="page-item active"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
+                                    }else
+                                    {
+                                        ?><li class="page-item"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
+                                    }
+                                }
+                            }
+                            ?>
+                                <li class="page-item disabled">
+                                    <a href="?halaman=<?php echo $halaman+1;?>" class="page-link" aria-label="next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            <?php
+                        }
+                
+                ?>
             </ul>
         </div>
     </div>
