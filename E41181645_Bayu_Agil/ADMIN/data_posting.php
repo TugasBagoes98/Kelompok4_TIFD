@@ -362,15 +362,12 @@
               <h6 class="m-0 font-weight-bold text-primary">Data Postingan  </h6>
           </div>
             <div class="card-body">
-            <span>
-                <div class="my-2"></div>
-                    <a href="tambah_posting.php" class="btn btn-success btn-icon-split">
-                      <button class="btn btn-success btn-icon-split">
-                        <i class="text"><b>+ Data Posting</b></i>
-                      </button>
-                    </a>
-                <div class="my-2"></div>
-              </span>
+            
+            <a href="tambah_posting.php" class="btn btn-success btn-icon-split">
+              <span class="text"><b>+ DATA POSTING</b></span>
+            </a>
+            <div class="my-2"></div>
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>

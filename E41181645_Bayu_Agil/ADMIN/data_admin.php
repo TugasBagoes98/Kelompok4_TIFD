@@ -326,7 +326,7 @@
               <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION["NAMA_USER"]; ?></span>
-                <img class="img-profile rounded-circle" src="<?= $_SESSION["FOTO_PROFIL_USER"]; ?>">
+                <img class="img-profile rounded-circle" src="img/<?= $_SESSION["FOTO_PROFIL_USER"]; ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -365,15 +365,14 @@
               <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
           </div>
             <div class="card-body">
-              <span>
-                <div class="my-2"></div>
-                    <a href="tambah_admin.php" class="btn btn-success btn-icon-split">
-                      <button class="btn btn-success btn-icon-split">
-                        <i class="text"><b>+ Data Admin</b></i>
-                      </button>
-                    </a>
-                <div class="my-2"></div>
-              </span>
+            <?php if($_SESSION['HAK_AKSES_USER'] == 0) { ?>
+              <a href="tambah_admin.php" class="btn btn-success btn-icon-split">
+                <span class="text"><b>+ DATA ADMIN</b></span>
+              </a>
+              <div class="my-2"></div>
+            <?php } elseif($_SESSION['HAK_AKSES_USER'] == 1) { ?>
+            
+            <?php } ?>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -387,7 +386,11 @@
                         <th class="text-center">Foto Profil</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Tanggal Daftar</th>
+                        <?php if($_SESSION['NAMA_USER'] == "Andreanto" || $_SESSION['NAMA_USER'] == "Bayu Agil Prananda") { ?>
                         <th class="text-center">Action</th>
+                        <?php } else { ?>
+                        
+                        <?php } ?>  
                     </tr>
                   </thead>
                   <tfoot>
@@ -401,10 +404,15 @@
                         <th class="text-center">Foto Profil</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Tanggal Daftar</th>
+                        <?php if($_SESSION['NAMA_USER'] == "Andreanto" || $_SESSION['NAMA_USER'] == "Bayu Agil Prananda") { ?>
                         <th class="text-center">Action</th>
+                        <?php } else { ?>
+                        
+                        <?php } ?>
                     </tr>
                   </tfoot>
                   <tbody>
+                    <?php if($_SESSION['HAK_AKSES_USER'] == 0) {  ?>
                     <?php $i = 1;?>
                     <?php 
                       $sql = mysqli_query($conn, "SELECT * FROM user WHERE HAK_AKSES_USER != 2");
@@ -445,6 +453,52 @@
                     </tr>
                     <?php $i++; ?>
                   <?php } ?>
+                <?php } elseif($_SESSION['HAK_AKSES_USER'] == 1) { ?>
+                    <?php $i = 1;?>
+                    <?php 
+                      $sql = mysqli_query($conn, "SELECT * FROM user WHERE HAK_AKSES_USER = 1");
+                      while($row = mysqli_fetch_assoc($sql)) {                      
+                    ?>
+                      <tr>
+                        <td class="text-center"><?= $i; ?></td>
+                        <td class="text-center"><?= $row["NAMA_USER"]; ?></td>
+                        <td class="text-center"><?= $row["JENIS_KELAMIN"]; ?></td>
+                        <td class="text-center"><?= $row["ALAMAT_USER"]; ?></td>
+                        <td class="text-center"><?= $row["NO_HP_USER"]; ?></td>
+                        <td class="text-center"><?= $row["EMAIL_USER"]; ?></td>
+                        <td class="text-center"><img src="img/<?= $row["FOTO_PROFIL_USER"]; ?>" alt="foto profil" width="100"></td>
+                        <?php $hak_akses = $row["HAK_AKSES_USER"]; ?>
+                        <td class="text-center"><?php if($hak_akses == 0) {
+                          echo '<span class="badge badge-pill badge-danger px-2">Super Admin</span>';
+                        } else if($hak_akses == 1) {
+                          echo '<span class="badge badge-pill badge-success px-2">Admin</span>';
+                        }?></td>
+                        <td class="text-center"><?= $row["TANGGAL_DAFTAR"]; ?></td>
+                        <?php if($_SESSION['NAMA_USER'] == "Andreanto" ) { ?>
+                        <td class="text-center">
+                        <span>
+                            <div class="btn-group mt-4 mb-2">
+                            <a href="ubah_dtaADM.php?id=<?= $row['ID_USER']; ?>" class="btn btn-info btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle">                                  
+                                <i class="fas fa-info-circle" style="color: white"></i>
+                              </button>  
+                            </a>
+                            &nbsp;
+                            <a href="hapus_ADM.php?id=<?=  $row['ID_USER']; ?>" onclick="return confirm('Anda yakin mau menghapus data ini ?')" class="btn btn-danger btn-circle btn-sm">
+                              <button type="button" class="btn btn-circle" style="color: white">
+                                <i class="fas fa-trash"></i>
+                              </button>  
+                            </a>
+                            </div>
+                        </span>
+                        </td>
+                        <?php } else {  ?>
+                        
+                        <?php } ?>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php } ?>
+                <?php }  ?>
                   </tbody>
                 </table>
               </div>

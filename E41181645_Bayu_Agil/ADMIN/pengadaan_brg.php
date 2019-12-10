@@ -76,59 +76,51 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Tambah Produk!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Pengadaan Barang!</h1>
               </div>
               <form action="function_tbhPRD.php" class="user" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="Name" placeholder="Nama Laptop" name="nama">
+                <!-- <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Cari Laptop..." aria-label="Search" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                  </div>
                 </div>
-                <div class=form-group>
-                    <div class="custom-file">
-                      <input type="file" name="fotoPRD" id="fotoPRD" class="custom-file-input">
-                      <label for="fotoProfil" class="custom-file-label"> Pilih Gambar Laptop .... </label>
-                    </div>
+                <br> -->
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="inputGroupSelect01" name="garansi">
+                    <option selected>Pilih Laptop...</option>
+                    <?php 
+                      $sql = mysqli_query($conn, "SELECT * FROM laptop");
+                      while($row = mysqli_fetch_assoc($sql)) { 
+                    ?>
+                    <option value="<?= $row["ID_LAPTOP"]; ?>"><?= $row["NAMA_LAPTOP"]; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="beli" placeholder="Harga Beli" name="beli">
                 </div>
                 <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="processor" placeholder="Processor" name="processor">
+                  <input type="text" class="form-control form-control-user" id="jual" placeholder="Harga Jual" name="jual">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="ram" placeholder="RAM" name="ram">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="harddisk" placeholder="Harddisk" name="harddisk">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="vga" placeholder="VGA" name="vga">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="layar" placeholder="Ukuran Layar" name="layar">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="sound" placeholder="Sound Card" name="sound">
-                </div>
-                <!-- <div class="input-group mb-3">
-                  <select class="custom-select" id="inputGroupSelect01" name="jk">
-                    <option selected>Pilih jenis kelamin...</option>
-                    <option value="1">Laki-laki</option>
-                    <option value="2">Perempuan</option>
+                <div class="form-group">    
+                  <input type="text" class="form-control form-control-user" id="stok" placeholder="Stok" name="stok">
+                </div>  
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="inputGroupSelect01" name="garansi">
+                    <option selected>Status Garansi...</option>
+                    <option value="Ada">Ada</option>
+                    <option value="Tidak">Tidak</option>
                   </select>
-                </div> -->
-                <!-- <div class="input-group mb-3">
-                  <textarea class="form-control" aria-label="With textarea" placeholder="Alamat" name="alamat"></textarea>
-                </div> -->
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="lama" placeholder="Lama Garansi" name="lama">
+                </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block" name="simpan"> Simpan </button>
                 <a href="data_produk.php" class="btn btn-primary btn-user btn-block" name="batal"> Batal </a>
-                <!-- <hr> -->
-                <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a> -->
               </form>
-              <!-- <hr> -->
             </div>
           </div>
         </div>

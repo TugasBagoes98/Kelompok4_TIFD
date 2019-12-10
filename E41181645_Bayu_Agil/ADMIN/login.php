@@ -78,6 +78,7 @@
                       </div>
                     </div>
                     <button class="btn btn-primary btn-user btn-block" id="login" name="login"> Login </button>
+                    <a class="btn btn-primary btn-user btn-block" href="index.php">Batal</a>
                     <!-- <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
@@ -89,9 +90,6 @@
                   <!-- <hr> -->
                   <div class="text-center">
                     <a class="small" href="forgot-password.php">Lupa Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="register.php">Buat Akun Baru!</a>
                   </div>
                 </div>
               </div>

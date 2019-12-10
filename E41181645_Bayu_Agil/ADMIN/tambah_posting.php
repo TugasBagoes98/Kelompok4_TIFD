@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  require 'connection.php';
+
+  if(!isset($_SESSION["login"])){
+    header("Location: index.php?status=notlogin");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

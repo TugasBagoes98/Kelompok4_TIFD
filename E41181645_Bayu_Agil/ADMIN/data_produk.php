@@ -39,7 +39,7 @@
   
         if($message === 'success')
         {
-          echo "<script>alert('User baru berhasil ditambahkan');</script>";
+          echo "<script>alert('Produk baru berhasil ditambahkan');</script>";
         }else
         {
           
@@ -326,7 +326,7 @@
               <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION["NAMA_USER"]; ?></span>
-                <img class="img-profile rounded-circle" src="<?= $_SESSION["FOTO_PROFIL_USER"]; ?>">
+                <img class="img-profile rounded-circle" src="img/<?= $_SESSION["FOTO_PROFIL_USER"]; ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -365,15 +365,17 @@
               <h6 class="m-0 font-weight-bold text-primary">Data Produk</h6>
           </div>
             <div class="card-body">
-              <span>
-                <div class="my-2"></div>
-                    <a href="tambah_produk.php" class="btn btn-success btn-icon-split">
-                      <button class="btn btn-success btn-icon-split">
-                        <i class="text"><b>+ Data Produk</b></i>
-                      </button>
-                    </a>
-                <div class="my-2"></div>
-              </span>
+
+              <a href="tambah_produk.php" class="btn btn-success btn-icon-split">
+                <span class="text"><b>+ DATA PRODUK</b></span>
+              </a>
+              <div class="my-2"></div>
+
+              <a href="pengadaan_brg.php" class="btn btn-success btn-icon-split">
+                <span class="text"><b>+ PENGADAAN BARANG</b></span>
+              </a>
+              <div class="my-2"></div>
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -415,7 +417,7 @@
                   <tbody>
                     <?php $i = 1;?>
                     <?php 
-                      $sql = mysqli_query($conn, "SELECT * FROM laptop INNER JOIN det_laptop ON laptop.ID_LAPTOP=det_laptop.ID_LAPTOP");
+                      $sql = mysqli_query($conn, "SELECT * FROM laptop LEFT JOIN det_laptop ON laptop.ID_LAPTOP=det_laptop.ID_LAPTOP");
                       while($row = mysqli_fetch_assoc($sql)) {                      
                     ?>
                       <tr>

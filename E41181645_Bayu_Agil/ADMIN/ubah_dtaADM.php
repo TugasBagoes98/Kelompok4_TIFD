@@ -79,18 +79,6 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="token" readonly hidden value="<?= $row['TOKEN_USER']; ?>">
                 </div>
-                <?php if($row["HAK_AKSES_USER"] == 0){
-                  $hakakses = "Super Admin";
-                } elseif($row["HAK_AKSES_USER"] == 1){
-                  $hakakses = "Admin";
-                }?>
-                <div class="input-group mb-3">
-                  <select class="custom-select" id="inputGroupSelect01" name="hak">
-                    <option selected value="<?= $row["HAK_AKSES_USER"]; ?>"><?= $hakakses; ?></option>
-                    <option value="0">Super Admin</option>
-                    <option value="1">Admin</option>
-                  </select>
-                </div>
                 <div class="form-group">
                   <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="tanggal" readonly hidden value="<?= $row['TANGGAL_DAFTAR']; ?>">
                 </div>
