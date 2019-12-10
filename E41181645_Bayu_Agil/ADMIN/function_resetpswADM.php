@@ -1,5 +1,5 @@
 <?php
-require 'function_forgotpswADM.php';
+require 'connection.php';
 
     if(!isset($_GET["token"])) {
     exit("Gagal");

@@ -386,7 +386,7 @@
                         <th class="text-center">Foto Profil</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Tanggal Daftar</th>
-                        <?php if($_SESSION['NAMA_USER'] == "Andreanto" || $_SESSION['NAMA_USER'] == "Bayu Agil Prananda") { ?>
+                        <?php if($_SESSION['ID_USER'] == "2" || $_SESSION['ID_USER'] == "3") { ?>
                         <th class="text-center">Action</th>
                         <?php } else { ?>
                         
@@ -404,7 +404,7 @@
                         <th class="text-center">Foto Profil</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Tanggal Daftar</th>
-                        <?php if($_SESSION['NAMA_USER'] == "Andreanto" || $_SESSION['NAMA_USER'] == "Bayu Agil Prananda") { ?>
+                        <?php if($_SESSION['ID_USER'] == "2" || $_SESSION['ID_USER'] == "3") { ?>
                         <th class="text-center">Action</th>
                         <?php } else { ?>
                         
