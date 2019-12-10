@@ -1,19 +1,12 @@
 <?php require_once "assets/includes/header.php"?>
 
 
+
     <div class="container">
         <div class="row">
-            <!-- Side Menu -->
-            <div class="col-lg-3">
-                <h1 class="my-4"> Catalog </h1>
-                <div class="list-group">
-                    <a href="#" class="list-group-item"> Asus </a>
-                    <a href="#" class="list-group-item"> Lenovo </a>
-                    <a href="#" class="list-group-item"> Acer </a>
-                </div>
-            </div>
+           
             <!-- Product Menu -->
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="carousel slide my-4" id="carouselHeader" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <ol class="carousel-indicators">
@@ -219,24 +212,26 @@
                         </div>
                     </div>
                 </div>
-                <ul class="pagination my-2">
-                    <li class="page-item">
-                        <a href="#" class="page-link" aria-label="previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" aria-label="next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </div> 
+            </div>
+        </div>
+        <div class="row my-2">
+            <ul class="pagination my-2 col-lg-12 justify-content-center">
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
