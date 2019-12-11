@@ -119,7 +119,7 @@
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                                <a href="#" class="btn btn-block btn-primary" role="button"> Read More </a>
+                                                <a href="detail_product.php?laptop=<?php echo $row['ID_LAPTOP']?>" class="btn btn-block btn-primary" role="button"> Read More </a>
                                             </div>
                                             <div class="col-lg-12 col-md-6 col-sm-12">
                                                 <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
@@ -154,63 +154,67 @@
                 </li> -->
                 <?php
                 
-                        if($halaman >= 1)
+                        if($halaman >= 1 && $halaman <= $total_halaman)
                         {
-                            ?>
-                                <li class="page-item disabled">
-                                    <a href="#" class="page-link" aria-label="previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                            <?php
-                            if($halaman >= 1 && $halaman <= $total_halaman)
+
+                            if($halaman == 1)
                             {
-                                for($i = 1; $i <= $total_halaman; $i++)
+                                ?>
+                                    <li class="page-item disabled">
+                                        <a href="#" class="page-link" aria-label="previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                <?php
+                            }else
+                            {
+                                ?>
+                                    <li class="page-item">
+                                        <a href="?halaman=<?php echo $halaman - 1;?>" class="page-link" aria-label="previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                <?php
+                            }
+
+                            for($i = 1; $i <= $total_halaman; $i++)
+                            {
+                                if($i == $halaman)
                                 {
-                                    if($i == $_GET['halaman'])
-                                    {
-                                        ?><li class="page-item active"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
-                                    }else
-                                    {
-                                        ?><li class="page-item"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
-                                    }
+                                    ?> <li class="page-item active"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
+                                }else
+                                {
+                                    ?> <li class="page-item"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
                                 }
                             }
-                            ?>
-                                <li class="page-item">
-                                    <a href="?halaman=<?php echo $halaman+1;?>" class="page-link" aria-label="next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            <?php
-                        }else if($halaman >=1 && $halaman < $total_halaman)
+
+                            if($halaman == $total_halaman)
+                            {
+                                ?>
+                                    <li class="page-item disabled">
+                                        <a href="#" class="page-link" aria-label="next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                <?php
+                            }else
+                            {
+                                ?>
+                                    <li class="page-item">
+                                        <a href="?halaman=<?php echo $halaman+1;?>" class="page-link" aria-label="next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                <?php
+                            }
+
+                        }else
                         {
                             ?>
-                                <li class="page-item">
-                                    <a href="?halaman=<?php echo $halaman - 1;?>" class="page-link" aria-label="previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                            <?php
-                            if($halaman >= 1 && $halaman <= $total_halaman)
-                            {
-                                for($i = 1; $i <= $total_halaman; $i++)
-                                {
-                                    if($i == $_GET['halaman'])
-                                    {
-                                        ?><li class="page-item active"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
-                                    }else
-                                    {
-                                        ?><li class="page-item"><a href="?halaman=<?php echo $i;?>" class="page-link"><?php echo $i;?></a></li><?php
-                                    }
-                                }
-                            }
-                            ?>
-                                <li class="page-item disabled">
-                                    <a href="?halaman=<?php echo $halaman+1;?>" class="page-link" aria-label="next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
+                                <div class="row justify-content-center">
+                                    <h1 class="col-lg-12 text-center">Mohon maaf, halaman yang anda akses tidak tersedia</h1>
+                                    <p class="col-lg-8 text-center">Silahkan kembali menggunakan <a href="catalog.php">link</a> berikut ini</p>
+                                </div>
                             <?php
                         }
                 
