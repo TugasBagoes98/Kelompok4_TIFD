@@ -119,10 +119,10 @@
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                                <a href="detail_product.php?laptop=<?php echo $row['ID_LAPTOP']?>" class="btn btn-block btn-primary" role="button"> Read More </a>
+                                                <a href="detail_product.php?laptop=<?php echo $row['ID_LAPTOP'];?>" class="btn btn-block btn-primary" role="button"> Read More </a>
                                             </div>
                                             <div class="col-lg-12 col-md-6 col-sm-12">
-                                                <a href="#" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
+                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $row['ID_LAPTOP'];?>" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
                                             </div>
                                         </div>
                                     </div>

@@ -18,6 +18,14 @@
 
     //Menjalankan query
     $query_run = mysqli_query($conn, $query);
+    
+    if(mysqli_num_rows($query_run) > 0)
+    {
+        
+    }else
+    {
+        header("Location: catalog.php?systemerror=laptopnotfound");
+    }
 
     //Format Rupiah
     function rupiah($value)
@@ -40,33 +48,6 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <!-- <div class="card mt-4">
-                    <img src="assets/images/slider_medium_001.jpg" alt="header_image" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title"> Asus A455L </h3>
-                        <h4 class="text-info"> Rp. 5.999.999,00 </h4>
-                        <p class="card-text">
-                            Asus A455L, garansi 2 tahun dengan spesifikasi :
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-4">        
-                                <ul>
-                                    <li> Processor : Core i3 </li>
-                                    <li> RAM : 4GB DDR 4 </li>
-                                    <li> VGA Card : NVidia 1080 TI </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <ul>
-                                    <li> Windows : Windows 10 </li>
-                                    <li> Microsoft Office : 2013 </li>
-                                    <li> One Cloud : Aktif </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-primary px-4 py-2"> Add to Cart </a>
-                    </div>
-                </div> -->
                 <?php
                     
                     while($row = mysqli_fetch_assoc($query_run))
@@ -107,7 +88,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-primary px-4 py-2"> Add to Cart </a>
+                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $id_laptop;?>" class="btn btn-primary px-4 py-2"> Add to Cart </a>
                             </div>
                         </div>
                         
