@@ -38,7 +38,7 @@
                                         
                                         ?>
                                             <tr class="text-center">
-                                                <td><?php echo $i;?></td>
+                                                <td><?php echo $i+1;?></td>
                                                 <td>
                                                     <img src="assets/includes/images/"<?php echo $row['GAMBAR_LAPTOP']; ?> alt="Gambar laptop">
                                                 </td>
@@ -48,11 +48,11 @@
                                                 <td><?php echo $row['RAM'];?></td>
                                                 <td><?php echo $row['HARDDISK'];?></td>
                                                 <td colspan="3">
-                                                    <button class="btn btn-outline-dark">
+                                                    <button class="btn btn-outline-dark" onclick="decreaseQtyBeli(this)">
                                                         <span>&laquo;</span>
                                                     </button>
-                                                    <span class="mx-2">1</span>
-                                                    <button class="btn btn-outline-dark">
+                                                    <span class="mx-2" id="valueLaptop<?php echo $row['ID_LAPTOP'];?>">1</span>
+                                                    <button class="btn btn-outline-dark" onclick="increaseQtyBeli(this)">
                                                         <span>&raquo;</span>
                                                     </button>
                                                 </td>
@@ -88,5 +88,5 @@
 <?php require_once "assets/includes/footer_javascript.php";?>
 <script src="assets/javascript/script_login_plg.js"></script>
 <script src="assets/javascript/script_error_catch.js"></script>
-<script src="assets/javascript/script_home.js"></script>
+<script src="assets/javascript/script_cart.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>
