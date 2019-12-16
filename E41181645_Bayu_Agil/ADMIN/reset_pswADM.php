@@ -20,6 +20,25 @@
 
 </head>
 
+<?php
+if(isset($_GET['confirm']))
+{
+  $status = $_GET['confirm'];
+
+  if($status === 'false')
+  {
+    echo "<script>alert('Konfirmasi Password tidak cocok')</script>";
+  } 
+  else 
+  {
+    echo "";
+  }
+} else
+{
+  $status = '';
+}
+?>
+
 <body class="bg-gradient-primary">
 
   <div class="container">
@@ -33,13 +52,14 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+              <div class="col-lg-6 d-none d-lg-block"></div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-2">Masukkan Password baru Anda!</h1>
                   </div>
                   <form action="function_resetpswADM.php" class="user" method="post">
+                      <input type="hidden" name="tokenUser" value="<?php echo $_GET['token'];?>">
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="password" aria-describedby="emailHelp" placeholder="Masukkan Password Baru Anda..." name="password">
                     </div>

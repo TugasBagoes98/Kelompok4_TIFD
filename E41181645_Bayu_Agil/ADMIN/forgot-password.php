@@ -45,7 +45,7 @@
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan Alamat Email Anda..." name="email">
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block" name="reset">Reset Password</button>
-                    <a href="index.php" class="btn btn-primary btn-user btn-block" name="reset">Batal</a>
+                    <a href="index.php" class="btn btn-primary btn-user btn-block" name="batal">Batal</a>
                   </form>
                   <!-- <hr> -->
                   <!-- <div class="text-center">

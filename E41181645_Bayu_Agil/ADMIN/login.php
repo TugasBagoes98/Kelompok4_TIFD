@@ -35,8 +35,28 @@
     if($status === 'false')
     {
       echo "<script>alert('Username/Password Salah!')</script>";
-    } else 
+    } elseif($status === 'nothing') 
     {
+      echo "<script>alert('Email tidak terdaftar!')</script>";
+    } else {
+      echo "";
+    }
+  } else
+  {
+    $status = '';
+  }
+
+  if(isset($_GET['resetpassword']))
+  {
+    $resetpassword = $_GET['resetpassword'];
+
+    if($resetpassword === 'success')
+    {
+      echo "<script>alert('Password berhasil diubah!')</script>";
+    } elseif($resetpassword === 'fail') 
+    {
+      echo "<script>alert('Gagal mengubah password!')</script>";
+    } else {
       echo "";
     }
   } else

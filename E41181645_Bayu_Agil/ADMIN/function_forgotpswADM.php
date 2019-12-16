@@ -1,55 +1,90 @@
 <?php
-    require 'connection.php';
-
     use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    
-    require 'PHPMailer/src/Exception.php';
-    require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
-    
-    // Instantiation and passing `true` enables exceptions
-    if (isset($_POST['email'])) {
-        $emailTo = $_POST['email'];
-    
-        $token   = uniqid(true);
-        $query   = mysqli_query($conn, "INSERT INTO reset (TOKEN_USER, EMAIL_USER) VALUES ('$token', '$emailTo')");
-        
-        if(!$query) {
-            exit("Error"); 
-        } 
-    
-        $mail = new PHPMailer(true);
-    
-        try { 
-            //Server settings                                           // Enable verbose debug output
-            $mail->isSMTP();                                            // Send using SMTP 
-            $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'kurak4647@gmail.com';                 // SMTP username
-            $mail->Password   = '@12Kurakura';                          // SMTP password
-            $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $mail->Port       = 465;                                    // TCP port to connect to
-    
-            //Recipients
-            $mail->setFrom('kurak4647@gmail.com', 'Mailer');
-            $mail->addAddress($emailTo);                                // Add a recipient
-            $mail->addReplyTo('no-reply@gmail.com', 'No reply');
-    
-            // Content
-            $url                = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/reset_pswADM.php?token=$token";
-            $mail->isHTML(true);                                        // Set email format to HTML
-            $mail->Subject      = 'Link reset password anda!';
-            $mail->Body         = "<h1>Silahkan klik link dibawah ini untuk mereset password anda</h1>
-                                    <br> 
-                                    <a href='$url'>klik link ini</a>";
-            $mail->AltBody      = 'This is the body in plain text for non-HTML mail clients';
-    
-            $mail->send();
-            echo 'Link reset password telah dikirim ke email anda, silahkan buka email anda!';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+    require_once "PHPMailer/src/Exception.php";
+    require_once "PHPMailer/src/PHPMailer.php";
+    require_once "PHPMailer/src/SMTP.php";
+
+    require_once "connection.php";
+
+
+    if(isset($_POST['reset']))
+    {
+        //Menyimpan data kedalam variabel
+        $emailUser = htmlspecialchars(stripcslashes($_POST['email']));
+        //Membuat token untuk lupa password
+        $tokenUser = uniqid();
+        //Query
+        $query_update = "UPDATE user SET token_user = '".$tokenUser."' WHERE email_user = '".$emailUser."'";
+        $query_search = "SELECT * FROM user WHERE email_user = '".$emailUser."'";
+        $result = mysqli_query($conn,$query_search);
+
+        //Url
+        $url_reset_password = "http://".$_SERVER['HTTP_HOST']."/git/gitHub/Kelompok4_TIFD/E41181645_Bayu_Agil/ADMIN/reset_pswADM.php?token=".$tokenUser;
+
+        if(mysqli_num_rows($result) > 0)
+        {
+
+            if(mysqli_query($conn, $query_update))
+            {
+
+                //Inisiasi Mailer
+                $mail = new PHPMailer(true);
+
+                try
+                {
+
+                    //Konfigurasi Server
+                    $mail->isSMTP();
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->SMTPAuth = true;
+                    $mail->Username = "kurak4647@gmail.com";
+                    $mail->Password = "@12Kurakura";
+                    $mail->SMTPSecure = "ssl";
+                    $mail->Port = 465;
+
+                    //Penerima
+                    $mail->setFrom('kurak4647@gmail.com','Admin');
+                    $mail->addAddress($emailUser, 'Pengguna');
+                    $mail->addReplyTo('noreply@rizquinastore.com','No-Reply');
+
+                    //Content
+                    $mail->isHTML(true);
+                    $mail->Subject = "Reset Password";
+                    $mail->Body = "<h1> Pelanggan yang terhormat. </h1>
+                                   <p> Anda meminta sebuah link untuk reset password anda di website kami. </p>
+                                   <p> Apabila anda merasa tidak memintanya, harap abaikan email ini. </p>
+                                   <p> <a href='".$url_reset_password."'> Reset Password </a> </p>                    
+                                   ";
+                    $mail->AltBody = "Alternativ Load";
+
+                    //Mengirim Email
+                    $mail->send();
+
+                    //Redirect home
+                    header("Location: login.php?resetpass=true");
+
+                }catch(Exception $e)
+                {
+                    echo $mail->ErrorInfo;
+                }
+
+            }else
+            {
+                header("Location: login.php?errorprocess=true");
+            }
+
+        }else
+        {
+            header("Location: login.php?usernotfound=true");
         }
-        exit();
+
+
+    }else
+    {
+        header("Location: login.php?error=accessdenied");
     }
+
 ?>
