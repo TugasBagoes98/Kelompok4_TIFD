@@ -64,7 +64,7 @@
                     $mail->send();
 
                     //Redirect home
-                    header("Location: login.php?resetpass=true");
+                    header("Location: index.php?resetpass=true");
 
                 }catch(Exception $e)
                 {
@@ -73,18 +73,18 @@
 
             }else
             {
-                header("Location: login.php?errorprocess=true");
+                header("Location: index.php?errorprocess=true");
             }
 
         }else
         {
-            header("Location: login.php?usernotfound=true");
+            header("Location: index.php?usernotfound=true");
         }
 
 
     }else
     {
-        header("Location: login.php?error=accessdenied");
+        header("Location: index.php?error=accessdenied");
     }
 
 ?>

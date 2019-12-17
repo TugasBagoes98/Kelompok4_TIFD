@@ -49,6 +49,24 @@
   } else {
     echo "";
   }
+
+  if(isset($_GET['resetpass']))
+  {
+    $resetpassword = $_GET['resetpass'];
+
+    if($resetpassword === 'true')
+    {
+      echo "<script>alert('Link reset password telah dikirim ke email anda, silahkan buka email anda!')</script>";
+    } elseif($resetpassword === 'false') 
+    {
+      echo "<script>alert('Terjadi kesalan!')</script>";
+    } else {
+      echo "";
+    }
+  } else
+  {
+    $status = '';
+  }
 ?>
 
   <!-- Page Wrapper -->

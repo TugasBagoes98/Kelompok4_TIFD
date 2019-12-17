@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Load file koneksi.php
 require 'connection.php';
 // Ambil data NIS yang dikirim oleh form_ubah.php melalui URL
@@ -12,7 +13,7 @@ $email = $_POST['email'];
 $psw1 = $_POST['psw1'];
 $psw2 = $_POST['psw2'];
 
-if($psw1 !== $psw2) {  
+if($psw1 !== $psw2) {
   echo "<script>alert('Konfirmasi password tidak cocok')</script>\n";
   exit;
 } else {

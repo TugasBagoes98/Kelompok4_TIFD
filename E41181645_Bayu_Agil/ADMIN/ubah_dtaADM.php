@@ -1,5 +1,10 @@
 <?php
+  session_start();
   require_once 'connection.php';
+
+  if(!isset($_SESSION["login"])){
+    header("Location: index.php?status=notlogin");
+  }
 
   $id  = $_GET['id']; 
   $sql = mysqli_query($conn, "SELECT * FROM user WHERE ID_USER = '".$id."'");
@@ -31,13 +36,15 @@
 <body class="bg-gradient-primary">
 
   <div class="container">
-
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+  <div class="col-lg-7 mt-5">
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
           <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
-          <div class="col-lg-7">
+          <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Ubah Data!</h1>
@@ -84,6 +91,16 @@
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="aktivasi" readonly hidden value="<?= $row['STATUS_AKTIVASI']; ?>">
+                </div>
+                <hr>
+                <div class="text-center">
+                  <h2 class="h5 text-gray-900 mb-4">Ubah Password ?</h2>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-user" id="exampleInputpsw" placeholder="Masukkan Password baru" name="psw1">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-user" id="exampleInputpsw" placeholder="Konfirmasi Password" name="psw2">
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block" name="edit"> Ubah </button>
                 <a href="data_admin.php" class="btn btn-primary btn-user btn-block" name="batal">Batal</a>
