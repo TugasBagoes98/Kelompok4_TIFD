@@ -37,10 +37,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapsePlg">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" id="linkHeaderProfileUser">
-                        <a href="" class="nav-link"> Profile </a>
+                        <a href="dashboard_plg.php" class="nav-link"> Profile </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileKeranjang">
-                        <a href="" class="nav-link"> Keranjang </a>
+                        <a href="shop_cart.php" class="nav-link"> Keranjang </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileHistori">
                         <a href="" class="nav-link"> Histori </a>
