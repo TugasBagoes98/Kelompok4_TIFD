@@ -89,16 +89,16 @@
                                             <td colspan="7">
                                             </td> 
                                             <td class="text-center">
-                                                <button class="btn btn-outline-danger"> Batal </button>
+                                                <a href="assets/includes/clean_cart.php?click=true" class="btn btn-outline-danger"> Batal </a>
                                             </td>
                                             <td class="text-center">
-                                                <button class="btn-outline-dark btn"> Checkout </button>
+                                            <a href="assets/includes/checkout_cart.php?click=true" class="btn btn-outline-secondary"> Checkout </a>
                                             </td>
                                         </tr>                                    
                                     <?php
                                 }else
                                 {
-                                    echo "<td colspan='7' class='text-center'> Keranjang anda kosong </td>";
+                                    echo "<td colspan='11' class='text-center'> Keranjang anda kosong </td>";
                                 }
 
                             ?>
