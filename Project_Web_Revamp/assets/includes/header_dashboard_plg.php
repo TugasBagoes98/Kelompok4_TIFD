@@ -43,7 +43,10 @@
                         <a href="shop_cart.php" class="nav-link"> Keranjang </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileHistori">
-                        <a href="" class="nav-link"> Histori </a>
+                        <a href="" class="nav-link"> Riwayat Transaksi </a>
+                    </li>
+                    <li class="nav-item" id="linkHeaderProfilePending">
+                        <a href="" class="nav-link"> Transaksi </a>
                     </li>
                     <li class="nav-item">
                         <a href="assets/includes/logout_plg.php" class="nav-link"> Sign Out </a>
