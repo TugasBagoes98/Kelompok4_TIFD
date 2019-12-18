@@ -43,7 +43,7 @@
                         <a href="shop_cart.php" class="nav-link"> Keranjang </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileHistori">
-                        <a href="" class="nav-link"> Riwayat Transaksi </a>
+                        <a href="history_buy.php" class="nav-link"> Riwayat Transaksi </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfilePending">
                         <a href="" class="nav-link"> Transaksi </a>
