@@ -21,12 +21,12 @@
     //Mengambil data laptop dari database
     //Mengambil data laptop dari database dan dibatas
     $query_select_limit = "select laptop.ID_LAPTOP, laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR,
-    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
+    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.ID_DET_LAPTOP, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
     det_laptop.LAMA_GARANSI from laptop inner join det_laptop on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP LIMIT ".$batas_mulai.",".$batas;
 
     //Mengambil semua data laptop dari database
     $query_select_total = "select laptop.ID_LAPTOP, laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR,
-    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
+    laptop.RAM, laptop.HARDDISK, laptop.VGA, det_laptop.ID_DET_LAPTOP, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI,
     det_laptop.LAMA_GARANSI from laptop inner join det_laptop on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP";
 
     //Menjalankan query total
@@ -119,10 +119,10 @@
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-6 col-sm-12 my-2">
-                                                <a href="detail_product.php?laptop=<?php echo $row['ID_LAPTOP'];?>" class="btn btn-block btn-primary" role="button"> Read More </a>
+                                                <a href="detail_product.php?laptop=<?php echo $row['ID_DET_LAPTOP'];?>" class="btn btn-block btn-primary" role="button"> Read More </a>
                                             </div>
                                             <div class="col-lg-12 col-md-6 col-sm-12">
-                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $row['ID_LAPTOP'];?>" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
+                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $row['ID_DET_LAPTOP'];?>" class="btn btn-block btn-outline-secondary" role="button"> Add to cart </a>
                                             </div>
                                         </div>
                                     </div>

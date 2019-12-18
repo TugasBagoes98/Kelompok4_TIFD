@@ -14,9 +14,9 @@
     //Membuat query untuk mengambil data dari database
     $query = "select laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR, laptop.RAM, laptop.HARDDISK, laptop.VGA,
     laptop.UKURAN_LAYAR, laptop.SOUD_CARD, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI, det_laptop.LAMA_GARANSI from laptop inner join det_laptop
-    on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP where laptop.ID_LAPTOP = ".$id_laptop;
+    on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP where det_laptop.ID_DET_LAPTOP = ".$id_laptop;
 
-    //Menjalankan query
+    // Menjalankan query
     $query_run = mysqli_query($conn, $query);
     
     if(mysqli_num_rows($query_run) > 0)
