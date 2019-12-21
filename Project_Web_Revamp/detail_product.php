@@ -13,7 +13,7 @@
 
     //Membuat query untuk mengambil data dari database
     $query = "select laptop.NAMA_LAPTOP, laptop.GAMBAR_LAPTOP, laptop.PROCESSOR, laptop.RAM, laptop.HARDDISK, laptop.VGA,
-    laptop.UKURAN_LAYAR, laptop.SOUD_CARD, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI, det_laptop.LAMA_GARANSI from laptop inner join det_laptop
+    laptop.UKURAN_LAYAR, laptop.SOUD_CARD, det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI, det_laptop.LAMA_GARANSI, det_laptop.stok_detail from laptop inner join det_laptop
     on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP where det_laptop.ID_DET_LAPTOP = ".$id_laptop;
 
     // Menjalankan query
@@ -88,7 +88,23 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $id_laptop;?>" class="btn btn-primary px-4 py-2"> Add to Cart </a>
+                                <?php
+                                
+                                        if($row['stok_detail'] > 0)
+                                        {
+                                            ?>
+                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $id_laptop;?>" class="btn btn-primary px-4 py-2"> Add to Cart </a>
+                                                <a href="catalog.php" class="btn btn-outline-secondary px-4 py-2"> Kembali </a>
+                                            <?php
+                                        }else
+                                        {
+                                            ?>
+                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $id_laptop;?>" class="btn btn-danger px-4 py-2 disabled"> Sold Out </a>
+                                                <a href="catalog.php" class="btn btn-outline-secondary px-4 py-2"> Kembali </a>
+                                            <?php
+                                        }
+                                
+                                ?>
                             </div>
                         </div>
                         

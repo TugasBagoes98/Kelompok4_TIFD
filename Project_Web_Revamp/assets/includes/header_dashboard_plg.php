@@ -36,8 +36,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapsePlg">
                 <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item" id="linkHeaderHomeProfile">
+                        <a href="index.php" class="nav-link"> Home </a>
+                    </li>
                     <li class="nav-item" id="linkHeaderProfileUser">
                         <a href="dashboard_plg.php" class="nav-link"> Profile </a>
+                    </li>
+                    <li class="nav-item" id="linkHeaderCatalogProfile">
+                        <a href="catalog.php" class="nav-link"> Catalog </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileKeranjang">
                         <a href="shop_cart.php" class="nav-link"> Keranjang </a>
