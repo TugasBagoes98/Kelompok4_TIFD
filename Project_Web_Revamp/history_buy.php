@@ -101,11 +101,146 @@
                     <h3 class="my-4"> Transaksi sudah dibayar </h3>
                     <?php
                         if(mysqli_num_rows($run_query_verified) > 0)
-                        {                
-                            while($row = mysqli_fetch_assoc($run_query_verified))
-                            {
+                        {
+                            ?>
+                                <?php
+                                $total_bayar = 0;
+                                    while($row = mysqli_fetch_assoc($run_query_verified))
+                                    {
+                                        
+                                        $number;
+                                        if($row['ID_TRANSAKSI'] == getLateId())
+                                        {
+                                            $total_bayar += $row['HARGA_JUAL'];
+                                            ?>
+                                                <script>
+                                                    var parentBody = document.getElementById("tableBody<?php echo $row['ID_TRANSAKSI'];?>");
+                                                    var childRow = document.createElement("tr");
 
-                            }
+                                                    parentBody.insertBefore(childRow, parentBody.getElementsByTagName("tr")[<?php echo $number;?>]);
+
+                                                    appendNoTransaksi(childRow);
+                                                    appendKodeTransaksi(childRow);
+                                                    appendTanggalTransaksi(childRow);
+                                                    appendNamaLaptop(childRow);
+                                                    appendJumlahBeli(childRow);
+                                                    appendHarga(childRow);
+                                                    appendHargaTotal(childRow);
+                                                    alterHarga();
+
+
+                                                   function appendNoTransaksi(value)
+                                                   {
+                                                        var childTableDataNoTransaksi = document.createElement("td");
+                                                        value.appendChild(childTableDataNoTransaksi)
+                                                        childTableDataNoTransaksi.innerText = "<?php echo $number+1;?>";
+                                                   }
+
+                                                   function appendKodeTransaksi(value)
+                                                   {
+                                                        var childTableDataKodePenjualan = document.createElement("td");
+                                                        value.appendChild(childTableDataKodePenjualan);
+                                                        childTableDataKodePenjualan.innerText = "<?php echo penjualanFormat($row['ID_TRANSAKSI']);?>";   
+                                                   }
+
+                                                   function appendTanggalTransaksi(value)
+                                                   {
+                                                       var childTableDataTanggalTransaksi = document.createElement("td");
+                                                       value.appendChild(childTableDataTanggalTransaksi);
+                                                       childTableDataTanggalTransaksi.innerText = "<?php echo $row['TANGGAL_TRANSAKSI'];?>";
+
+                                                   }
+
+                                                   function appendNamaLaptop(value)
+                                                   {
+                                                       var childTableDataNamaLaptop = document.createElement("td");
+                                                       value.appendChild(childTableDataNamaLaptop);
+                                                       childTableDataNamaLaptop.innerText = "<?php echo $row['NAMA_LAPTOP'];?>";
+                                                   }
+
+                                                   function appendJumlahBeli(value)
+                                                   {
+                                                       var childTableDataJumlahBeli = document.createElement("td");
+                                                       value.appendChild(childTableDataJumlahBeli);
+                                                       childTableDataJumlahBeli.innerText = "<?php echo $row['JUMLAH_BELI'];?>";
+                                                   }
+
+                                                   function appendHarga(value)
+                                                   {
+                                                       var childTableDataHarga = document.createElement("td");
+                                                       value.appendChild(childTableDataHarga);
+                                                       childTableDataHarga.innerText = "<?php echo rupiah($row['HARGA_JUAL']);?>";
+                                                   }
+
+                                                   function appendHargaTotal(value)
+                                                   {
+                                                       var childTableDataHargaTotal = document.createElement("td");
+                                                       value.appendChild(childTableDataHargaTotal);
+                                                       childTableDataHargaTotal.innerText = "<?php echo rupiah($total_bayar);?>";
+                                                   }
+
+                                                   function alterHarga()
+                                                   {
+                                                       var totalHarga = document.getElementById("totalBayarBody<?php echo $row['ID_TRANSAKSI'];?>");
+                                                       totalHarga.innerText = "<?php echo rupiah($total_bayar);?>";
+                                                   }
+                                                </script>
+                                            <?php
+                                            $number++;    
+                                        }else
+                                        {
+                                        
+                                            $number = 1;
+                                            $total_bayar = $row['HARGA_JUAL'];
+                                            setLateId($row['ID_TRANSAKSI']);
+                                            ?>
+                                                <table class="table table-bordered table-striped table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> No. </th>
+                                                            <th> Kode Transaksi </th>
+                                                            <th> Tanggal </th>
+                                                            <th> Nama Laptop </th>
+                                                            <th> Jumlah Beli </th>
+                                                            <th> Harga </th>
+                                                            <th> Total </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tableBody<?php echo $row['ID_TRANSAKSI']?>">
+                                                        <tr>
+                                                            <td> <?php echo $number;?> </td>
+                                                            <td> <?php echo penjualanFormat($row['ID_TRANSAKSI']);?> </td>
+                                                            <td> <?php echo $row['TANGGAL_TRANSAKSI'];?> </td>
+                                                            <td> <?php echo $row['NAMA_LAPTOP'];?> </td>
+                                                            <td> <?php echo $row['JUMLAH_BELI'];?> </td>
+                                                            <td> <?php echo rupiah($row['HARGA_JUAL']);?> </td>
+                                                            <td> <?php echo rupiah($total_bayar);?> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5"></td>
+                                                            <td class="text-center font-weight-bold">
+                                                                Grand Total :
+                                                            </td>
+                                                            <td id="totalBayarBody<?php echo $row['ID_TRANSAKSI'];?>"class="text-center font-weight-bold">
+                                                                <?php echo rupiah($total_bayar);?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="5"></td>
+                                                            <td class="text-center font-weight-bold">
+                                                                Status Transaksi :
+                                                            </td>
+                                                            <td class="text-center font-weight-bold">
+                                                                <?php echo convertStatus($row['STATUS_TRANSAKSI']);?>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            <?php
+                                        }
+                                    }
+                                ?>
+                            <?php
                         }else
                         {
                             ?>
