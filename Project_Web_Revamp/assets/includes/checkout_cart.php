@@ -40,6 +40,9 @@
                             $run_query = mysqli_query($conn,$query_insert_laptop);
 
                         }
+                        //Menghapus isi dari cart
+                        unset($_SESSION['daftar_laptop']);
+                        
                         header("Location: ../../history_buy.php?successbuy=true&idtransaksi=".$id_transaksi);
                     }else
                     {
