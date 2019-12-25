@@ -31,8 +31,14 @@
     
                 if(mysqli_num_rows($query_run) > 0)
                 {
-                    array_push($_SESSION['daftar_laptop'],$id_laptop);
-                    header("Location: ../../shop_cart.php");
+                    if(in_array($_GET['laptop'],$_SESSION['daftar_laptop']))
+                    {
+                        header("Location: ../../catalog.php?systemerror=laptopfound");
+                    }else
+                    {
+                        array_push($_SESSION['daftar_laptop'],$id_laptop);
+                        header("Location: ../../shop_cart.php");
+                    }
                 }else
                 {
                     header("Location: ../../catalog.php?systemerror=true");
