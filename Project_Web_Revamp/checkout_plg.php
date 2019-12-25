@@ -83,7 +83,7 @@ function rupiah($value)
             </div>
             <div class="col-lg-4">
                 <a href="shop_cart.php" class="btn btn-outline-danger px-4 py-3 mr-4"> Kembali </a>
-                <a href="assets/includes/checkout_cart.php?click=true" class="btn btn-success px-2 py-3"> Bayar Sekarang </a>
+                <a href="assets/includes/checkout_cart.php?click=true&amount=<?php echo $total_belanja;?>" class="btn btn-success px-2 py-3"> Bayar Sekarang </a>
             </div>
         </div>
     </div>
