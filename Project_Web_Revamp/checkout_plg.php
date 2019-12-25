@@ -82,8 +82,8 @@ function rupiah($value)
                 <h4 class="text-center"> Harap periksa kembali belanjaan anda </h4>
             </div>
             <div class="col-lg-4">
-                <a href="assets/includes/checkout_cart.php?click=true" class="btn btn-success px-2 py-3 mr-4"> Bayar Sekarang </a>
-                <a href="shop_cart.php" class="btn btn-outline-danger px-4 py-3 ml-2"> Kembali </a>
+                <a href="shop_cart.php" class="btn btn-outline-danger px-4 py-3 mr-4"> Kembali </a>
+                <a href="assets/includes/checkout_cart.php?click=true" class="btn btn-success px-2 py-3"> Bayar Sekarang </a>
             </div>
         </div>
     </div>
@@ -93,4 +93,5 @@ function rupiah($value)
 <?php require_once "assets/includes/footer_modal.php";?>
 <?php require_once "assets/includes/footer_javascript.php";?>
 <script src="assets/javascript/script_error_catch.js"></script>
+<script src="assets/javascript/script_checkout.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>
