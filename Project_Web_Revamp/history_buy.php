@@ -543,6 +543,12 @@
                                                                 <?php echo convertStatus($row['STATUS_TRANSAKSI']);?>
                                                             </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td colspan="6"></td>
+                                                            <td class="text-center">
+                                                                <a href="" class="btn btn-outline-success"> Bayar Sekarang </a>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             <?php
