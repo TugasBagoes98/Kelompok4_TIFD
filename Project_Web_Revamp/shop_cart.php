@@ -89,10 +89,10 @@
                                             <td colspan="7">
                                             </td> 
                                             <td class="text-center">
-                                                <a href="assets/includes/clean_cart.php?click=true" class="btn btn-outline-danger"> Hapus Semua </a>
+                                                <a href="assets/includes/clean_cart.php?click=true" class="btn btn-outline-danger"> Bersihkan </a>
                                             </td>
                                             <td class="text-center">
-                                            <a href="checkout_plg.php" class="btn btn-outline-secondary"> Checkout </a>
+                                            <a href="checkout_plg.php" class="btn btn-success"> Checkout </a>
                                             </td>
                                         </tr>                                    
                                     <?php
