@@ -122,9 +122,9 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Master
       </div>
-      
+
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
@@ -133,11 +133,32 @@
         </a>
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Master:</h6>          
-            <a class="collapse-item" href="data_admin.php">Data Admin</a>
+            <h6 class="collapse-header">Data Master:</h6>           
+            <a class="collapse-item" href="data_admin.php">Data Admin</a>            
             <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transaksi
+      </div>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span>
+        </a>
+        <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Transaksi:</h6>           
+            <a class="collapse-item" href="data_transaksi.php">Data Transaksi</a>  
         </div>
       </li>
 

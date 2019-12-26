@@ -48,13 +48,13 @@
       $upload = '';
     }
 
-    if(isset($_GET['message']))
+    if(isset($_GET['result']))
     {
-      $message = $_GET['message'];
+      $result = $_GET['result'];
 
-      if($message === 'failed')
+      if($result === 'failed')
       {
-        echo "<script>alert('Ada masalah saat menambahkan produk');</script>";;
+        echo "<script>alert('Ada masalah, coba lagi');</script>";;
       }else
       {
         
@@ -62,7 +62,7 @@
 
     }else
     {
-      $message = '';
+      $result = '';
     }
   ?>
 
@@ -81,7 +81,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Pengadaan Barang!</h1>
               </div>
-              <form action="function_tbhPRD.php" class="user" method="post" enctype="multipart/form-data">
+              <form action="function_pengadaan.php" class="user" method="post" enctype="multipart/form-data">
                 <!-- <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Cari Laptop..." aria-label="Search" aria-describedby="basic-addon2">
                   <div class="input-group-append">
@@ -92,7 +92,7 @@
                 </div>
                 <br> -->
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="inputGroupSelect01" name="garansi">
+                  <select class="custom-select" id="inputGroupSelect01" name="laptop" require>
                     <option selected>Pilih Laptop...</option>
                     <?php 
                       $sql = mysqli_query($conn, "SELECT * FROM laptop");
@@ -102,20 +102,28 @@
                     <?php } ?>
                   </select>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="beli" placeholder="Harga Beli" name="beli">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rp.</span>
+                  </div>
+                  <input type="text" class="form-control" id="beli" placeholder="Harga Beli" name="beli" require>
                 </div>
-                <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="jual" placeholder="Harga Jual" name="jual">
+                <br>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rp.</span>
+                  </div>    
+                  <input type="text" class="form-control" id="jual" placeholder="Harga Jual" name="jual" require>
                 </div>
+                <br>
                 <div class="form-group">    
-                  <input type="text" class="form-control form-control-user" id="stok" placeholder="Stok" name="stok">
+                  <input type="text" class="form-control form-control-user" id="stok" placeholder="Stok" name="stok" require>
                 </div>  
                 <div class="input-group mb-3">
                   <select class="custom-select" id="inputGroupSelect01" name="garansi">
                     <option selected>Status Garansi...</option>
-                    <option value="Ada">Ada</option>
-                    <option value="Tidak">Tidak</option>
+                    <option value="1">Ada</option>
+                    <option value="0">Tidak</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -135,6 +143,24 @@
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/igorescobar/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                // Format mata uang.
+                $('.beli').mask('0.000.000.000', {reverse: true});
+
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                // Format mata uang.
+                $('.jual').mask('0.000.000.000', {reverse: true});
+
+            })
+        </script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

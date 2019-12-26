@@ -49,6 +49,23 @@
       {
         $message = '';
       }
+
+      if(isset($_GET['result']))
+      {
+        $result = $_GET['result'];
+  
+        if($result === 'success')
+        {
+          echo "<script>alert('Pengadaan barang berhasil');</script>";
+        }else
+        {
+          
+        }
+  
+      }else
+      {
+        $result = '';
+      }
     
 ?>
 
@@ -121,7 +138,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Master
       </div>
 
       <!-- Nav Item - Tables -->
@@ -137,6 +154,27 @@
             <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transaksi
+      </div>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span>
+        </a>
+        <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Transaksi:</h6>           
+            <a class="collapse-item" href="data_transaksi.php">Data Transaksi</a>  
         </div>
       </li>
 
@@ -365,11 +403,16 @@
               <h6 class="m-0 font-weight-bold text-primary">Data Produk</h6>
           </div>
             <div class="card-body">
+              <a href="print_produk.php" class="btn btn-warning btn-fa-split" target="_blank">
+                <span class="icon text-white-50">
+                      <i class="fas fa-print"></i>
+                </span>
+                <span class="text"><b>CETAK</b></span>
+              </a>
 
               <a href="tambah_produk.php" class="btn btn-success btn-icon-split">
                 <span class="text"><b>+ DATA PRODUK</b></span>
               </a>
-              <div class="my-2"></div>
 
               <a href="pengadaan_brg.php" class="btn btn-success btn-icon-split">
                 <span class="text"><b>+ PENGADAAN BARANG</b></span>
@@ -431,8 +474,15 @@
                         <td class="text-center"><?= $row["UKURAN_LAYAR"]; ?></td>
                         <td class="text-center"><?= $row["SOUND_CARD"]; ?></td>
                         <td class="text-center"><?= $row["stok_detail"]; ?></td>
-                        <td class="text-center"><?= $row["HARGA_JUAL"]; ?></td>
-                        <td class="text-center"><?= $row["STATUS_GARANSI"]; ?></td>
+                        <td class="text-center"><?= "Rp." . number_format($row["HARGA_JUAL"], 0, ".", "."); ?></td>
+                        <?php $garansi = $row["STATUS_GARANSI"];?>
+                        <td class="text-center"><?php  
+                          if($garansi === '0'){
+                            echo '<span class="badge badge-pill badge-warning px-2">Tidak Ada</span>';
+                          } elseif($garansi == 1) {
+                            echo '<span class="badge badge-pill badge-primary px-2">Ada</span>';
+                          } 
+                        ?></td>
                         <td class="text-center"><?= $row["LAMA_GARANSI"]; ?></td>
                         <td class="text-center">
                         <span>

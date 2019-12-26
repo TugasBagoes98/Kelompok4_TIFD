@@ -121,22 +121,43 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Master
       </div>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
           <i class="fas fa-fw fa-table"></i>
           <span>Data Master</span>
         </a>
-        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data Master:</h6>           
             <a class="collapse-item" href="data_admin.php">Data Admin</a>            
             <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transaksi
+      </div>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span>
+        </a>
+        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Transaksi:</h6>           
+            <a class="collapse-item" href="data_transaksi.php">Data Transaksi</a>  
         </div>
       </li>
 
@@ -365,12 +386,18 @@
               <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
           </div>
             <div class="card-body">
-            <?php if($_SESSION['HAK_AKSES_USER'] == 0) { ?>
+            <a href="print_admin.php" class="btn btn-warning btn-fa-split" target="_blank">
+              <span class="icon text-white-50">
+                    <i class="fas fa-print"></i>
+              </span>
+              <span class="text"><b>CETAK</b></span>
+            </a>
+            <?php if($_SESSION['ID_USER'] == 2 || $_SESSION['ID_USER'] == 3) { ?>
               <a href="tambah_admin.php" class="btn btn-success btn-icon-split">
                 <span class="text"><b>+ DATA ADMIN</b></span>
               </a>
               <div class="my-2"></div>
-            <?php } elseif($_SESSION['HAK_AKSES_USER'] == 1) { ?>
+            <?php } else { ?>
             
             <?php } ?>
               <div class="table-responsive">

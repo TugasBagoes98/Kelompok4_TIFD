@@ -9,10 +9,15 @@
         $nohp       = htmlspecialchars($_POST["nohp"]);
         $email      = htmlspecialchars(strtolower(stripslashes($_POST["email"])));
         $password   = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["password"]));
-        $password2  = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["password2"])); 
+        $password2  = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["password2"]));
+        $foto       = htmlspecialchars($_POST["fotoProfil"]);
         $fotoProfil = upload();
         $tanggal    = date("Y-m-d H:i:s");
         $result     = mysqli_query($conn, "SELECT EMAIL_USER FROM user WHERE EMAIL_USER = '$email'");
+        
+        if($foto == NULL) {
+            $fotoProfil = 'user.png';
+        }
 
         if(!$fotoProfil) {
             return false;
@@ -57,15 +62,15 @@
         $tmpName    = $_FILES['fotoProfil']['tmp_name'];
     
         // cek apakah tidak ada gambar yang di upload
-        if($error === 4){
-            header("Location: tambah_admin.php?upload=nothing");
-        } else
-        {
-            header("Location: tambah_admin.php?upload=right");
-        }
+        // if($error === 4){
+        //     header("Location: tambah_admin.php?upload=nothing");
+        // } else
+        // {
+        //     header("Location: tambah_admin.php?upload=right");
+        // }
     
         // cek apakah itu upload gambar atau bukan
-        $ekstensiGambarValid  = ['jpg', 'jpeg', 'png'];
+        $ekstensiGambarValid  = ['jpg', 'jpeg', 'png','svg'];
         $ekstensiGambar       = explode('.', $namaFile);
         $ekstensiGambar       = strtolower(end($ekstensiGambar));
         if(!in_array($ekstensiGambar, $ekstensiGambarValid)) {

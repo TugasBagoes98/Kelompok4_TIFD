@@ -138,7 +138,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Master
       </div>
 
       <!-- Nav Item - Tables -->
@@ -154,6 +154,27 @@
             <a class="collapse-item" href="data_pelanggan.php">Data Pelanggan</a>
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transaksi
+      </div>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span>
+        </a>
+        <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Transaksi:</h6>           
+            <a class="collapse-item" href="data_transaksi.php">Data Transaksi</a>  
         </div>
       </li>
 
@@ -329,7 +350,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="img/user.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

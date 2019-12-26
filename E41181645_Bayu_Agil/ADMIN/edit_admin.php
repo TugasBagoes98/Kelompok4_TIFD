@@ -13,12 +13,12 @@ $psw1 = $_POST['psw1'];
 $psw2 = $_POST['psw2'];
 
 if($psw1 !== $psw2) {  
-  echo "<script>alert('Konfirmasi password tidak cocok')</script>\n";
+  echo "<script>alert('Konfirmasi password tidak cocok');document.location.href='data_admin.php'</script>\n";
   exit;
 } else {
   if(isset($_POST['psw1'])) {
     $psw1 = password_hash($psw1, PASSWORD_BCRYPT);
-    $sql = mysqli_query($conn, "UPDATE user SET PASSWORD_USER = '".$psw1."'");
+    $sql = mysqli_query($conn, "UPDATE user SET PASSWORD_USER = '".$psw1."' WHERE ID_USER='".$id."'");
   } else {
   
   }
@@ -47,7 +47,6 @@ if (isset($_POST['ubah'])) { // Jika user menceklis checkbox yang ada di form ub
 
     // Proses ubah data ke Database
     $query = "UPDATE user SET NAMA_USER='" . $nama . "', JENIS_KELAMIN='" . $jk . "', ALAMAT_USER='" . $alamat . "', NO_HP_USER='" . $nohp . "', EMAIL_USER='" . $email . "', FOTO_PROFIL_USER='" . $fotobaru . "' WHERE ID_USER='" . $id . "'";
-    var_dump($query);
     $sql = mysqli_query($conn, $query); // Eksekusi/ Jalankan query dari variabel $query
     if ($sql) { // Cek jika proses simpan ke database sukses atau tidak
       // Jika Sukses, Lakukan :

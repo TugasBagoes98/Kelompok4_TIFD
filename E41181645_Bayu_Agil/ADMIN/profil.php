@@ -60,11 +60,11 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Master
       </div>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
           <i class="fas fa-fw fa-table"></i>
           <span>Data Master</span>
@@ -77,7 +77,28 @@
             <a class="collapse-item" href="data_posting.php">Data Posting</a>
             <a class="collapse-item" href="data_produk.php">Data Produk</a>
         </div>
-    </li>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transaksi
+      </div>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTrans" aria-expanded="true" aria-controls="collapseTrans">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data Transaksi</span>
+        </a>
+        <div id="collapseTrans" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Transaksi:</h6>           
+            <a class="collapse-item" href="data_transaksi.php">Data Transaksi</a>  
+        </div>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
