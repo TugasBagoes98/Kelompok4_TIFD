@@ -76,21 +76,21 @@
     det_laptop.HARGA_JUAL
     from transaksi inner join detail_transaksi on transaksi.ID_TRANSAKSI = detail_transaksi.ID_TRANSAKSI
     inner join user on transaksi.ID_USER = user.ID_USER inner join det_laptop on detail_transaksi.ID_DET_LAPTOP = det_laptop.ID_DET_LAPTOP inner join laptop on det_laptop.ID_LAPTOP = laptop.ID_LAPTOP
-    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 2";
+    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 2 ORDER BY transaksi.ID_TRANSAKSI ASC";
 
     $query_menunggu_verifikasi = "select transaksi.ID_TRANSAKSI, transaksi.TANGGAL_TRANSAKSI, transaksi.STATUS_TRANSAKSI,
     user.ID_USER,user.NAMA_USER, detail_transaksi.ID_DETAIL_TRANSAKSI, detail_transaksi.JUMLAH_BELI, laptop.ID_LAPTOP, laptop.NAMA_LAPTOP,det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI, det_laptop.LAMA_GARANSI,
     det_laptop.HARGA_JUAL
     from transaksi inner join detail_transaksi on transaksi.ID_TRANSAKSI = detail_transaksi.ID_TRANSAKSI
     inner join user on transaksi.ID_USER = user.ID_USER inner join det_laptop on detail_transaksi.ID_DET_LAPTOP = det_laptop.ID_DET_LAPTOP inner join laptop on det_laptop.ID_LAPTOP = laptop.ID_LAPTOP
-    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 1";
+    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 1 ORDER BY transaksi.ID_TRANSAKSI ASC";
     
     $query_belum_dibayar = "select transaksi.ID_TRANSAKSI, transaksi.TANGGAL_TRANSAKSI, transaksi.STATUS_TRANSAKSI,
     user.ID_USER,user.NAMA_USER, detail_transaksi.ID_DETAIL_TRANSAKSI, detail_transaksi.JUMLAH_BELI, laptop.ID_LAPTOP, laptop.NAMA_LAPTOP,det_laptop.HARGA_JUAL, det_laptop.STATUS_GARANSI, det_laptop.LAMA_GARANSI,
     det_laptop.HARGA_JUAL
     from transaksi inner join detail_transaksi on transaksi.ID_TRANSAKSI = detail_transaksi.ID_TRANSAKSI
     inner join user on transaksi.ID_USER = user.ID_USER inner join det_laptop on detail_transaksi.ID_DET_LAPTOP = det_laptop.ID_DET_LAPTOP inner join laptop on det_laptop.ID_LAPTOP = laptop.ID_LAPTOP
-    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 0";
+    where user.ID_USER = ".$_SESSION['ID_USER']." and transaksi.STATUS_TRANSAKSI = 0 ORDER BY transaksi.ID_TRANSAKSI ASC";
 
     //Menjalankan query
     $run_query_verified = mysqli_query($conn,$query_sudah_dibayar);
@@ -201,7 +201,7 @@
                                             $total_bayar = $row['HARGA_JUAL'];
                                             setLateId($row['ID_TRANSAKSI']);
                                             ?>
-                                                <table class="table table-bordered table-striped table-hover">
+                                                <table class="table table-bordered table-striped table-hover text-center">
                                                     <thead>
                                                         <tr>
                                                             <th> No. </th>
@@ -344,7 +344,7 @@
                                                    }
                                                 </script>
                                             <?php
-                                            $number++;    
+                                            $number++;
                                         }else
                                         {
                                         
@@ -352,7 +352,7 @@
                                             $total_bayar = $row['HARGA_JUAL'];
                                             setLateId($row['ID_TRANSAKSI']);
                                             ?>
-                                                <table class="table table-bordered table-striped table-hover">
+                                                <table class="table table-bordered table-striped table-hover text-center">
                                                     <thead>
                                                         <tr>
                                                             <th> No. </th>
@@ -493,17 +493,17 @@
                                                        var totalHarga = document.getElementById("totalBayarBody<?php echo $row['ID_TRANSAKSI'];?>");
                                                        totalHarga.innerText = "<?php echo rupiah($total_bayar);?>";
                                                    }
+
                                                 </script>
                                             <?php
-                                            $number++;    
+                                            $number++;
                                         }else
                                         {
-                                        
                                             $number = 1;
                                             $total_bayar = $row['HARGA_JUAL'];
                                             setLateId($row['ID_TRANSAKSI']);
                                             ?>
-                                                <table class="table table-bordered table-striped table-hover">
+                                                <table class="table table-bordered table-striped table-hover text-center">
                                                     <thead>
                                                         <tr>
                                                             <th> No. </th>
@@ -546,7 +546,7 @@
                                                         <tr>
                                                             <td colspan="6"></td>
                                                             <td class="text-center">
-                                                                <a href="" class="btn btn-outline-success"> Bayar Sekarang </a>
+                                                                <a href="payment_plg.php?payment=true&idtransaksi=<?php echo $row['ID_TRANSAKSI'];?>" class="btn btn-outline-success"> Bayar Sekarang </a>
                                                             </td>
                                                         </tr>
                                                     </tbody>

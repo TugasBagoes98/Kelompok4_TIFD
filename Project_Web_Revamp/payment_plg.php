@@ -22,6 +22,16 @@
 
         if(mysqli_num_rows($result) > 0)
         {
+
+            //Membuat query untuk menentukan jumlah pembayaran
+            $query_sum = "select sum(det_laptop.HARGA_JUAL) as total_bayar from det_laptop 
+                      inner join detail_transaksi on det_laptop.ID_DET_LAPTOP = detail_transaksi.ID_DET_LAPTOP 
+                      inner join transaksi on transaksi.ID_TRANSAKSI = detail_transaksi.ID_TRANSAKSI 
+                      where transaksi.ID_TRANSAKSI = ".$id_transaksi;
+
+            $result = mysqli_query($conn,$query_sum);
+
+
             ?>
             
             <div class="container">
@@ -31,7 +41,7 @@
                     <div class="col-lg-12">
                         <h4 class="my-4 text-justify">
                             Anda dapat melakukan pembayaran dengan melakukan transfer sebesar
-                            <strong><?php echo rupiah($_SESSION['amount']);?></strong> ke salah satu nomor rekening
+                            <strong><?php $row = mysqli_fetch_assoc($result); echo rupiah($row['total_bayar']);?></strong> ke salah satu nomor rekening
                             berikut : 
                         </h4>
                         <ul>
@@ -49,7 +59,16 @@
                             Setelah anda melakukan transfer, harap upload bukti transaksi kedalam
                             form berikut ini.
                         </h4>
-                        
+                        <form action="" method="post" enctype="multipart/form-data" id="formBuktiBayar">
+                            <div class="form-group my-4">
+                                <label for=""></label>
+                                <input type="file" name="buktiTransferUser" id="buktiTransferUser" class="form-control">
+                            </div>
+                            <div class="form-group my-4">
+                                <button type="submit" class="btn btn-primary px-4 py-2"> Unggah </button>
+                            </div>
+                        </form>
+                        <button class="btn btn-outline-secondary px-4 py-2 my-4"> Tampilkan Bukti Bayar </button>
                     </div>
                 </div>
             </div>
