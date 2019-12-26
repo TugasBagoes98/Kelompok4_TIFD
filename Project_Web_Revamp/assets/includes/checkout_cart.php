@@ -1,6 +1,5 @@
 <?php
 
-
     session_start();
 
     require_once "connection.php";
@@ -40,10 +39,13 @@
                             $run_query = mysqli_query($conn,$query_insert_laptop);
 
                         }
-                        header("Location: ../../history_buy.php?successbuy=true&idtransaksi=".$id_transaksi);
+                        //Menghapus isi dari cart
+                        unset($_SESSION['daftar_laptop']);
+                        
+                        header("Location: ../../payment_plg.php?successbuy=true&idtransaksi=".$id_transaksi);
                     }else
                     {
-                        header("Location: ../../shop_cart.php?systemerror=true");
+                        header("Location: ../../checkout_plg.php?systemerror=true");
                     }
                 }
             }else
@@ -63,10 +65,10 @@
                         $run_query = mysqli_query($conn,$query_insert_laptop);
 
                     }
-                    header("Location: ../../history_buy.php?successbuy=true&idtransaksi=".$id_transaksi);
+                    header("Location: ../../payment_plg.php?successbuy=true&idtransaksi=".$id_transaksi);
                 }else
                 {
-                    header("Location: ../../shop_cart.php?systemerror=true");
+                    header("Location: ../../checkout_plg.php?systemerror=true");
                 }
 
             }

@@ -36,17 +36,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapsePlg">
                 <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item" id="linkHeaderHomeProfile">
+                        <a href="index.php" class="nav-link"> Home </a>
+                    </li>
                     <li class="nav-item" id="linkHeaderProfileUser">
                         <a href="dashboard_plg.php" class="nav-link"> Profile </a>
+                    </li>
+                    <li class="nav-item" id="linkHeaderCatalogProfile">
+                        <a href="catalog.php" class="nav-link"> Catalog </a>
                     </li>
                     <li class="nav-item" id="linkHeaderProfileKeranjang">
                         <a href="shop_cart.php" class="nav-link"> Keranjang </a>
                     </li>
-                    <li class="nav-item" id="linkHeaderProfileHistori">
-                        <a href="" class="nav-link"> Riwayat Transaksi </a>
+                    <li class="nav-item" id="linkHeaderProfileCheckout">
+                        <a href="checkout_plg.php" class="nav-link"> Transaksi </a>
                     </li>
-                    <li class="nav-item" id="linkHeaderProfilePending">
-                        <a href="" class="nav-link"> Transaksi </a>
+                    <li class="nav-item" id="linkHeaderProfileHistori">
+                        <a href="history_buy.php" class="nav-link"> Riwayat Transaksi </a>
                     </li>
                     <li class="nav-item">
                         <a href="assets/includes/logout_plg.php" class="nav-link"> Sign Out </a>
