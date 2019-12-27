@@ -41,8 +41,11 @@
                         }
                         //Menghapus isi dari cart
                         unset($_SESSION['daftar_laptop']);
+
+                        //Mengisi nilai pembayaran
+                        $_SESSION['amount'] = $_GET['amount'];
                         
-                        header("Location: ../../payment_plg.php?successbuy=true&idtransaksi=".$id_transaksi);
+                        header("Location: ../../payment_plg.php?payment=true&idtransaksi=".$id_transaksi);
                     }else
                     {
                         header("Location: ../../checkout_plg.php?systemerror=true");

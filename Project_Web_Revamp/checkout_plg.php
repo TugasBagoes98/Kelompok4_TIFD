@@ -74,7 +74,19 @@ function rupiah($value)
                 <h5 class="text-right"> Grand Total </h5>
             </div>
             <div class="col-lg-3">
-                <h5 class="text-center"><?php echo rupiah($total_belanja);?></h5>
+               <?php
+                    if(isset($_SESSION['daftar_laptop']))
+                    {
+                        ?>
+                            <h5 class="text-center"><?php echo rupiah($total_belanja);?></h5>
+                        <?php
+                    }else
+                    {
+                        ?>
+                             <h5 class="text-center"><?php echo rupiah("0");?></h5>
+                        <?php
+                    }
+               ?>
             </div>
         </div>
         <div class="row my-3">
