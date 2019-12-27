@@ -59,13 +59,21 @@
                             Setelah anda melakukan transfer, harap upload bukti transaksi kedalam
                             form berikut ini.
                         </h4>
-                        <form action="" method="post" enctype="multipart/form-data" id="formBuktiBayar">
+                        <form action="assets/includes/upload_bukti_bayar.php" method="post" enctype="multipart/form-data" id="formBuktiBayar">
                             <div class="form-group my-4">
                                 <label for=""></label>
                                 <input type="file" name="buktiTransferUser" id="buktiTransferUser" class="form-control">
+                                <div class="valid-feedback" id="validBuktiBayar"> Bagus! </div>
+                                <div class="invalid-feedback" id="invalidBuktiBayar"></div>
+                                <small id="fileHelper" class="form-text text-muted">
+                                Ukuran file tidak boleh melebihi 500kb dan harus bertipe .jpg / .jpeg / .png
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="idTransaksiUser" value="<?php echo $id_transaksi;?>">
                             </div>
                             <div class="form-group my-4">
-                                <button type="submit" class="btn btn-primary px-4 py-2"> Unggah </button>
+                                <button type="submit" class="btn btn-primary px-4 py-2" name="btnUploadBuktiBayar"> Unggah </button>
                             </div>
                         </form>
                         <button class="btn btn-outline-secondary px-4 py-2 my-4"> Tampilkan Bukti Bayar </button>
@@ -92,4 +100,5 @@
 <?php require_once "assets/includes/footer_javascript.php";?>
 <script src="assets/javascript/script_error_catch.js"></script>
 <script src="assets/javascript/script_checkout.js"></script>
+<script src="assets/javascript/script_payment_plg.js"></script>
 <?php require_once "assets/includes/footer_close.php"?>
