@@ -151,21 +151,6 @@
         </div>
         <div class="row my-2">
             <ul class="pagination my-2 col-lg-12 justify-content-center">
-                <!-- <li class="page-item">
-                    <a href="#" class="page-link" aria-label="previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item">
-                    <a href="#" class="page-link" aria-label="next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li> -->
                 <?php
                 
                         if($halaman >= 1 && $halaman <= $total_halaman)

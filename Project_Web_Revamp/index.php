@@ -99,132 +99,68 @@
         <!-- Best Selling Product Start -->
         <h2 class="my-4"> Produk kami hari ini </h2>
         <div class="row">
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100 p-2">
-                    <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
-                    <div class="card-body">
-                        <h4 class="card-title"> Asus X455L </h4>
-                        <ul>
-                            <li> RAM 4GB </li>
-                            <li> 500GB Harddisk </li>
-                            <li> Core i3 7th Gen </li>
-                        </ul>
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-block" role="button"> Read More </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            
+                $query = "select * from laptop inner join det_laptop on laptop.ID_LAPTOP = det_laptop.ID_LAPTOP limit 6";
+
+                $result = mysqli_query($conn,$query);
+
+                if($result)
+                {
+
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                            ?>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="card h-100 p-2">
+                                        <img src="assets/images/laptop_img.jpg" alt="Gambar Laptop" class="card-img-top">
+                                        <div class="card-body">
+                                            <h4 class="card-title"> <?php echo $row['NAMA_LAPTOP'];?> </h4>
+                                            <ul>
+                                                <li> RAM : <?php echo $row['RAM'];?> </li>
+                                                <li> Harddisk : <?php echo $row['HARDDISK'];?> </li>
+                                                <li> Processor : <?php echo $row['PROCESSOR'];?> </li>
+                                            </ul>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <a href="detail_product.php?laptop=<?php echo $row['ID_DET_LAPTOP'];?>" class="btn btn-primary btn-block" role="button"> Read More </a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <?php
+                                                    
+                                                        if($row['stok_detail'] > 0)
+                                                        {
+                                                            ?>
+                                                                <a href="assets/includes/add_to_cart.php?laptop=<?php echo $row['ID_DET_LAPTOP'];?>" class="btn btn-outline-secondary btn-block" role="button"> Add to Cart </a>
+                                                            <?php
+                                                        }else
+                                                        {
+                                                            ?>
+                                                                <a href="#" class="btn btn-danger disabled"> Sold Out </a>
+                                                            <?php
+                                                        }
+                                                    
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                        }
+                    }else
+                    {
+                        header("Location: index.php?laptop=notfound");
+                    }
+
+                }else
+                {
+                    header("Location: index.php?systemerror=true");
+                }
+            
+            ?>
         </div>
         <!-- Best Selling Product End -->
         <!-- Store Little Info Start -->

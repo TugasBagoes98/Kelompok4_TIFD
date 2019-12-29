@@ -4,6 +4,12 @@ checkError(link);
 
 function checkError(value)
 {
+    //Global Error
+    if(value.includes("systemerror","true"))
+    {
+        $('#modalWarning').modal('show');
+        document.getElementById('modalWarningMessage').innerText = "Mohon maaf terjadi kesalahan dari sistem, silahkan coba beberapa saat lagi";
+    }
 
     //File Error
     if(value.includes("error","fileexceed"))
