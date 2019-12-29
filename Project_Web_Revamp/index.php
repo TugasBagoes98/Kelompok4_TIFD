@@ -18,7 +18,7 @@
                 </div>
                 <div class="carousel-item carousel-background-two">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-shadow-black"> Bingung cari laptop dengan budget mu ? </h3>
+                        <h3 class="text-shadow-black"> Bingung cari laptop yang sesuai dengan budget mu ? </h3>
                         <h4 class="text-shadow-black"> Jangan khawatir kami solusinya! </h4>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
+                        <a href="about.php#kontak" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
+                        <a href="about.php#kontak" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
+                        <a href="about.php#kontak" class="btn btn-block btn-outline-success" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@
                 <h3> Jangan lupa kontak kami juga ya! </h3>
             </div>
             <div class="col-lg-6">
-                <a href="#" class="btn btn-block btn-secondary"> Kontak Kami </a>
+                <a href="about.php#kontak" class="btn btn-block btn-secondary"> Kontak Kami </a>
             </div>
         </div>
         <!-- CTA End -->

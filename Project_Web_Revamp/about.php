@@ -39,7 +39,7 @@
                     laptop anda seperti tambah <em>RAM</em> atau memasang <em>Hardisk</em> baru.
                 </p>
             </div>
-            <div class="col-md-4 mb-5">
+            <div class="col-md-4 mb-5" id="kontak">
                 <h2> Kontak Kami </h2>
                 <hr>
                 <address>
@@ -72,7 +72,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
+                        <a href="#kontak" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
+                        <a href="#kontak" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
+                        <a href="#kontak" class="btn btn-block btn-outline-primary" role="button"> Kontak Kami </a>
                     </div>
                 </div>
             </div>
