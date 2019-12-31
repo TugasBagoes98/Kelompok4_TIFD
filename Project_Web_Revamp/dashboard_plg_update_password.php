@@ -1,5 +1,5 @@
 <?php require_once "assets/includes/header_dashboard_plg.php"; ?>
-
+<?php echo "Test";?>
 
     <div class="container p-2">
         <h1 class="text-center"> Ubah Password </h1>
